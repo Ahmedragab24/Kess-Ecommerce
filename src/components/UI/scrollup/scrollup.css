@@ -1,0 +1,41 @@
+.scrollup {
+  position: fixed;
+  right: 3rem;
+  bottom: -20%;
+  background-color: var(--three-color);
+  padding: 0.4rem;
+  display: flex;
+  opacity: 0.8;
+  z-index: 100;
+  border-radius: 15px;
+  transition: 0.4s;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.scrollup:hover {
+  background-color: var(--first-color);
+  opacity: 1;
+  border-radius: 30px;
+  transform: translateY(-0.25rem);
+  -webkit-transform: translateY(-0.25rem);
+  -moz-transform: translateY(-0.25rem);
+  -ms-transform: translateY(-0.25rem);
+  -o-transform: translateY(-0.25rem);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.scrollup__icon {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Show scroll */
+.show-scroll {
+  bottom: 5rem;
+}

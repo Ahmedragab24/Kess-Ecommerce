@@ -1,0 +1,16 @@
+.stores {
+  padding-block: 7rem;
+}
+
+.stores-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  column-gap: 5rem;
+  align-items: center;
+}
+
+.store {
+  width: 100%;
+  height: 100%;
+}

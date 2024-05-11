@@ -1,0 +1,158 @@
+.stars {
+  position: absolute !important;
+  width: 200px;
+}
+.stars-top {
+  top: 0;
+  left: 0;
+  animation: stars-top 5s linear 3s infinite alternate;
+  -webkit-animation: stars-top 5s linear 3s infinite alternate;
+}
+
+.stars-bottom {
+  bottom: 0;
+  right: 0;
+  animation: stars-bottom 5s linear 3s infinite alternate;
+  -webkit-animation: stars-bottom 5s linear 3s infinite alternate;
+}
+@keyframes stars-top {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 100px;
+  }
+}
+@keyframes stars-bottom {
+  0% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 100px;
+  }
+}
+
+.hero {
+  position: relative !important;
+  margin-top: 0px;
+  padding-bottom: 7rem !important;
+  border-bottom: 5px solid var(--spical-color) !important;
+  border-radius: 18% !important;
+  -webkit-border-radius: 18% !important;
+  -moz-border-radius: 18% !important;
+  -ms-border-radius: 18% !important;
+  -o-border-radius: 18% !important;
+}
+
+.hero-container .row {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.hero-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: var(--ExtraBold-font) !important;
+  color: var(--three-color) !important;
+  filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+}
+
+.hero-description {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 1.3rem;
+  font-weight: var(--Regular-font) !important;
+  color: var(--three-color) !important;
+  filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+}
+
+.about {
+  background: #f4e2d8 !important; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f4e2d8,
+    #f1e4d5
+  ) !important; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f4e2d8, #f1e4d5) !important;
+  padding-block: 7rem !important;
+}
+
+.dev-baner {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.baner {
+  width: 300px;
+}
+
+.about .title,
+.about .titleIcon {
+  font-weight: var(--ExtraBold-font) !important;
+  color: var(--three-color) !important;
+  filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+}
+
+.about .lead {
+  color: var(--three-color) !important;
+  filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+}
+
+.about .description {
+  font-size: 1.1rem;
+  font-weight: 200 !important;
+  color: var(--three-color) !important;
+  filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+}
+
+.about .bi {
+  color: var(--first-color) !important;
+}
+
+@media screen and (max-width: 576px) {
+  .stars {
+    position: absolute !important;
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .about .parent {
+    display: flex !important;
+    justify-content: center !important;
+    margin: auto !important;
+  }
+
+  .about .parent .right {
+    padding-left: 2rem !important;
+  }
+
+  .dev-baner {
+    justify-content: end !important;
+    padding-right: 2rem !important;
+  }
+
+  .baner {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .about .parent .right .row {
+    width: 850px;
+  }
+}

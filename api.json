@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "1167100e-623c-4d29-a94c-0d17c2579770",
+		"name": "kees",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24328268"
+	},
+	"item": [
+		{
+			"name": "getStores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/stores/getAllStores.php?verified=1",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"stores",
+						"getAllStores.php"
+					],
+					"query": [
+						{
+							"key": "verified",
+							"value": "1",
+							"description": "\"1\" to get all stores and \"0\" to get just 10 stores"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=5&is_freelance=-1",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"categories",
+						"getCategories.php"
+					],
+					"query": [
+						{
+							"key": "globalID",
+							"value": "5",
+							"description": "0 for the global categories and (1:men, 3:women, 5:freelance)"
+						},
+						{
+							"key": "is_freelance",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "storeClicks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/stores/storeClicks.php?storeID=13",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"stores",
+						"storeClicks.php"
+					],
+					"query": [
+						{
+							"key": "storeID",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/other/search.php?search=Reyadh",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"other",
+						"search.php"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "Reyadh"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "R@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "passwd",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/registration/login.php",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"registration",
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "first_name",
+							"value": "kk",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "kk",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "kkk@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "0",
+							"description": "0 indicating male and 1 indicating female",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "2010-10-1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "kslakn",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/registration/signup.php",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"registration",
+						"signup.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getStoreImages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/products/getProducts.php?storeID=13",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"products",
+						"getProducts.php"
+					],
+					"query": [
+						{
+							"key": "storeID",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userFavorites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/favorites/getFavorites.php?userID=1",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"favorites",
+						"getFavorites.php"
+					],
+					"query": [
+						{
+							"key": "userID",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addFavorites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/favorites/addFavorites.php?email=R@gmail.com&storeID=15",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"favorites",
+						"addFavorites.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "R@gmail.com"
+						},
+						{
+							"key": "storeID",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFreelance_users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/stores/getFreelance.php?categoryID=5",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"stores",
+						"getFreelance.php"
+					],
+					"query": [
+						{
+							"key": "categoryID",
+							"value": "5",
+							"description": "the category that the freelaancer related to"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "freelance_images",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/products/getServices.php?freelanceID=4",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"products",
+						"getServices.php"
+					],
+					"query": [
+						{
+							"key": "freelanceID",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove_items_from_favorites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://endlestone.com/kees/APIs/favorites/removeFavorites.php?email=R@gmail.com&storeID=15",
+					"protocol": "http",
+					"host": [
+						"endlestone",
+						"com"
+					],
+					"path": [
+						"kees",
+						"APIs",
+						"favorites",
+						"removeFavorites.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "R@gmail.com"
+						},
+						{
+							"key": "storeID",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,82 @@
+/* ================ Footer ============= */
+.footer {
+  border-top: 5px solid var(--spical-color) !important;
+  padding-top: 3rem;
+  border-radius: 20% !important;
+  -webkit-border-radius: 20% !important;
+  -moz-border-radius: 20% !important;
+  -ms-border-radius: 20% !important;
+  -o-border-radius: 20% !important;
+}
+
+.footer .social {
+  padding: 0.75rem 1rem;
+  color: var(--first-color);
+  border: 1px solid var(--three-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: 0.3s !important;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  -ms-transition: 0.3s !important;
+  -o-transition: 0.3s !important;
+}
+
+.footer .social:hover {
+  color: var(--three-color);
+  background-color: var(--spical-color);
+  border: 1px solid var(--second-color);
+  transition: 0.3s !important;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  -ms-transition: 0.3s !important;
+  -o-transition: 0.3s !important;
+}
+
+.footer form strong,
+.footer .row h5,
+.namecompany {
+  font-weight: var(--Bold-font);
+  color: var(--three-color);
+  filter: drop-shadow(1px 1px 0px var(--first-color));
+  -webkit-filter: drop-shadow(1px 1px 0px var(--first-color));
+}
+
+.footer-description {
+  color: var(--three-color) !important;
+  font-size: 1.1rem !important;
+  font-weight: var(--Regular-font) !important;
+  margin-block: 2rem;
+  filter: drop-shadow(1px 1px 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 1px 0px var(--first-color)) !important;
+}
+
+.footer section p,
+.footer ul li a {
+  font-size: 1rem;
+  font-weight: var(--Regular-font);
+  color: var(--three-color);
+  filter: drop-shadow(0px 0px 0px var(--first-color));
+  -webkit-filter: drop-shadow(0px 0px 0px var(--first-color));
+  transition: color 0.3s !important;
+  -webkit-transition: color 0.3s !important;
+  -moz-transition: color 0.3s !important;
+  -ms-transition: color 0.3s !important;
+  -o-transition: color 0.3s !important;
+}
+
+.footer ul li a:hover,
+.footer .namecompany:hover {
+  font-weight: var(--Bold-font);
+  color: var(--first-color);
+  filter: drop-shadow(0px 0px 0px var(--three-color));
+  -webkit-filter: drop-shadow(0px 0px 0px var(--three-color));
+  transition: color 0.3s !important;
+  -webkit-transition: color 0.3s !important;
+  -moz-transition: color 0.3s !important;
+  -ms-transition: color 0.3s !important;
+  -o-transition: color 0.3s !important;
+}
