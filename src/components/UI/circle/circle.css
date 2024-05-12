@@ -5,8 +5,8 @@
 }
 
 .CartBig {
-  width: 18rem;
-  height: 18rem;
+  width: 19rem !important;
+  height: 19rem !important;
   position: relative !important;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
     0 10px 10px 0 rgba(0, 0, 0, 0.19) !important;

@@ -53,7 +53,7 @@ function Home() {
           in providing you with the best stores in terms of quality and price
         </p>
         <div className="hero-container container">
-          <div className="row g-4  g-md-4 g-lg-0">
+          <div className="row g-4 g-md-4 g-lg-0">
             <div className="right-circle col-12 col-lg-5 ">
               <Link to={"/men"}>
                 <Circle

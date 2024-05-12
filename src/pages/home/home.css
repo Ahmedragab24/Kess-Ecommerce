@@ -134,6 +134,7 @@
   .about .parent {
     display: flex !important;
     justify-content: center !important;
+    align-items: center !important;
     margin: auto !important;
   }
 
@@ -143,6 +144,7 @@
 
   .dev-baner {
     justify-content: end !important;
+    padding-top: 5rem !important;
     padding-right: 2rem !important;
   }
 
@@ -153,6 +155,6 @@
 
 @media screen and (min-width: 1200px) {
   .about .parent .right .row {
-    width: 850px;
+    width: 880px;
   }
 }
