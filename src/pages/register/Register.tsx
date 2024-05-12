@@ -8,6 +8,8 @@ import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
+import starsBottom from "/src/assets/imgs/stars-bottom.png";
+import imgRegister from "/src/assets/imgs/login.jpg";
 
 interface IErrorResponse {
   username: string;
@@ -97,13 +99,13 @@ function Register() {
         <div className="wrapper">
           <div className="inner">
             <Image
-              imageURL="src/assets/imgs/stars-bottom.png"
+              imageURL={starsBottom}
               alt="register"
               className="register-stars"
             />
             <div className="image-holder">
               <Image
-                imageURL="src/assets/imgs/login.jpg"
+                imageURL={imgRegister}
                 alt="regter img"
                 className="register-img"
               />

@@ -4,6 +4,11 @@ import Image from "../../components/UI/Image";
 import { Link } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
+import starsTop from "/src/assets/imgs/stars-top.png";
+import starsBottom from "/src/assets/imgs/stars-bottom.png";
+import imgHomeLeft from "/src/assets/imgs/men/men.jpg";
+import imgHomeRight from "/src/assets/imgs/women/women.jpg";
+import baner from "/src/assets/imgs/baner.png";
 
 function Home() {
   useEffect(() => {
@@ -35,13 +40,9 @@ function Home() {
   return (
     <>
       <section className="hero">
+        <Image imageURL={starsTop} alt="stars" className="stars stars-top" />
         <Image
-          imageURL="/src/assets/imgs/stars-top.png"
-          alt="stars"
-          className="stars stars-top"
-        />
-        <Image
-          imageURL="/src/assets/imgs/stars-bottom.png"
+          imageURL={starsBottom}
           alt="stars"
           className="stars stars-bottom"
         />
@@ -58,7 +59,7 @@ function Home() {
                 <Circle
                   title="Men"
                   type="CartBig"
-                  imgUrl="/src/assets/imgs/men/men.jpg"
+                  imgUrl={imgHomeLeft}
                   alt="men"
                   classNameImg="card-img"
                   animationTitle="card-title-left"
@@ -71,7 +72,7 @@ function Home() {
                 <Circle
                   title="Women"
                   type="CartBig"
-                  imgUrl="/src/assets/imgs/women/women.jpg"
+                  imgUrl={imgHomeRight}
                   alt="women"
                   classNameImg="card-img"
                   animationTitle="card-title-right"
@@ -154,11 +155,7 @@ function Home() {
             </div>
 
             <div className="dev-baner col-12 col-lg-6 col-xl-5">
-              <Image
-                imageURL="/src/assets/imgs/baner.png"
-                alt="baner"
-                className="baner"
-              />
+              <Image imageURL={baner} alt="baner" className="baner" />
             </div>
           </div>
         </div>

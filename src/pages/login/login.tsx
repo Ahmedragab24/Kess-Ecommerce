@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import "./login.css";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
+import starsBottom from "/src/assets/imgs/stars-bottom.png";
+import imgLogin from "/src/assets/imgs/men/men.jpg";
 
 interface IErrorResponse {
   username: string;
@@ -93,13 +95,13 @@ function Login() {
         <div className="wrapper-login">
           <div className="inner-login">
             <Image
-              imageURL="src/assets/imgs/stars-bottom.png"
+              imageURL={starsBottom}
               alt="register"
               className="register-stars"
             />
             <div className="image-holder-login">
               <Image
-                imageURL="src/assets/imgs/men/men.jpg"
+                imageURL={imgLogin}
                 alt="login img"
                 className="login-img"
               />
