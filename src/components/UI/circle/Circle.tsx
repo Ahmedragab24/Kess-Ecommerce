@@ -5,6 +5,7 @@ import { HTMLProps } from "react";
 interface Icircle extends HTMLProps<HTMLDivElement> {
   id?: string;
   title: string;
+  description?: string;
   type: "CartBig" | "CartSmall";
   imgUrl: string;
   alt: string;
@@ -16,6 +17,7 @@ interface Icircle extends HTMLProps<HTMLDivElement> {
 function Circle({
   id,
   title,
+  description,
   type,
   imgUrl,
   alt,
@@ -34,6 +36,7 @@ function Circle({
       >
         {title}
       </h3>
+      {description && <p className="card-description">{description}</p>}
     </div>
   );
 }

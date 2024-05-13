@@ -61,8 +61,8 @@
   margin-bottom: 3rem;
   font-weight: var(--ExtraBold-font) !important;
   color: var(--three-color) !important;
-  filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
-  -webkit-filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+  filter: drop-shadow(0 0 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(0 0 0px var(--first-color)) !important;
 }
 
 .hero-description {
@@ -115,8 +115,8 @@
   font-size: 1.1rem;
   font-weight: 200 !important;
   color: var(--three-color) !important;
-  filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
-  -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+  filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
 }
 
 .about .bi {
@@ -127,6 +127,44 @@
   .stars {
     position: absolute !important;
     width: 100px;
+  }
+  .hero-title {
+    margin-top: 3rem;
+  }
+
+  .hero-description {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+    font-weight: var(--Regular-font) !important;
+    color: var(--three-color) !important;
+    filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+    -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+  }
+
+  .about .title {
+    font-size: 1.5rem !important;
+  }
+
+  .about .description,
+  .about .lead {
+    font-size: 1rem !important;
+    text-align: center;
+  }
+
+  .about .row {
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  .feature {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center !important;
+    align-items: center !important;
+    row-gap: 1rem;
   }
 }
 

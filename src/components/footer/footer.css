@@ -50,8 +50,6 @@
   font-size: 1.1rem !important;
   font-weight: var(--Regular-font) !important;
   margin-block: 2rem;
-  filter: drop-shadow(1px 1px 0px var(--first-color)) !important;
-  -webkit-filter: drop-shadow(1px 1px 0px var(--first-color)) !important;
 }
 
 .footer section p,
@@ -79,4 +77,15 @@
   -moz-transition: color 0.3s !important;
   -ms-transition: color 0.3s !important;
   -o-transition: color 0.3s !important;
+}
+
+@media screen and (max-width: 575px) {
+  .footer .social {
+    padding: 0.5rem 0.75rem;
+    margin: 0.4rem !important;
+  }
+
+  .footer-description {
+    font-size: 1rem !important;
+  }
 }

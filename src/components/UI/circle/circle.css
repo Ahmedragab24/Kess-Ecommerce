@@ -5,8 +5,8 @@
 }
 
 .CartBig {
-  width: 19rem !important;
-  height: 19rem !important;
+  width: 16rem !important;
+  height: 16rem !important;
   position: relative !important;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
     0 10px 10px 0 rgba(0, 0, 0, 0.19) !important;
@@ -85,6 +85,15 @@
 }
 
 .card-title {
+  font-weight: var(--ExtraBold-font) !important;
+  color: var(--three-color) !important;
+  filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+}
+
+.card-description {
+  margin-top: 1rem !important;
+  font-size: 1.2rem !important;
   font-weight: var(--ExtraBold-font) !important;
   color: var(--three-color) !important;
   filter: drop-shadow(1px 1px 1px var(--first-color)) !important;

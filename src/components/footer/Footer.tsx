@@ -21,7 +21,7 @@ function Footer() {
     sr.reveal(`.social , .list-unstyled`, { delay: 700 });
     sr.reveal(`.Copyright`, { delay: 800 });
     sr.reveal(`.social`, { interval: 500 });
-  }, []);
+  });
 
   return (
     <footer className="footer text-center">

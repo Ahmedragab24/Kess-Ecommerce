@@ -1,21 +1,18 @@
-import "./men.css";
-import { useEffect, useState } from "react";
-import Circle from "../../components/UI/circle/Circle";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Line from "../../assets/imgs/line.png";
+import Circle from "../../../components/UI/circle/Circle";
+import Line from "../../../assets/imgs/line.png";
 import ScrollReveal from "scrollreveal";
-
 
 type Store = {
   id: string;
-  category_name: string;
-  description: string;
+  Store_name: string;
   photo: string;
 };
 
-function Men() {
-  const [storesOfMen, setStoresOfMen] = useState<Store[]>([]);
+function GulfAbayas() {
+  const [gulfAbayas, setGulfAbayas] = useState<Store[]>([]);
 
   // Handler
   useEffect(() => {
@@ -23,9 +20,9 @@ function Men() {
       // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
       axios
         .get(
-          "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=1&is_freelance=-1"
+          "http://endlestone.com/kees/APIs/stores/getStores.php?verified=1&categoryID=6"
         )
-        .then((res) => setStoresOfMen(res.data.msg));
+        .then((res) => setGulfAbayas(res.data.msg));
 
       // ScrollReveal
       const sr = ScrollReveal({
@@ -44,15 +41,14 @@ function Men() {
   }, []);
 
   // rendering
-  const storeList = storesOfMen.map((store) => {
+  const storeList = gulfAbayas.map((store) => {
     return (
       <Link className="store-link" key={store.id} to={`/stores/${store.id}`}>
         <Circle
           type={"CartSmall"}
-          title={store.category_name}
-          description={store.description}
+          title={store.Store_name}
           imgUrl={store.photo}
-          alt={store.category_name}
+          alt={store.photo}
           classNameImg="store"
           animationTitle="card-title-left"
           lightSpeed="animate__lightSpeedInLeft"
@@ -64,12 +60,11 @@ function Men() {
   return (
     <section className="stores">
       <div className="title-container">
-        <h1 className="store-title">Men's section</h1>
+        <h1 className="store-title">Gulf Abayas</h1>
         <img className="line" src={Line} alt="Line" />
       </div>
       <div className="stores-container">{storeList}</div>
     </section>
   );
 }
-
-export default Men;
+export default GulfAbayas;

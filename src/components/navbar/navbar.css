@@ -5,8 +5,6 @@
   /*Chrome10-25,Safari5.1-6*/
   background: linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
   box-shadow: 0 0px 0px 0 var(--spical-color), 0 6px 20px 0 var(--spical-color);
-  position: -webkit-sticky !important;
-  position: sticky !important;
   top: 0 !important;
 }
 
@@ -75,6 +73,11 @@
   -o-transition: 0.3s !important;
 }
 
+.dropdown-item {
+  font-size: 1rem !important;
+  font-weight: var(--Bold-font) !important;
+}
+
 .dropdown-item:hover,
 .dropdown-item:focus {
   /* background: #f1e4d5 !important; */
@@ -87,6 +90,7 @@
   -o-transition: 0.3s !important;
 }
 .dropdown-menu .text-color:hover {
+  background-color: var(--spical-color) !important;
   transform: scaleX(0.9) !important;
   -webkit-transform: scaleX(0.9) !important;
   -moz-transform: scaleX(0.9) !important;
@@ -142,6 +146,10 @@
     margin-bottom: 4rem !important;
   }
 
+  .nav-link {
+    padding: 0.35rem 0.55rem;
+  }
+
   .brand-1 {
     display: block !important;
     height: 80px;
@@ -176,8 +184,8 @@
   }
 
   .Logo-2 {
-    width: 100px;
-    height: 85px;
+    width: 90px;
+    height: 75px;
   }
 
   .item {
@@ -187,6 +195,5 @@
 
 @media screen and (min-width: 992px) {
   .navbar {
-    height: 105px !important;
-  }
-}
+    height: 90px !important;
+  }}

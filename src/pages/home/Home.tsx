@@ -23,19 +23,11 @@ function Home() {
     sr.reveal(`.Logo-1`);
     sr.reveal(`.hero-title`, { delay: 400 });
     sr.reveal(`.hero-description`, { delay: 500 });
-    // sr.reveal(`.footer-description`, { delay: 700 });
-    // sr.reveal(`.social , .list-unstyled`, { delay: 800 });
-    // sr.reveal(`.Copyright `, { delay: 900 });
-    // sr.reveal(`.brand`, {
-    //   delay: 800,
-    //   origin: "bottom",
-    // });
-    // sr.reveal(`.social, .stores, .category`, { interval: 300 });
     sr.reveal(`.right-circle, .about .right`, {
       origin: "left",
     });
     sr.reveal(`.left-circle, .baner`, { origin: "right" });
-  });
+  }, []);
 
   return (
     <>
@@ -104,7 +96,7 @@ function Home() {
                   </p>
                   <div className="row gy-4 gy-md-0 gx-xxl-5X">
                     <div className="col-12 col-md-6">
-                      <div className="d-flex">
+                      <div className="feature d-flex">
                         <div className="me-4 text-primary">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +119,7 @@ function Home() {
                       </div>
                     </div>
                     <div className="col-12 col-md-6">
-                      <div className="d-flex">
+                      <div className="feature d-flex">
                         <div className="me-4 text-primary">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

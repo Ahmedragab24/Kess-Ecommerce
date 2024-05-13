@@ -1,8 +1,7 @@
-import { toast } from "react-toastify";
+import "./register.css";
 import ButtonRegister from "../../components/UI/button/ButtonRegister";
 import Image from "../../components/UI/Image";
-import "./register.css";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 import { useState } from "react";
@@ -10,14 +9,20 @@ import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
 import imgRegister from "/src/assets/imgs/login.jpg";
+import { Toast } from "react-bootstrap";
+
+interface IFormInput {
+  first_name: string;
+  last_name: string;
+  email: string;
+  gender: string;
+  birth_date: string;
+  password: string;
+}
 
 interface IErrorResponse {
-  username: string;
-  email: string;
-  password: string;
-  phone: string;
   error: {
-    message: string;
+    message?: string;
   };
 }
 
@@ -33,63 +38,55 @@ function Register() {
 
     sr.reveal(`.inner`);
     sr.reveal(`.register-img`, { delay: 500 });
-  });
+  }, []);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorObj, setErrorObj] = useState<string | undefined>();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IFormInput>({
     defaultValues: {
-      name: "",
+      first_name: "",
+      last_name: "",
       email: "",
+      gender: "0",
+      birth_date: "",
       password: "",
-      phone: "",
     },
   });
 
-  // console.log(watch());
-
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-
   // Handle Submit
-  const onSubmit = async (data: Record<string, unknown>) => {
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     setIsLoading(true);
-    try {
-      // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
-      const { status } = await axios.post(
-        "http://endlestone.com/kees/APIs/registration/signup.php",
-        data
-      );
-      if (status === 200) {
-        toast.success(
-          "You will navigate to the login page after 2 seconds to login!",
-          {
-            position: "bottom-center",
-            autoClose: 4000,
-            style: {
-              backgroundColor: "black",
-              color: "white",
-              width: "fit-content",
-            },
-          }
-        );
 
+    try {
+      const response = await axios.post(
+        "http://endlestone.com/kees/APIs/registration/signup.php2",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
+      if (response.status === 200) {
+        setShow(true);
         setTimeout(() => {
           navigate("/login");
         }, 2000);
       }
     } catch (error) {
-      // ** 3 - Rejected  => Field => (OPTIONAL)
+      setShowError(true);
       const errorObj = error as AxiosError<IErrorResponse>;
-      toast.error(`${errorObj.response?.data.error.message}`, {
-        position: "bottom-center",
-        autoClose: 4000,
-      });
+      setErrorObj(errorObj.message);
     } finally {
       setIsLoading(false);
-      console.log(data);
     }
   };
 
@@ -115,23 +112,46 @@ function Register() {
               <div className="form-row">
                 <div className="input-container">
                   <input
-                    {...register("name", {
+                    {...register("first_name", {
                       required: "This field is required.",
                       minLength: {
-                        value: 6,
+                        value: 4,
                         message: "Minimum 6 characters",
                       },
                     })}
                     type="text"
                     className="form-control"
-                    placeholder="Name"
+                    placeholder="First Name"
                   />
-                  {errors.name && (
+                  {errors.first_name && (
                     <div className="error-container">
-                      <p className="error">{errors.name.message}</p>
+                      <p className="error">{errors.first_name?.message}</p>
                     </div>
                   )}
                 </div>
+
+                <div className="input-container">
+                  <input
+                    {...register("last_name", {
+                      required: "This field is required.",
+                      minLength: {
+                        value: 4,
+                        message: "Minimum 6 characters",
+                      },
+                    })}
+                    type="text"
+                    className="form-control"
+                    placeholder="Last Name"
+                  />
+                  {errors.last_name && (
+                    <div className="error-container">
+                      <p className="error">{errors.last_name?.message}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="form-row">
                 <div className="input-container">
                   <input
                     {...register("email", {
@@ -152,8 +172,7 @@ function Register() {
                     </div>
                   )}
                 </div>
-              </div>
-              <div className="form-row">
+
                 <div className="input-container">
                   <input
                     {...register("password", {
@@ -173,22 +192,27 @@ function Register() {
                     </div>
                   )}
                 </div>
+              </div>
+
+              <div className="form-row">
+                <div className="input-container">
+                  <select {...register("gender")} className="form-control">
+                    <option value="0">Men</option>
+                    <option value="1">Women</option>
+                  </select>
+                </div>
+
                 <div className="input-container">
                   <input
-                    {...register("phone", {
+                    {...register("birth_date", {
                       required: "This field is required.",
-                      minLength: {
-                        value: 10,
-                        message: "Minimum 10 characters",
-                      },
                     })}
-                    type="number"
                     className="form-control"
-                    placeholder="Phone"
+                    type="date"
                   />
-                  {errors.phone && (
+                  {errors.birth_date && (
                     <div className="error-container">
-                      <p className="error">{errors.phone.message}</p>
+                      <p className="error">{errors.birth_date.message}</p>
                     </div>
                   )}
                 </div>
@@ -200,6 +224,29 @@ function Register() {
           </div>
         </div>
       </div>
+      <Toast
+        className="toast "
+        onClose={() => setShow(false)}
+        show={show}
+        delay={3000}
+        autohide
+        animation
+      >
+        <Toast.Body className="toastBody rounded">
+          You will navigate to the login page after 2 seconds to login!
+        </Toast.Body>
+      </Toast>
+
+      <Toast
+        className="toast-error"
+        onClose={() => setShowError(false)}
+        show={showError}
+        delay={3000}
+        autohide
+        animation
+      >
+        <Toast.Body className="toastBody rounded">{errorObj}</Toast.Body>
+      </Toast>
     </div>
   );
 }

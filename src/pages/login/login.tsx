@@ -1,22 +1,24 @@
-import { toast } from "react-toastify";
 import Image from "../../components/UI/Image";
 import axios, { AxiosError } from "axios";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import "./login.css";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
 import imgLogin from "/src/assets/imgs/men/men.jpg";
+import { Toast } from "react-bootstrap";
+import "./login.css";
 
-interface IErrorResponse {
-  username: string;
+interface IFormInputLogin {
   email: string;
   password: string;
-  phone: string;
+}
+
+interface IErrorResponseLogin {
   error: {
-    message: string;
+    message?: string;
   };
 }
 
@@ -40,52 +42,46 @@ function Login() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: "",
       email: "",
       password: "",
-      phone: "",
     },
   });
+  // const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const [showLogin, setShowLogin] = useState(false);
+  const [showErrorLogin, setShowErrorLogin] = useState(false);
+  const [errorObjLogin, setErrorObjLogin] = useState<string | undefined>();
 
   // Handle Submit
-  const onSubmit = async (data: Record<string, unknown>) => {
+  const onLogin: SubmitHandler<IFormInputLogin> = async (data) => {
     setIsLoading(true);
     try {
-      // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
-      const { status } = await axios.post(
-        "http://endlestone.com/kees/APIs/registration/signup.php",
-        data
+      const { status, data: resData } = await axios.post(
+        "http://endlestone.com/kees/APIs/registration/login.php",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
       );
+      console.log(resData);
+      console.log(status);
       if (status === 200) {
-        toast.success(
-          "You will navigate to the login page after 2 seconds to login!",
-          {
-            position: "bottom-center",
-            autoClose: 4000,
-            style: {
-              backgroundColor: "black",
-              color: "white",
-              width: "fit-content",
-            },
-          }
-        );
+        setShowLogin(true);
+        localStorage.setItem("loggedInUser", JSON.stringify(resData));
 
-        setTimeout(() => {
-          navigate("/login");
-        }, 2000);
+        // setTimeout(() => {
+        //   location.replace("/");
+        // }, 2000);
       }
     } catch (error) {
-      // ** 3 - Rejected  => Field => (OPTIONAL)
-      const errorObj = error as AxiosError<IErrorResponse>;
-      toast.error(`${errorObj.response?.data.error.message}`, {
-        position: "bottom-center",
-        autoClose: 4000,
-      });
+      setShowErrorLogin(true);
+      const errorObj = error as AxiosError<IErrorResponseLogin>;
+      setErrorObjLogin(errorObj.message);
+      console.log(errorObj.message);
     } finally {
       setIsLoading(false);
-      console.log(data);
     }
   };
 
@@ -108,7 +104,7 @@ function Login() {
             </div>
             <form
               className="form-container-login "
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(onLogin)}
             >
               <h3 className="register-title-login">Login now</h3>
               <div className="form-row-login">
@@ -161,6 +157,29 @@ function Login() {
           </div>
         </div>
       </div>
+      <Toast
+        className="toast "
+        onClose={() => setShowLogin(false)}
+        show={showLogin}
+        delay={3000}
+        autohide
+        animation
+      >
+        <Toast.Body className="toastBody rounded">
+          Welcome, we are happy to have you
+        </Toast.Body>
+      </Toast>
+
+      <Toast
+        className="toast-error"
+        onClose={() => setShowErrorLogin(false)}
+        show={showErrorLogin}
+        delay={3000}
+        autohide
+        animation
+      >
+        <Toast.Body className="toastBody rounded">{errorObjLogin}</Toast.Body>
+      </Toast>
     </div>
   );
 }

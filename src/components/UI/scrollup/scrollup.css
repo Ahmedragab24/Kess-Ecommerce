@@ -39,3 +39,16 @@
 .show-scroll {
   bottom: 5rem;
 }
+
+@media screen and (max-width: 575px) {
+  .scrollup {
+    right: 1rem !important;
+    bottom: -20% !important;
+    width: 1.85rem;
+    height: 2rem;
+  }
+
+  .show-scroll {
+    bottom: 5% !important;
+  }
+}

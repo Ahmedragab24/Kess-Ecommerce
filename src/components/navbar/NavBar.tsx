@@ -22,14 +22,20 @@ const NavBar = () => {
     });
 
     sr.reveal(`.Logo-2`);
-    sr.reveal(`.right-menu`, {
-      origin: "left",
+  }, []);
+
+  /*===== MENU HIDDEN =====*/
+  /* Validate if constant exists */
+  const navMenu = document.getElementById("basic-navbar-nav");
+  const navClose = document.getElementById("nav-close");
+  if (navClose) {
+    navClose.addEventListener("click", () => {
+      navMenu?.classList.remove("show-menu");
     });
-    sr.reveal(`.left-menu`, { origin: "right" });
-  });
+  }
 
   return (
-    <Navbar expand="lg" className="navbar bg-body-tertiary fs-5" fixed="top">
+    <Navbar expand="lg" className="navbar bg-body-tertiary fs-5">
       <Container className="container">
         <Navbar.Brand className="brand-1 me-auto" href="#home">
           <div className="brand">
@@ -43,51 +49,54 @@ const NavBar = () => {
               Home
             </NavLink>
             <NavDropdown title="Men" id="basic-nav-dropdown">
-              <Link to="/men clothes" className="dropdown-item text-color">
+              <Link to="/men-clothes" className="dropdown-item text-color">
                 Clothes
               </Link>
-              <Link
-                to="/men sport clothes"
-                className="dropdown-item text-color"
-              >
+              <Link to="/men-sport" className="dropdown-item text-color">
                 Sport Clothes
               </Link>
-              <Link to="/men shoes" className="dropdown-item text-color">
+              <Link to="/men-shoes" className="dropdown-item text-color">
                 Shoes
               </Link>
-              <Link to="/men accessories" className="dropdown-item text-color">
+              <Link to="/men-accessories" className="dropdown-item text-color">
                 Accessories
               </Link>
-              <Link to="/men perfumes" className="dropdown-item text-color">
+              <Link to="/men-perfumes" className="dropdown-item text-color">
                 Perfumes
               </Link>
             </NavDropdown>
             <NavDropdown title="Women" id="basic-nav-dropdown">
-              <Link to="/gulf abayas" className="dropdown-item text-color">
+              <Link to="/women-gulfAbayas" className="dropdown-item text-color">
                 Gulf Abayas
               </Link>
-              <Link to="/dresses" className="dropdown-item text-color">
+              <Link to="/women-dresses" className="dropdown-item text-color">
                 Dresses
               </Link>
-              <Link to="/various clothes" className="dropdown-item text-color">
+              <Link
+                to="/women-variousClothes"
+                className="dropdown-item text-color"
+              >
                 Various Clothes
               </Link>
-              <Link to="/sport clothes" className="dropdown-item text-color">
+              <Link
+                to="/women-sportClothes"
+                className="dropdown-item text-color"
+              >
                 Sport Clothes
               </Link>
-              <Link to="/women shoes" className="dropdown-item text-color">
+              <Link to="/women-shoes" className="dropdown-item text-color">
                 Shoes
               </Link>
               <Link
-                to="/women Accessories"
+                to="/women-Accessories"
                 className="dropdown-item text-color"
               >
                 Accessories
               </Link>
-              <Link to="/makeup" className="dropdown-item text-color">
+              <Link to="/women-makeup" className="dropdown-item text-color">
                 MakeUp
               </Link>
-              <Link to="/women Perfumes" className="dropdown-item text-color">
+              <Link to="/women-perfumes" className="dropdown-item text-color">
                 Perfumes
               </Link>
             </NavDropdown>

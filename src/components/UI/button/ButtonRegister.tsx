@@ -4,6 +4,7 @@ import "./button.css";
 interface IButton {
   title: string;
   isLoading?: boolean;
+  onClick?: () => void;
 }
 
 const ButtonRegister = ({ title, isLoading }: IButton) => {
