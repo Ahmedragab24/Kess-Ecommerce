@@ -18,9 +18,7 @@ function Footer() {
 
     sr.reveal(`.footer-description-conter`);
     sr.reveal(`.footer-title`, { delay: 500 });
-    sr.reveal(`.social , .list-unstyled`, { delay: 700 });
-    sr.reveal(`.Copyright`, { delay: 800 });
-    sr.reveal(`.social`, { interval: 500 });
+    sr.reveal(`.social-container, .list-unstyled, .Copyright`, { delay: 700 });
   });
 
   return (
@@ -28,7 +26,7 @@ function Footer() {
       {/* <!-- Grid container --> */}
       <div className="container p-4">
         {/* <!-- Section: Social media --> */}
-        <section className="mb-4">
+        <section className="social-container mb-4">
           {/* <!-- Facebook --> */}
           <a className="social m-2" href="#">
             <RiFacebookCircleFill />

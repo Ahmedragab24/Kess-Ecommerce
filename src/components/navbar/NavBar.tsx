@@ -7,22 +7,12 @@ import img from "/src/assets/imgs/Logo (NO TEXT).png";
 import ButtonRegister from "../UI/button/ButtonRegister";
 import ArIcon from "../../assets/imgs/Ar.png";
 import EnIcon from "../../assets/imgs/En.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Image from "../UI/Image";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 
 const NavBar = () => {
-  /*=============== REMOVE MENU MOBILE ===============*/
-  const navLink = document.querySelectorAll(".text-color");
-
-  function linkAction() {
-    const navMenu = document.getElementById("basic-navbar-nav");
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu?.classList.remove("show");
-  }
-  navLink.forEach((n) => n.addEventListener("click", linkAction));
-
   useEffect(() => {
     const sr = ScrollReveal({
       origin: "top",
@@ -35,90 +25,186 @@ const NavBar = () => {
   }, []);
 
   return (
-    <Navbar expand="lg" className="navbar bg-body-tertiary fs-5">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      className="navbar bg-body-tertiary fs-5"
+    >
       <Container className="container">
         <Navbar.Brand className="brand-1 me-auto" href="#home">
           <div className="brand">
             <Image imageURL={img} alt="logo" className="Logo-1" />
           </div>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="right-menu menu me-auto gap-3">
-            <NavLink to="/" className="text-color nav-link">
-              Home
-            </NavLink>
-            <NavDropdown title="Men" id="basic-nav-dropdown">
-              <Link to="/men-clothes" className="dropdown-item text-color">
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/"
+                eventKey="/home"
+                title="Home"
+                className="text-color nav-link"
+              >
+                Home
+              </Nav.Link>
+            </Nav.Item>
+            <NavDropdown
+              className="Dropdown-style"
+              title="Men"
+              id="collapsible-nav-dropdown"
+            >
+              <NavDropdown.Item
+                href="#action/3.1"
+                as={Link}
+                to="/men-clothes"
+                className="dropdown-item text-color"
+              >
                 Clothes
-              </Link>
-              <Link to="/men-sport" className="dropdown-item text-color">
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="#action/3.2"
+                as={Link}
+                to="/men-sport"
+                className="dropdown-item text-color"
+              >
                 Sport Clothes
-              </Link>
-              <Link to="/men-shoes" className="dropdown-item text-color">
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="#action/3.3"
+                as={Link}
+                to="/men-shoes"
+                className="dropdown-item text-color"
+              >
                 Shoes
-              </Link>
-              <Link to="/men-accessories" className="dropdown-item text-color">
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="#action/3.4"
+                as={Link}
+                to="/men-accessories"
+                className="dropdown-item text-color"
+              >
                 Accessories
-              </Link>
-              <Link to="/men-perfumes" className="dropdown-item text-color">
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href="#action/3.5"
+                as={Link}
+                to="/men-perfumes"
+                className="dropdown-item text-color"
+              >
                 Perfumes
-              </Link>
+              </NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Women" id="basic-nav-dropdown">
-              <Link to="/women-gulfAbayas" className="dropdown-item text-color">
+
+            <NavDropdown
+              className="Dropdown-style"
+              title="Women"
+              id="collapsible-nav-dropdown"
+            >
+              <NavDropdown.Item
+                href="#action/3.1"
+                as={Link}
+                to="/women-gulfAbayas"
+                className="dropdown-item text-color"
+              >
                 Gulf Abayas
-              </Link>
-              <Link to="/women-dresses" className="dropdown-item text-color">
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                href="#action/3.2"
+                as={Link}
+                to="/women-dresses"
+                className="dropdown-item text-color"
+              >
                 Dresses
-              </Link>
-              <Link
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                href="#action/3.3"
+                as={Link}
                 to="/women-variousClothes"
                 className="dropdown-item text-color"
               >
                 Various Clothes
-              </Link>
-              <Link
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                href="#action/3.4"
+                as={Link}
                 to="/women-sportClothes"
                 className="dropdown-item text-color"
               >
                 Sport Clothes
-              </Link>
-              <Link to="/women-shoes" className="dropdown-item text-color">
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                href="#action/3.5"
+                as={Link}
+                to="/women-shoes"
+                className="dropdown-item text-color"
+              >
                 Shoes
-              </Link>
-              <Link
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                href="#action/3.6"
+                as={Link}
                 to="/women-Accessories"
                 className="dropdown-item text-color"
               >
                 Accessories
-              </Link>
-              <Link to="/women-makeup" className="dropdown-item text-color">
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                href="#action/3.7"
+                as={Link}
+                to="/women-makeup"
+                className="dropdown-item text-color"
+              >
                 MakeUp
-              </Link>
-              <Link to="/women-perfumes" className="dropdown-item text-color">
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                href="#action/3.8"
+                as={Link}
+                to="/women-perfumes"
+                className="dropdown-item text-color"
+              >
                 Perfumes
-              </Link>
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+
           <Navbar.Brand className="brand-2 me-auto">
             <Image imageURL={img} alt="logo" className="Logo-2" />
           </Navbar.Brand>
+
           <Nav className="left-menu menu menu-end me-end d-flex gap-4">
             <div className="buttons d-flex gap-2">
-              <Link to="/login" className="btn btn-link Login text-color">
+              <Nav.Link
+                href="#action/3.1"
+                as={Link}
+                to="/login"
+                className="btn btn-link Login text-color"
+              >
                 Login
-              </Link>
-              <Link to={"/register"} className="text-color">
+              </Nav.Link>
+              <Nav.Link href="#action/3.2" as={Link} to={"/register"}>
                 <ButtonRegister title="Register" />
-              </Link>
+              </Nav.Link>
             </div>
-            <NavDropdown title="Language" id="basic-nav-dropdown">
-              <NavDropdown.Item className="text-color item">
+
+            <NavDropdown
+              className="Dropdown-style d-flex align-items-center"
+              title="Language"
+              id="collapsible-nav-dropdown"
+            >
+              <NavDropdown.Item href="#action/3.1" className="text-color item">
                 <img className="flag text-color" src={ArIcon} alt="" />
                 Arabic
               </NavDropdown.Item>
-              <NavDropdown.Item className="text-color item">
+              <NavDropdown.Item href="#action/3.2" className="text-color item">
                 <img className="flag text-color" src={EnIcon} alt="" />
                 English
               </NavDropdown.Item>

@@ -13,7 +13,7 @@
 }
 
 .text-color,
-#basic-nav-dropdown {
+#collapsible-nav-dropdown {
   font-size: 1.2rem !important;
   font-weight: var(--Bold-font) !important;
   color: var(--three-color) !important;
@@ -44,7 +44,7 @@
 }
 
 .text-color:hover,
-#basic-nav-dropdown:hover {
+#collapsible-nav-dropdown:hover {
   color: var(--first-color) !important;
   transition: 0.3s !important;
   -webkit-transition: 0.3s !important;
@@ -132,8 +132,6 @@
   margin-inline: 0.25rem !important;
 }
 
-
-
 /* =========== Media Query ========== */
 /* Navigation for mobile devices */
 @media screen and (max-width: 992px) {
@@ -149,7 +147,7 @@
   }
 
   .nav-link {
-    padding: 0.35rem 0.55rem;
+    padding: 0.35rem 0.55rem !important;
   }
 
   .brand-1 {

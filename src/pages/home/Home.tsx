@@ -20,9 +20,8 @@ function Home() {
       // reset: true,
     });
 
-    sr.reveal(`.Logo-1`);
-    sr.reveal(`.hero-title`, { delay: 400 });
-    sr.reveal(`.hero-description`, { delay: 500 });
+    sr.reveal(`.hero-title`);
+    sr.reveal(`.hero-description`, { delay: 400 });
     sr.reveal(`.right-circle, .about .right`, {
       origin: "left",
     });

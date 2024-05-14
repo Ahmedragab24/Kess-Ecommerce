@@ -23,8 +23,8 @@
 
 .line {
   position: absolute;
-  width: 22%;
-  top: 27px;
+  width: 65%;
+  top: 30px;
 }
 
 .stores-container {
@@ -45,16 +45,28 @@
   .stores-container {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+
+  .line {
+    width: 40% !important;
+  }
 }
 
 @media screen and (min-width: 992px) {
   .stores-container {
     grid-template-columns: repeat(3, 1fr) !important;
   }
+
+  .line {
+    width: 25% !important;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .stores-container {
     grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .line {
+    width: 18% !important;
   }
 }

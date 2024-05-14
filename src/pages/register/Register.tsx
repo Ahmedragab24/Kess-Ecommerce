@@ -69,7 +69,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        "http://endlestone.com/kees/APIs/registration/signup.php2",
+        "http://endlestone.com/kees/APIs/registration/signup.php",
         data,
         {
           headers: {
@@ -88,7 +88,7 @@ function Register() {
     } catch (error) {
       setShowError(true);
       const errorObj = error as AxiosError<IErrorResponse>;
-      setErrorObj(errorObj.message);
+      setErrorObj(errorObj.response?.data.error.message);
     } finally {
       setIsLoading(false);
     }

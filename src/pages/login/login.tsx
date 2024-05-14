@@ -1,6 +1,5 @@
 import Image from "../../components/UI/Image";
 import axios, { AxiosError } from "axios";
-// import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import "./login.css";
@@ -8,8 +7,9 @@ import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
 import imgLogin from "/src/assets/imgs/men/men.jpg";
-import { Toast } from "react-bootstrap";
 import "./login.css";
+import toast from "react-hot-toast";
+import { Toast } from "react-bootstrap";
 
 interface IFormInputLogin {
   email: string;
@@ -47,14 +47,14 @@ function Login() {
     },
   });
   // const navigate = useNavigate();
-  const [isLoadingLog, setIsLoadingLog] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showErrorLogin, setShowErrorLogin] = useState(false);
   const [errorObjLogin, setErrorObjLogin] = useState<string | undefined>();
 
   // Handle Submit
   const onLogin: SubmitHandler<IFormInputLogin> = async (data) => {
-    setIsLoadingLog(true);
+    setIsLoading(true);
     try {
       const { status, data: resData } = await axios.post(
         "http://endlestone.com/kees/APIs/registration/login.php",
@@ -76,13 +76,14 @@ function Login() {
         }, 2000);
       }
     } catch (error) {
+      console.log(error);
       // ** 3 - Rejected  => Field => (OPTIONAL)
       setShowErrorLogin(true);
       const errorObj = error as AxiosError<IErrorResponseLogin>;
-      setErrorObjLogin(errorObj.response?.data.error.message);
-      console.log(errorObj.response?.data.error.message);
+      setErrorObjLogin(errorObj.response?.data.msg);
+      console.log(errorObj.response?.data.msg);
     } finally {
-      setIsLoadingLog(false);
+      setIsLoading(false);
     }
   };
 
@@ -152,7 +153,7 @@ function Login() {
               </div>
 
               <div className="btn-register-login">
-                <button disabled={isLoadingLog}>login</button>
+                <button disabled={isLoading}>login</button>
               </div>
             </form>
           </div>

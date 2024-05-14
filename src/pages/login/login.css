@@ -9,6 +9,7 @@
 }
 
 .section-form-login {
+  position: relative !important;
   padding-block: 7rem;
 }
 
@@ -109,6 +110,44 @@ form-login {
 
 .input-error {
   border: 5px solid red !important;
+}
+
+.toast-login {
+  position: fixed !important;
+  width: fit-content !important;
+  font-size: 1rem !important;
+  font-weight: bold;
+  background-color: var(--spical-color) !important;
+  color: rgb(41, 41, 41) !important;
+  /* top: 20% !important;
+  left: 10% !important; */
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+  filter: opacity(0.6) !important;
+  -webkit-filter: opacity(0.6) !important;
+  z-index: 10000 !important;
+}
+
+.toast-error-login {
+  position: fixed !important;
+  background-color: red !important;
+  color: #fff !important;
+  width: fit-content !important;
+  font-size: 1rem !important;
+  font-weight: bold;
+  top: 20% !important;
+  left: 7% !important;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+  filter: opacity(0.6) !important;
+  -webkit-filter: opacity(0.6) !important;
+  z-index: 10000 !important;
 }
 
 @-webkit-keyframes hvr-back-pulse {
@@ -286,43 +325,11 @@ form-login {
     justify-content: center;
     margin-top: 2rem;
   }
-}
 
-.toast-login {
-  width: fit-content !important;
-  font-size: 1rem !important;
-  font-weight: bold;
-  background-color: var(--spical-color) !important;
-  color: rgb(41, 41, 41) !important;
-  position: absolute !important;
-  top: 20% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%);
-  border-radius: 2rem;
-  -webkit-border-radius: 2rem;
-  -moz-border-radius: 2rem;
-  -ms-border-radius: 2rem;
-  -o-border-radius: 2rem;
-  filter: opacity(0.6) !important;
-  -webkit-filter: opacity(0.6) !important;
-}
-
-.toast-error-login {
-  background-color: red !important;
-  color: #fff !important;
-  width: fit-content !important;
-  font-size: 1rem !important;
-  font-weight: bold;
-  top: 20% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%);
-  border-radius: 2rem;
-  -webkit-border-radius: 2rem;
-  -moz-border-radius: 2rem;
-  -ms-border-radius: 2rem;
-  -o-border-radius: 2rem;
-  filter: opacity(0.6) !important;
-  -webkit-filter: opacity(0.6) !important;
+  .toast-error-login {
+    left: 25% !important;
+    opacity: 1.1 !important;
+  }
 }
 
 @media screen and (min-width: 567px) {
@@ -338,6 +345,11 @@ form-login {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+  }
+
+  .toast-error-login {
+    left: 20% !important;
+    opacity: 1.1 !important;
   }
 }
 
@@ -366,5 +378,10 @@ form-login {
     display: flex;
     justify-content: flex-start;
     margin-left: 0.1rem;
+  }
+
+  .toast-error-login {
+    left: 7% !important;
+    opacity: 1.1 !important;
   }
 }
