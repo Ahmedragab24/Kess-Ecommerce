@@ -13,6 +13,16 @@ import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 
 const NavBar = () => {
+  /*=============== REMOVE MENU MOBILE ===============*/
+  const navLink = document.querySelectorAll(".text-color");
+
+  function linkAction() {
+    const navMenu = document.getElementById("basic-navbar-nav");
+    // When we click on each nav__link, we remove the show-menu class
+    navMenu?.classList.remove("show");
+  }
+  navLink.forEach((n) => n.addEventListener("click", linkAction));
+
   useEffect(() => {
     const sr = ScrollReveal({
       origin: "top",
@@ -23,16 +33,6 @@ const NavBar = () => {
 
     sr.reveal(`.Logo-2`);
   }, []);
-
-  /*===== MENU HIDDEN =====*/
-  /* Validate if constant exists */
-  const navMenu = document.getElementById("basic-navbar-nav");
-  const navClose = document.getElementById("nav-close");
-  if (navClose) {
-    navClose.addEventListener("click", () => {
-      navMenu?.classList.remove("show-menu");
-    });
-  }
 
   return (
     <Navbar expand="lg" className="navbar bg-body-tertiary fs-5">
@@ -106,20 +106,20 @@ const NavBar = () => {
           </Navbar.Brand>
           <Nav className="left-menu menu menu-end me-end d-flex gap-4">
             <div className="buttons d-flex gap-2">
-              <Link to="/login" className="btn btn-link Login">
+              <Link to="/login" className="btn btn-link Login text-color">
                 Login
               </Link>
-              <Link to={"/register"}>
+              <Link to={"/register"} className="text-color">
                 <ButtonRegister title="Register" />
               </Link>
             </div>
             <NavDropdown title="Language" id="basic-nav-dropdown">
               <NavDropdown.Item className="text-color item">
-                <img className="flag" src={ArIcon} alt="" />
+                <img className="flag text-color" src={ArIcon} alt="" />
                 Arabic
               </NavDropdown.Item>
               <NavDropdown.Item className="text-color item">
-                <img className="flag" src={EnIcon} alt="" />
+                <img className="flag text-color" src={EnIcon} alt="" />
                 English
               </NavDropdown.Item>
             </NavDropdown>

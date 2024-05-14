@@ -5,9 +5,11 @@ interface IButton {
   title: string;
   isLoading?: boolean;
   onClick?: () => void;
+  disabled?: boolean;
+  children?: React.ReactNode;
 }
 
-const ButtonRegister = ({ title, isLoading }: IButton) => {
+const ButtonRegister = ({ title, isLoading, children }: IButton) => {
   return (
     <button disabled={isLoading}>
       {title}
@@ -161,6 +163,7 @@ const ButtonRegister = ({ title, isLoading }: IButton) => {
           </g>
         </svg>
       </div>
+      {children}
     </button>
   );
 };

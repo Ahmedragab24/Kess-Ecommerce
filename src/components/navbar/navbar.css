@@ -132,6 +132,8 @@
   margin-inline: 0.25rem !important;
 }
 
+
+
 /* =========== Media Query ========== */
 /* Navigation for mobile devices */
 @media screen and (max-width: 992px) {
@@ -196,4 +198,5 @@
 @media screen and (min-width: 992px) {
   .navbar {
     height: 90px !important;
-  }}
+  }
+}

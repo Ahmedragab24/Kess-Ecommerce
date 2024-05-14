@@ -107,6 +107,10 @@ form-login {
   margin-left: 0.3rem;
 }
 
+.input-error {
+  border: 5px solid red !important;
+}
+
 @-webkit-keyframes hvr-back-pulse {
   50% {
     background-color: rgba(32, 152, 209, 0.75);
@@ -268,8 +272,13 @@ form-login {
     gap: 2rem;
   }
 
+  .form-row-login .form-control-login:first-child {
+    margin-right: 0;
+  }
+
   .form-control-login {
     margin-bottom: 1px;
+    width: 250px !important;
   }
 
   .btn-register-login {
@@ -279,15 +288,15 @@ form-login {
   }
 }
 
-.toast {
+.toast-login {
   width: fit-content !important;
   font-size: 1rem !important;
   font-weight: bold;
   background-color: var(--spical-color) !important;
   color: rgb(41, 41, 41) !important;
   position: absolute !important;
-  top: 8%;
-  left: 50%;
+  top: 20% !important;
+  left: 50% !important;
   transform: translate(-50%, -50%);
   border-radius: 2rem;
   -webkit-border-radius: 2rem;
@@ -298,12 +307,14 @@ form-login {
   -webkit-filter: opacity(0.6) !important;
 }
 
-.toast-error {
+.toast-error-login {
   background-color: red !important;
   color: #fff !important;
   width: fit-content !important;
   font-size: 1rem !important;
   font-weight: bold;
+  top: 20% !important;
+  left: 50% !important;
   transform: translate(-50%, -50%);
   border-radius: 2rem;
   -webkit-border-radius: 2rem;

@@ -13,7 +13,7 @@ import "./login.css";
 
 interface IFormInputLogin {
   email: string;
-  password: string;
+  passwd: string;
 }
 
 interface IErrorResponseLogin {
@@ -43,18 +43,18 @@ function Login() {
   } = useForm({
     defaultValues: {
       email: "",
-      password: "",
+      passwd: "",
     },
   });
   // const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingLog, setIsLoadingLog] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showErrorLogin, setShowErrorLogin] = useState(false);
   const [errorObjLogin, setErrorObjLogin] = useState<string | undefined>();
 
   // Handle Submit
   const onLogin: SubmitHandler<IFormInputLogin> = async (data) => {
-    setIsLoading(true);
+    setIsLoadingLog(true);
     try {
       const { status, data: resData } = await axios.post(
         "http://endlestone.com/kees/APIs/registration/login.php",
@@ -71,17 +71,18 @@ function Login() {
         setShowLogin(true);
         localStorage.setItem("loggedInUser", JSON.stringify(resData));
 
-        // setTimeout(() => {
-        //   location.replace("/");
-        // }, 2000);
+        setTimeout(() => {
+          location.replace("/");
+        }, 2000);
       }
     } catch (error) {
+      // ** 3 - Rejected  => Field => (OPTIONAL)
       setShowErrorLogin(true);
       const errorObj = error as AxiosError<IErrorResponseLogin>;
-      setErrorObjLogin(errorObj.message);
-      console.log(errorObj.message);
+      setErrorObjLogin(errorObj.response?.data.error.message);
+      console.log(errorObj.response?.data.error.message);
     } finally {
-      setIsLoading(false);
+      setIsLoadingLog(false);
     }
   };
 
@@ -131,7 +132,7 @@ function Login() {
 
                 <div className="input-container-login">
                   <input
-                    {...register("password", {
+                    {...register("passwd", {
                       required: "This field is required.",
                       minLength: {
                         value: 6,
@@ -142,23 +143,23 @@ function Login() {
                     className="form-control-login"
                     placeholder="Password"
                   />
-                  {errors.password && (
+                  {errors.passwd && (
                     <div className="error-container-login">
-                      <p className="error-login">{errors.password.message}</p>
+                      <p className="error-login">{errors.passwd.message}</p>
                     </div>
                   )}
                 </div>
               </div>
 
               <div className="btn-register-login">
-                <button disabled={isLoading}>login</button>
+                <button disabled={isLoadingLog}>login</button>
               </div>
             </form>
           </div>
         </div>
       </div>
       <Toast
-        className="toast "
+        className="toast-login"
         onClose={() => setShowLogin(false)}
         show={showLogin}
         delay={3000}
@@ -171,7 +172,7 @@ function Login() {
       </Toast>
 
       <Toast
-        className="toast-error"
+        className="toast-error-login"
         onClose={() => setShowErrorLogin(false)}
         show={showErrorLogin}
         delay={3000}

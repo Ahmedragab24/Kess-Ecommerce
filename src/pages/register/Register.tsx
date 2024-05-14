@@ -65,6 +65,8 @@ function Register() {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     setIsLoading(true);
 
+    console.log(data);
+
     try {
       const response = await axios.post(
         "http://endlestone.com/kees/APIs/registration/signup.php2",
@@ -75,6 +77,8 @@ function Register() {
           },
         }
       );
+      console.log(response);
+
       if (response.status === 200) {
         setShow(true);
         setTimeout(() => {
@@ -218,7 +222,9 @@ function Register() {
                 </div>
               </div>
               <div className="btn-register">
-                <ButtonRegister title="Sign Up" isLoading={isLoading} />
+                <ButtonRegister disabled={isLoading} title="Sign Up">
+                  {isLoading && <div className="spinner-border"></div>}
+                </ButtonRegister>
               </div>
             </form>
           </div>

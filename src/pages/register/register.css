@@ -313,7 +313,12 @@ form {
     gap: 2rem;
   }
 
+  .form-row .form-control:first-child {
+    margin-right: 0;
+  }
+
   .form-control {
+    width: 250px !important;
     margin-bottom: 1px;
   }
 
