@@ -21,9 +21,7 @@ interface IFormInput {
 }
 
 interface IErrorResponse {
-  error: {
-    message?: string;
-  };
+  msg?: string;
 }
 
 function Register() {
@@ -88,7 +86,7 @@ function Register() {
     } catch (error) {
       setShowError(true);
       const errorObj = error as AxiosError<IErrorResponse>;
-      setErrorObj(errorObj.response?.data.error.message);
+      setErrorObj(errorObj.response?.data.msg);
     } finally {
       setIsLoading(false);
     }

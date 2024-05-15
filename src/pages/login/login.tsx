@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
 import imgLogin from "/src/assets/imgs/men/men.jpg";
 import "./login.css";
-import toast from "react-hot-toast";
 import { Toast } from "react-bootstrap";
 
 interface IFormInputLogin {
@@ -17,9 +16,7 @@ interface IFormInputLogin {
 }
 
 interface IErrorResponseLogin {
-  error: {
-    message?: string;
-  };
+  msg?: string;
 }
 
 function Login() {
