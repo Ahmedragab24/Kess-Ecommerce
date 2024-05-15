@@ -7,10 +7,15 @@ import img from "/src/assets/imgs/Logo (NO TEXT).png";
 import ButtonRegister from "../UI/button/ButtonRegister";
 import ArIcon from "../../assets/imgs/Ar.png";
 import EnIcon from "../../assets/imgs/En.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Image from "../UI/Image";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
+import UserProfile from "../auth/userProfile/UserProfile";
+
+const storageKey = "User";
+const userDataString = localStorage.getItem(storageKey);
+const userData = userDataString ? JSON.parse(userDataString) : null;
 
 const NavBar = () => {
   useEffect(() => {
@@ -28,7 +33,8 @@ const NavBar = () => {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className="navbar bg-body-tertiary fs-5"
+      className="navbar bg-body-tertiary fs-5 position-sticky"
+      sticky="top"
     >
       <Container className="container">
         <Navbar.Brand className="brand-1 me-auto" href="#home">
@@ -41,7 +47,7 @@ const NavBar = () => {
           <Nav className="right-menu menu me-auto gap-3">
             <Nav.Item>
               <Nav.Link
-                as={Link}
+                as={NavLink}
                 to="/"
                 eventKey="/home"
                 title="Home"
@@ -181,19 +187,21 @@ const NavBar = () => {
           </Navbar.Brand>
 
           <Nav className="left-menu menu menu-end me-end d-flex gap-4">
-            <div className="buttons d-flex gap-2">
-              <Nav.Link
-                href="#action/3.1"
-                as={Link}
-                to="/login"
-                className="btn btn-link Login text-color"
-              >
-                Login
-              </Nav.Link>
-              <Nav.Link href="#action/3.2" as={Link} to={"/register"}>
-                <ButtonRegister title="Register" />
-              </Nav.Link>
-            </div>
+            {!userData ? (
+              <div className="buttons d-flex gap-2">
+                <Link
+                  to="/login"
+                  className="btn btn-link Login "
+                >
+                  Login
+                </Link>
+                <Link  to={"/register"}>
+                  <ButtonRegister title="Register" />
+                </Link>
+              </div>
+            ) : (
+              <UserProfile userData={userData} />
+            )}
 
             <NavDropdown
               className="Dropdown-style d-flex align-items-center"

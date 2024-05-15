@@ -5,7 +5,6 @@
   /*Chrome10-25,Safari5.1-6*/
   background: linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
   box-shadow: 0 0px 0px 0 var(--spical-color), 0 6px 20px 0 var(--spical-color);
-  top: 0 !important;
 }
 
 .container {

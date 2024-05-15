@@ -69,7 +69,7 @@ function Login() {
       console.log(status);
       if (status === 200) {
         setShowLogin(true);
-        localStorage.setItem("loggedInUser", JSON.stringify(resData));
+        localStorage.setItem("User", JSON.stringify(resData));
 
         setTimeout(() => {
           location.replace("/");

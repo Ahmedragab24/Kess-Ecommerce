@@ -2,10 +2,8 @@ import "./men.css";
 import { useEffect, useState } from "react";
 import Circle from "../../components/UI/circle/Circle";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Line from "../../assets/imgs/line.png";
 import ScrollReveal from "scrollreveal";
-
 
 type Store = {
   id: string;
@@ -46,18 +44,18 @@ function Men() {
   // rendering
   const storeList = storesOfMen.map((store) => {
     return (
-      <Link className="store-link" key={store.id} to={`/stores/${store.id}`}>
-        <Circle
-          type={"CartSmall"}
-          title={store.category_name}
-          description={store.description}
-          imgUrl={store.photo}
-          alt={store.category_name}
-          classNameImg="store"
-          animationTitle="card-title-left"
-          lightSpeed="animate__lightSpeedInLeft"
-        />
-      </Link>
+      <Circle
+        key={store.id}
+        type={"CartSmall"}
+        title={store.category_name}
+        description={store.description}
+        imgUrl={store.photo}
+        alt={store.category_name}
+        classNameImg="store"
+        animationTitle="card-title-left"
+        lightSpeed="animate__lightSpeedInLeft"
+        linkPath={`/stores/${store.id}`}
+      />
     );
   });
 
@@ -65,7 +63,7 @@ function Men() {
     <section className="stores">
       <div className="title-container">
         <h1 className="store-title">Men's section</h1>
-        <img className="line" src={Line} alt="Line" />
+        <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
       <div className="stores-container">{storeList}</div>
     </section>

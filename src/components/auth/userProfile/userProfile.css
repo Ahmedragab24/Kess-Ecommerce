@@ -1,0 +1,12 @@
+.avater-title {
+  font-size: 1.25rem;
+  margin: auto;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
+  .container-avater {
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+}

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Circle from "../../../components/UI/circle/Circle";
 import Line from "../../../assets/imgs/line.png";
 import ScrollReveal from "scrollreveal";
@@ -43,17 +42,18 @@ function Shoes() {
   // rendering
   const storeList = shoes.map((store) => {
     return (
-      <Link className="store-link" key={store.id} to={`/stores/${store.id}`}>
-        <Circle
-          type={"CartSmall"}
-          title={store.Store_name}
-          imgUrl={store.photo}
-          alt={store.photo}
-          classNameImg="store"
-          animationTitle="card-title-left"
-          lightSpeed="animate__lightSpeedInLeft"
-        />
-      </Link>
+      <Circle
+        key={store.id}
+        type={"CartSmall"}
+        title={store.Store_name}
+        imgUrl={store.photo}
+        alt={store.photo}
+        classNameImg="store"
+        animationTitle="card-title-left"
+        lightSpeed="animate__lightSpeedInLeft"
+        linkPath={`/stores/${store.id}`}
+        favorite
+      />
     );
   });
 
@@ -61,7 +61,7 @@ function Shoes() {
     <section className="stores">
       <div className="title-container">
         <h1 className="store-title">Men's Shoes</h1>
-        <img className="line" src={Line} alt="Line" />
+        <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
       <div className="stores-container">{storeList}</div>
     </section>

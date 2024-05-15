@@ -54,6 +54,7 @@ function Women() {
           classNameImg="store"
           animationTitle="card-title-left"
           lightSpeed="animate__lightSpeedInLeft"
+          linkPath={`/stores/${store.id}`}
         />
       </Link>
     );
@@ -63,7 +64,7 @@ function Women() {
     <section className="stores">
       <div className="title-container">
         <h1 className="store-title">Women's section</h1>
-        <img className="line" src={Line} alt="Line" />
+        <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
       <div className="stores-container">{storeListWomen}</div>
     </section>

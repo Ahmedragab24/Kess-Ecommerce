@@ -1,7 +1,6 @@
 import Circle from "../../components/UI/circle/Circle";
 import "./home.css";
 import Image from "../../components/UI/Image";
-import { Link } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import starsTop from "/src/assets/imgs/stars-top.png";
@@ -17,11 +16,11 @@ function Home() {
       distance: "60px",
       duration: 2000,
       delay: 300,
-      // reset: true,
     });
 
-    sr.reveal(`.hero-title`);
-    sr.reveal(`.hero-description`, { delay: 400 });
+    sr.reveal(`.Logo-1`);
+    sr.reveal(`.hero-title`, { delay: 400 });
+    sr.reveal(`.hero-description`, { delay: 500 });
     sr.reveal(`.right-circle, .about .right`, {
       origin: "left",
     });
@@ -46,30 +45,28 @@ function Home() {
         <div className="hero-container container">
           <div className="row g-4 g-md-4 g-lg-0">
             <div className="right-circle col-12 col-lg-5 ">
-              <Link to={"/men"}>
-                <Circle
-                  title="Men"
-                  type="CartBig"
-                  imgUrl={imgHomeLeft}
-                  alt="men"
-                  classNameImg="card-img"
-                  animationTitle="card-title-left"
-                  lightSpeed="animate__lightSpeedInLeft"
-                />
-              </Link>
+              <Circle
+                title="Men"
+                type="CartBig"
+                imgUrl={imgHomeLeft}
+                alt="men"
+                classNameImg="card-img"
+                animationTitle="card-title-left"
+                lightSpeed="animate__lightSpeedInLeft"
+                linkPath={"/men"}
+              />
             </div>
             <div className="left-circle col-12 col-lg-5 ">
-              <Link to={"/women"}>
-                <Circle
-                  title="Women"
-                  type="CartBig"
-                  imgUrl={imgHomeRight}
-                  alt="women"
-                  classNameImg="card-img"
-                  animationTitle="card-title-right"
-                  lightSpeed="animate__lightSpeedInRight"
-                />
-              </Link>
+              <Circle
+                title="Women"
+                type="CartBig"
+                imgUrl={imgHomeRight}
+                alt="women"
+                classNameImg="card-img"
+                animationTitle="card-title-right"
+                lightSpeed="animate__lightSpeedInRight"
+                linkPath={"/women"}
+              />
             </div>
           </div>
         </div>

@@ -111,38 +111,47 @@ form {
 }
 
 .toast {
-  width: fit-content !important;
+  position: fixed !important;
+  width: max-content !important;
   font-size: 1rem !important;
   font-weight: bold;
   background-color: var(--spical-color) !important;
   color: rgb(41, 41, 41) !important;
-  position: absolute !important;
-  top: 8%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 20% !important;
+  left: 50% !important;
   border-radius: 2rem;
   -webkit-border-radius: 2rem;
   -moz-border-radius: 2rem;
   -ms-border-radius: 2rem;
   -o-border-radius: 2rem;
-  filter: opacity(0.6) !important;
-  -webkit-filter: opacity(0.6) !important;
+  z-index: 10000 !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -moz-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  -o-transform: translate(-50%, -50%) !important;
 }
 
 .toast-error {
+  position: fixed !important;
   background-color: red !important;
   color: #fff !important;
-  width: fit-content !important;
+  width: max-content !important;
   font-size: 1rem !important;
   font-weight: bold;
-  transform: translate(-50%, -50%);
+  top: 20% !important;
+  left: 50% !important;
   border-radius: 2rem;
   -webkit-border-radius: 2rem;
   -moz-border-radius: 2rem;
   -ms-border-radius: 2rem;
   -o-border-radius: 2rem;
-  filter: opacity(0.6) !important;
-  -webkit-filter: opacity(0.6) !important;
+  z-index: 10000 !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -moz-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  -o-transform: translate(-50%, -50%) !important;
 }
 
 .error {

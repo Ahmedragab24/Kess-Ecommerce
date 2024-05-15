@@ -26,11 +26,6 @@ import WomenShoes from "../pages/women/stores/WomenShoes";
 import WomenSport from "../pages/women/stores/WomenSport";
 // import ProtectedRoute from "../components/auth/ProtectedRoute";
 
-// const isLoggedIn = false;
-// const useData: { email: string } | null = isLoggedIn
-//   ? { email: "test@test.com" }
-//   : null;
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -56,10 +51,9 @@ const router = createBrowserRouter(
         <Route path="/women-sportClothes" element={<WomenSport />} />
 
         {/* <Route
-          path="login"
           element={
             <ProtectedRoute
-              isLoggedIn={isLoggedIn}
+              isLoggedIn={userData ? true : false}
               redirecpath="/ahmed"
               data={useData}
             >

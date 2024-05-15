@@ -187,12 +187,12 @@
   }
 
   .baner {
-    width: 400px;
+    width: 350px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .about .parent .right .row {
-    width: 880px;
+    width: 920px;
   }
 }
