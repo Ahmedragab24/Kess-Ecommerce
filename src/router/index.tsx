@@ -24,7 +24,14 @@ import VariousClothes from "../pages/women/stores/VariousClothes";
 import WomenAccessories from "../pages/women/stores/WomenAccessories";
 import WomenShoes from "../pages/women/stores/WomenShoes";
 import WomenSport from "../pages/women/stores/WomenSport";
-// import ProtectedRoute from "../components/auth/ProtectedRoute";
+import ProtectedRoute from "../components/auth/ProtectedRoute";
+import Profile from "../components/auth/profilePage/Profile";
+import StoriesFavorites from "../components/auth/storiesPage/StoriesPage";
+import Freelancer from "../pages/freelancer/Freelancer";
+
+const storageKey = "User";
+const userDataString = localStorage.getItem(storageKey);
+const userData = userDataString ? JSON.parse(userDataString) : null;
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,18 +56,33 @@ const router = createBrowserRouter(
         <Route path="/women-accessories" element={<WomenAccessories />} />
         <Route path="/women-shoes" element={<WomenShoes />} />
         <Route path="/women-sportClothes" element={<WomenSport />} />
+        <Route path="/freelancer" element={<Freelancer />} />
 
-        {/* <Route
+        <Route
+          path="/profile"
           element={
             <ProtectedRoute
-              isLoggedIn={userData ? true : false}
-              redirecpath="/ahmed"
-              data={useData}
+              isLoggedIn={userData?.email}
+              redirecpath="/"
+              data={userData}
             >
-              <Login />
+              <Profile />
             </ProtectedRoute>
           }
-        /> */}
+        />
+
+        <Route
+          path="/storiesFavorites"
+          element={
+            <ProtectedRoute
+              isLoggedIn={userData?.email}
+              redirecpath="/"
+              data={userData}
+            >
+              <StoriesFavorites />
+            </ProtectedRoute>
+          }
+        />
       </Route>
       {/* Page Not Found */}
       <Route path="*" element={<PageNotFound />} />

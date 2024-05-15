@@ -27,6 +27,10 @@ const NavBar = () => {
     });
 
     sr.reveal(`.Logo-2`);
+    sr.reveal(`.right-menu`, {
+      origin: "left",
+    });
+    sr.reveal(`.left-menu`, { origin: "right" });
   }, []);
 
   return (
@@ -189,13 +193,10 @@ const NavBar = () => {
           <Nav className="left-menu menu menu-end me-end d-flex gap-4">
             {!userData ? (
               <div className="buttons d-flex gap-2">
-                <Link
-                  to="/login"
-                  className="btn btn-link Login "
-                >
+                <Link to="/login" className="btn btn-link Login ">
                   Login
                 </Link>
-                <Link  to={"/register"}>
+                <Link to={"/register"}>
                   <ButtonRegister title="Register" />
                 </Link>
               </div>

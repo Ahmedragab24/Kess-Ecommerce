@@ -1,14 +1,22 @@
-import { NavDropdown } from "react-bootstrap";
+import { NavDropdown, Toast } from "react-bootstrap";
 import "./userProfile.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface UserProfileProps {
   userData: { email: string };
 }
 
 function UserProfile({ userData }: UserProfileProps) {
+  const [userLogout, setUserLogout] = useState(false);
+  const [tost, setTost] = useState<string | undefined>(undefined);
   const handleLogout = () => {
     localStorage.removeItem("User");
-    window.location.reload();
+    setUserLogout(true);
+    setTost("Logout Successfully");
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   };
 
   return (
@@ -31,14 +39,14 @@ function UserProfile({ userData }: UserProfileProps) {
         role="button"
         aria-expanded="false"
       >
-        <NavDropdown.Item className="text-color" href="#/profile">
+        <NavDropdown.Item as={Link} to="/profile" className="text-color">
           My profile
         </NavDropdown.Item>
         <NavDropdown.Item className="text-color" href="#/profile">
-          My Stories
-        </NavDropdown.Item>
-        <NavDropdown.Item className="text-color" href="#/settings">
           Settings
+        </NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/storiesFavorites" className="text-color">
+          My Favorites
         </NavDropdown.Item>
         <NavDropdown.Item
           className="text-color"
@@ -48,6 +56,16 @@ function UserProfile({ userData }: UserProfileProps) {
           Logout
         </NavDropdown.Item>
       </NavDropdown>
+      <Toast
+        className="toast-login"
+        onClose={() => setUserLogout(false)}
+        show={userLogout}
+        delay={3000}
+        autohide
+        animation
+      >
+        <Toast.Body className="toastBody rounded">{tost}</Toast.Body>
+      </Toast>
     </div>
   );
 }

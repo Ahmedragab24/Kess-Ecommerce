@@ -17,7 +17,7 @@ interface Icircle extends HTMLProps<HTMLDivElement> {
   alt: string;
   classNameImg: string;
   animationTitle: "card-title-left" | "card-title-right";
-  lightSpeed: "animate__lightSpeedInLeft" | "animate__lightSpeedInRight";
+  lightSpeed: "animate__lightSpeed" | "animate__lightSpeedInLeft" | "animate__lightSpeedInRight";
   linkPath: string;
   favorite?: boolean;
   storeID?: string;

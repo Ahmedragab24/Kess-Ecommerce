@@ -7,6 +7,7 @@ import starsTop from "/src/assets/imgs/stars-top.png";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
 import imgHomeLeft from "/src/assets/imgs/men/men.jpg";
 import imgHomeRight from "/src/assets/imgs/women/women.jpg";
+import imgHomeFreelancer from "/src/assets/imgs/Freelancer/Freelancer.jpg";
 import baner from "/src/assets/imgs/baner.png";
 
 function Home() {
@@ -25,6 +26,7 @@ function Home() {
       origin: "left",
     });
     sr.reveal(`.left-circle, .baner`, { origin: "right" });
+    sr.reveal(`.center-circle`, { origin: "bottom" });
   }, []);
 
   return (
@@ -43,8 +45,8 @@ function Home() {
           in providing you with the best stores in terms of quality and price
         </p>
         <div className="hero-container container">
-          <div className="row g-4 g-md-4 g-lg-0">
-            <div className="right-circle col-12 col-lg-5 ">
+          <div className="row">
+            <div className="right-circle">
               <Circle
                 title="Men"
                 type="CartBig"
@@ -56,7 +58,7 @@ function Home() {
                 linkPath={"/men"}
               />
             </div>
-            <div className="left-circle col-12 col-lg-5 ">
+            <div className="center-circle ">
               <Circle
                 title="Women"
                 type="CartBig"
@@ -64,8 +66,20 @@ function Home() {
                 alt="women"
                 classNameImg="card-img"
                 animationTitle="card-title-right"
-                lightSpeed="animate__lightSpeedInRight"
+                lightSpeed="animate__lightSpeed"
                 linkPath={"/women"}
+              />
+            </div>
+            <div className="left-circle">
+              <Circle
+                title="Freelancer"
+                type="CartBig"
+                imgUrl={imgHomeFreelancer}
+                alt="freelancer"
+                classNameImg="card-img"
+                animationTitle="card-title-right"
+                lightSpeed="animate__lightSpeedInRight"
+                linkPath={"/freelancer"}
               />
             </div>
           </div>
