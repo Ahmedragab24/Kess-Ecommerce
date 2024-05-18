@@ -28,6 +28,7 @@ import ProtectedRoute from "../components/auth/ProtectedRoute";
 import Profile from "../components/auth/profilePage/Profile";
 import StoriesFavorites from "../components/auth/storiesPage/StoriesPage";
 import Freelancer from "../pages/freelancer/Freelancer";
+import Store from "../pages/storePage/Store";
 
 const storageKey = "User";
 const userDataString = localStorage.getItem(storageKey);
@@ -41,8 +42,8 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
-        <Route path="men" element={<Men />} />
-        <Route path="women" element={<Women />} />
+        <Route path="Man Category" element={<Men />} />
+        <Route path="Woman Category" element={<Women />} />
         <Route path="/men-clothes" element={<Clothes />} />
         <Route path="/men-sport" element={<Sport />} />
         <Route path="/men-shoes" element={<Shoes />} />
@@ -56,7 +57,8 @@ const router = createBrowserRouter(
         <Route path="/women-accessories" element={<WomenAccessories />} />
         <Route path="/women-shoes" element={<WomenShoes />} />
         <Route path="/women-sportClothes" element={<WomenSport />} />
-        <Route path="/freelancer" element={<Freelancer />} />
+        <Route path="/FreeLance" element={<Freelancer />} />
+        <Route path="/store" element={<Store />} />
 
         <Route
           path="/profile"

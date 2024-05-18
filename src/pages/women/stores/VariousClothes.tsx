@@ -8,7 +8,7 @@ import ScrollReveal from "scrollreveal";
 type Store = {
   id: string;
   Store_name: string;
-  photo: string;
+  Photo: string;
 };
 
 function VariousClothes() {
@@ -47,8 +47,8 @@ function VariousClothes() {
         key={store.id}
         type={"CartSmall"}
         title={store.Store_name}
-        imgUrl={store.photo}
-        alt={store.photo}
+        imgUrl={store.Photo}
+        alt={store.Store_name}
         classNameImg="store"
         animationTitle="card-title-left"
         lightSpeed="animate__lightSpeedInLeft"

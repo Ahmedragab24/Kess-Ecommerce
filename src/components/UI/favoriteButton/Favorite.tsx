@@ -2,32 +2,30 @@ import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import "./facorite.css";
+import { IuserFavorite } from "../circle/Circle";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 interface FavoriteButtonProps {
-  userFavorite: string;
+  userFavorite: IuserFavorite;
   storeID: string;
 }
 
 const FavoriteButton = ({ storeID, userFavorite }: FavoriteButtonProps) => {
-  // Add storeID as a prop to the component
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState<boolean>(false);
 
-  const handleChange = async () => {
-    setChecked(!checked);
-
-    await axios.post(
-      `http://endlestone.com/kees/APIs/favorites/addFavorites.php?email=R@gmail.com&storeID=${storeID}`,
-      userFavorite,
-      {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      }
-    );
+  const handleChange = () => {
+    if (checked == false) {
+      setChecked(true);
+      localStorage.setItem(`${storeID}`, JSON.stringify(true));
+      localStorage.setItem(`${userFavorite.id}`, JSON.stringify(userFavorite));
+    } else {
+      setChecked(false);
+      localStorage.removeItem(`${storeID}`);
+      localStorage.removeItem(`${userFavorite.id}`);
+    }
   };
 
   return (

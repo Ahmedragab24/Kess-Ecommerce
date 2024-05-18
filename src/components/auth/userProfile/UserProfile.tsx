@@ -42,9 +42,6 @@ function UserProfile({ userData }: UserProfileProps) {
         <NavDropdown.Item as={Link} to="/profile" className="text-color">
           My profile
         </NavDropdown.Item>
-        <NavDropdown.Item className="text-color" href="#/profile">
-          Settings
-        </NavDropdown.Item>
         <NavDropdown.Item as={Link} to="/storiesFavorites" className="text-color">
           My Favorites
         </NavDropdown.Item>

@@ -27,10 +27,6 @@ const NavBar = () => {
     });
 
     sr.reveal(`.Logo-2`);
-    sr.reveal(`.right-menu`, {
-      origin: "left",
-    });
-    sr.reveal(`.left-menu`, { origin: "right" });
   }, []);
 
   return (
@@ -53,7 +49,7 @@ const NavBar = () => {
               <Nav.Link
                 as={NavLink}
                 to="/"
-                eventKey="/home"
+                eventKey="/"
                 title="Home"
                 className="text-color nav-link"
               >
@@ -67,7 +63,7 @@ const NavBar = () => {
             >
               <NavDropdown.Item
                 href="#action/3.1"
-                as={Link}
+                as={NavLink}
                 to="/men-clothes"
                 className="dropdown-item text-color"
               >
@@ -75,7 +71,7 @@ const NavBar = () => {
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="#action/3.2"
-                as={Link}
+                as={NavLink}
                 to="/men-sport"
                 className="dropdown-item text-color"
               >
@@ -83,7 +79,7 @@ const NavBar = () => {
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="#action/3.3"
-                as={Link}
+                as={NavLink}
                 to="/men-shoes"
                 className="dropdown-item text-color"
               >
@@ -91,7 +87,7 @@ const NavBar = () => {
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="#action/3.4"
-                as={Link}
+                as={NavLink}
                 to="/men-accessories"
                 className="dropdown-item text-color"
               >
@@ -99,7 +95,7 @@ const NavBar = () => {
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="#action/3.5"
-                as={Link}
+                as={NavLink}
                 to="/men-perfumes"
                 className="dropdown-item text-color"
               >
@@ -114,7 +110,7 @@ const NavBar = () => {
             >
               <NavDropdown.Item
                 href="#action/3.1"
-                as={Link}
+                as={NavLink}
                 to="/women-gulfAbayas"
                 className="dropdown-item text-color"
               >
@@ -123,7 +119,7 @@ const NavBar = () => {
 
               <NavDropdown.Item
                 href="#action/3.2"
-                as={Link}
+                as={NavLink}
                 to="/women-dresses"
                 className="dropdown-item text-color"
               >
@@ -132,7 +128,7 @@ const NavBar = () => {
 
               <NavDropdown.Item
                 href="#action/3.3"
-                as={Link}
+                as={NavLink}
                 to="/women-variousClothes"
                 className="dropdown-item text-color"
               >
@@ -141,7 +137,7 @@ const NavBar = () => {
 
               <NavDropdown.Item
                 href="#action/3.4"
-                as={Link}
+                as={NavLink}
                 to="/women-sportClothes"
                 className="dropdown-item text-color"
               >
@@ -150,7 +146,7 @@ const NavBar = () => {
 
               <NavDropdown.Item
                 href="#action/3.5"
-                as={Link}
+                as={NavLink}
                 to="/women-shoes"
                 className="dropdown-item text-color"
               >
@@ -159,7 +155,7 @@ const NavBar = () => {
 
               <NavDropdown.Item
                 href="#action/3.6"
-                as={Link}
+                as={NavLink}
                 to="/women-Accessories"
                 className="dropdown-item text-color"
               >
@@ -168,7 +164,7 @@ const NavBar = () => {
 
               <NavDropdown.Item
                 href="#action/3.7"
-                as={Link}
+                as={NavLink}
                 to="/women-makeup"
                 className="dropdown-item text-color"
               >
@@ -177,7 +173,7 @@ const NavBar = () => {
 
               <NavDropdown.Item
                 href="#action/3.8"
-                as={Link}
+                as={NavLink}
                 to="/women-perfumes"
                 className="dropdown-item text-color"
               >
@@ -193,12 +189,17 @@ const NavBar = () => {
           <Nav className="left-menu menu menu-end me-end d-flex gap-4">
             {!userData ? (
               <div className="buttons d-flex gap-2">
-                <Link to="/login" className="btn btn-link Login ">
+                <Nav.Link
+                  as={Link}
+                  eventKey="/login"
+                  to="/login"
+                  className="btn btn-link Login "
+                >
                   Login
-                </Link>
-                <Link to={"/register"}>
+                </Nav.Link>
+                <Nav.Link as={Link} eventKey="/register" to={"/register"}>
                   <ButtonRegister title="Register" />
-                </Link>
+                </Nav.Link>
               </div>
             ) : (
               <UserProfile userData={userData} />

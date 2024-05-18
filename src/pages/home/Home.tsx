@@ -2,15 +2,40 @@ import Circle from "../../components/UI/circle/Circle";
 import "./home.css";
 import Image from "../../components/UI/Image";
 import ScrollReveal from "scrollreveal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import starsTop from "/src/assets/imgs/stars-top.png";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
-import imgHomeLeft from "/src/assets/imgs/men/men.jpg";
-import imgHomeRight from "/src/assets/imgs/women/women.jpg";
-import imgHomeFreelancer from "/src/assets/imgs/Freelancer/Freelancer.jpg";
 import baner from "/src/assets/imgs/baner.png";
+import axios from "axios";
+import featuresIcon1 from "/src/assets/imgs/features-icon-1.png";
+import featuresIcon2 from "/src/assets/imgs/features-icon-2.png";
+import featuresIcon3 from "/src/assets/imgs/features-icon-3.png";
+import featuresIcon4 from "/src/assets/imgs/features-icon-4.png";
+
+interface Category {
+  category_name: string;
+  photo: string;
+  description: string;
+}
 
 function Home() {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  // Fetch Category
+  useEffect(() => {
+    try {
+      // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
+      axios
+        .get(
+          "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
+        )
+        .then((res) => setCategories(res.data.msg));
+    } catch (error) {
+      console.log("Failed to fetch data:" + error);
+    }
+  }, []);
+
+  // ScrollReveal
   useEffect(() => {
     const sr = ScrollReveal({
       origin: "top",
@@ -20,14 +45,30 @@ function Home() {
     });
 
     sr.reveal(`.Logo-1`);
-    sr.reveal(`.hero-title`, { delay: 400 });
+    sr.reveal(`.hero-title, .section-title`, { delay: 400 });
     sr.reveal(`.hero-description`, { delay: 500 });
-    sr.reveal(`.right-circle, .about .right`, {
-      origin: "left",
-    });
-    sr.reveal(`.left-circle, .baner`, { origin: "right" });
-    sr.reveal(`.center-circle`, { origin: "bottom" });
+    sr.reveal(`.hero-container, .about-container , .grid-list`, { delay: 600 });
   }, []);
+
+  // Render
+
+  const renderCategories = () => {
+    return categories.map((category) => {
+      return (
+        <Circle
+          key={category.category_name}
+          title={category.category_name}
+          type="CartBig"
+          imgUrl={category.photo}
+          alt={category.description}
+          classNameImg="card-img"
+          animationTitle="card-title-left"
+          lightSpeed="animate__lightSpeedInLeft"
+          linkPath={`/${category.category_name}`}
+        />
+      );
+    });
+  };
 
   return (
     <>
@@ -45,53 +86,16 @@ function Home() {
           in providing you with the best stores in terms of quality and price
         </p>
         <div className="hero-container container">
-          <div className="row">
-            <div className="right-circle">
-              <Circle
-                title="Men"
-                type="CartBig"
-                imgUrl={imgHomeLeft}
-                alt="men"
-                classNameImg="card-img"
-                animationTitle="card-title-left"
-                lightSpeed="animate__lightSpeedInLeft"
-                linkPath={"/men"}
-              />
-            </div>
-            <div className="center-circle ">
-              <Circle
-                title="Women"
-                type="CartBig"
-                imgUrl={imgHomeRight}
-                alt="women"
-                classNameImg="card-img"
-                animationTitle="card-title-right"
-                lightSpeed="animate__lightSpeed"
-                linkPath={"/women"}
-              />
-            </div>
-            <div className="left-circle">
-              <Circle
-                title="Freelancer"
-                type="CartBig"
-                imgUrl={imgHomeFreelancer}
-                alt="freelancer"
-                classNameImg="card-img"
-                animationTitle="card-title-right"
-                lightSpeed="animate__lightSpeedInRight"
-                linkPath={"/freelancer"}
-              />
-            </div>
-          </div>
+          <div className="row">{renderCategories()}</div>
         </div>
       </section>
 
       <section className="about">
-        <div className="container">
+        <div className="container about-container">
           <div className="parent row gy-3  gy-md-4 gy-lg-0 align-items-lg-center">
-            <div className="right col-12 col-lg-6 col-xl-7">
-              <div className="row justify-content-xl-center">
-                <div className="col-12 col-xl-11">
+            <div className=" col-12 col-lg-6 col-xl-7">
+              <div className=" row justify-content-xl-center">
+                <div className="  col-12 col-xl-11">
                   <h2 className="title mb-3">Who Are We?</h2>
                   <p className="lead fs-4  mb-3">
                     We help people to build incredible brands and superior
@@ -160,6 +164,91 @@ function Home() {
               <Image imageURL={baner} alt="baner" className="baner" />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section
+        className="section-features features text-center"
+        aria-label="features"
+      >
+        <div className="container">
+          <h2 className="headline-1 section-title">We help you with</h2>
+
+          <ul className="container grid-list">
+            <li className="feature-item">
+              <div className="feature-card">
+                <div className="card-icon">
+                  <img src={featuresIcon1} width="100" height="80" alt="icon" />
+                </div>
+
+                <h3 className="title-2 card-title">Professionalism</h3>
+
+                <p className="label-1 card-text">
+                  We have a team of professionals with diverse experience in
+                  various aspects of the real estate industry. They have
+                  in-depth knowledge of market trends, regulations, financing
+                  options and legal considerations. Their professionalism and
+                  experience can guide you through the complex real estate
+                  landscape and help you make informed decisions.
+                </p>
+              </div>
+            </li>
+
+            <li className="feature-item">
+              <div className="feature-card">
+                <div className="card-icon">
+                  <img src={featuresIcon2} width="100" height="80" alt="icon" />
+                </div>
+
+                <h3 className="title-2 card-title">Extensive Resources</h3>
+
+                <p className="label-1 card-text">
+                  The company has access to extensive resources, including
+                  financial capital, advanced technology, industry networks, and
+                  established relationships with key stakeholders. These
+                  resources can be leveraged to your advantage, facilitating
+                  smoother transactions, faster project execution, and access to
+                  a wider range of opportunities.
+                </p>
+              </div>
+            </li>
+
+            <li className="feature-item">
+              <div className="feature-card">
+                <div className="card-icon">
+                  <img src={featuresIcon3} width="100" height="80" alt="icon" />
+                </div>
+
+                <h3 className="title-2 card-title">Diverse Portfolio</h3>
+
+                <p className="label-1 card-text">
+                  The company owns a diversified portfolio of real estate and
+                  projects. Whether you are looking for residential, commercial,
+                  commercial or industrial properties, a great real estate
+                  company can offer a wide range of options to suit your
+                  specific needs and preferences.
+                </p>
+              </div>
+            </li>
+
+            <li className="feature-item">
+              <div className="feature-card">
+                <div className="card-icon">
+                  <img src={featuresIcon4} width="100" height="80" alt="icon" />
+                </div>
+
+                <h3 className="title-2 card-title">Market Knowledge</h3>
+
+                <p className="label-1 card-text">
+                  With access to comprehensive market research and analysis, we
+                  can provide valuable insights into market trends, investment
+                  opportunities and potential risks. They can help you identify
+                  emerging markets, forecast property values, and make strategic
+                  investment decisions.
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
     </>

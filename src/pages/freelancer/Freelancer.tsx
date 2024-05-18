@@ -3,18 +3,19 @@ import "./freelancer.css";
 import axios from "axios";
 import Circle from "../../components/UI/circle/Circle";
 import Line from "../../assets/imgs/line.png";
+import ScrollReveal from "scrollreveal";
 
 interface FreelancerItem {
   id: number;
   title: string;
   type: string;
   Photo: string;
-  alt: string;
-  Store_name: string;
+  photo: string;
+  category_name: string;
 }
 
 const api =
-  "http://endlestone.com/kees/APIs/stores/getFreelance.php?categoryID=5";
+  "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=5&is_freelance=-1";
 
 function Freelancer() {
   const [data, setData] = useState<FreelancerItem[]>([]);
@@ -36,6 +37,20 @@ function Freelancer() {
       });
   }, []);
 
+  // ScrollReveal
+  useEffect(() => {
+    const sr = ScrollReveal({
+      origin: "top",
+      distance: "60px",
+      duration: 2000,
+      delay: 300,
+    });
+
+    sr.reveal(`.store-title`, { delay: 400 });
+    sr.reveal(`.line`, { delay: 500 });
+    sr.reveal(`.container-Freelancer`, { delay: 600 });
+  }, []);
+
   // Render
   const renderData = data.map((item) => {
     return (
@@ -45,10 +60,10 @@ function Freelancer() {
         animationTitle="card-title-left"
         lightSpeed="animate__lightSpeedInLeft"
         linkPath="/freelancer"
-        title={item.Store_name}
+        title={item.category_name}
         type={"CartSmall"}
-        imgUrl={item.Photo}
-        alt={item.alt}
+        imgUrl={item.photo}
+        alt={item.category_name}
       />
     );
   });
