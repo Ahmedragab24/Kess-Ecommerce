@@ -10,3 +10,7 @@
   -ms-transition: all 0.4s !important;
   -o-transition: all 0.4s !important;
 }
+
+.checkButton {
+  color: red !important;
+}

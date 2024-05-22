@@ -63,7 +63,6 @@ function Register() {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     setIsLoading(true);
 
-    // console.log(data);
 
     try {
       const response = await axios.post(

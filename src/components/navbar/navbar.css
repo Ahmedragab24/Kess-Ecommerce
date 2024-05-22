@@ -13,7 +13,7 @@
 
 .text-color,
 #collapsible-nav-dropdown {
-  font-size: 1.2rem !important;
+  font-size: 1.1rem !important;
   font-weight: var(--Bold-font) !important;
   color: var(--three-color) !important;
   transition: 0.3s !important;

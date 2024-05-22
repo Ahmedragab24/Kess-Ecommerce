@@ -9,6 +9,7 @@ import starsBottom from "/src/assets/imgs/stars-bottom.png";
 import imgLogin from "/src/assets/imgs/men/men.jpg";
 import "./login.css";
 import { Toast } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 interface IFormInputLogin {
   email: string;
@@ -48,6 +49,7 @@ function Login() {
   const [showLogin, setShowLogin] = useState(false);
   const [showErrorLogin, setShowErrorLogin] = useState(false);
   const [errorObjLogin, setErrorObjLogin] = useState<string | undefined>();
+  const navigate = useNavigate();
 
   // Handle Submit
   const onLogin: SubmitHandler<IFormInputLogin> = async (data) => {
@@ -62,23 +64,19 @@ function Login() {
           },
         }
       );
-      console.log(resData);
-      console.log(status);
+
       if (status === 200) {
         setShowLogin(true);
-        localStorage.setItem("User", JSON.stringify(resData));
 
         setTimeout(() => {
-          location.replace("/");
+          navigate("/otp");
+          localStorage.setItem("User", JSON.stringify(resData));
         }, 2000);
       }
     } catch (error) {
-      console.log(error);
-      // ** 3 - Rejected  => Field => (OPTIONAL)
       setShowErrorLogin(true);
       const errorObj = error as AxiosError<IErrorResponseLogin>;
       setErrorObjLogin(errorObj.response?.data.msg);
-      console.log(errorObj.response?.data.msg);
     } finally {
       setIsLoading(false);
     }

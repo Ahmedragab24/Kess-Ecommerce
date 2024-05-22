@@ -41,6 +41,21 @@
   height: 100%;
 }
 
+.NoStore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--three-color);
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
 @media screen and (min-width: 576px) {
   .stores-container {
     grid-template-columns: repeat(2, 1fr) !important;

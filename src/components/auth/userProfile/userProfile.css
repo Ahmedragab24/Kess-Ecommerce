@@ -4,9 +4,20 @@
   cursor: pointer;
 }
 
+.NoValues {
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--three-color);
+  text-align: center;
+}
+
 @media screen and (max-width: 991px) {
   .container-avater {
     margin-top: 2rem;
     flex-direction: column;
+  }
+
+  .NoValues {
+    font-size: 2rem;
   }
 }

@@ -1,6 +1,6 @@
 import "./circle.css";
 import Image from "../Image";
-import { HTMLProps } from "react";
+import { HTMLProps, ReactNode } from "react";
 import FavoriteButton from "../favoriteButton/Favorite";
 import { Link } from "react-router-dom";
 
@@ -47,8 +47,11 @@ interface Icircle extends HTMLProps<HTMLDivElement> {
     | "animate__lightSpeedInRight";
   linkPath: string;
   favorite?: boolean;
-  storeID?: string;
-  userFavorite?: IuserFavorite;
+  icon?: ReactNode;
+  store_id?: string;
+  Store_name?: string;
+  Store_link?: string;
+  Instagram_Link?: string;
 }
 
 function Circle({
@@ -63,9 +66,13 @@ function Circle({
   lightSpeed,
   linkPath,
   favorite,
-  storeID,
-  userFavorite,
-}: Icircle) {
+  icon,
+  store_id,
+}: // Store_name,
+// Store_link,
+// Instagram_Link,
+// userFavorite,
+Icircle) {
   return (
     <div className="circle-container ">
       <div className="circle" key={id}>
@@ -75,17 +82,21 @@ function Circle({
           </Link>
         </div>
 
-        <h3
-          className={` card-title ${animationTitle}  fancy  mt-3  animate__animated ${lightSpeed}`}
-        >
-          {title}
-        </h3>
+        <div className="details">
+          <h3
+            className={` card-title ${animationTitle}  fancy  mt-3  animate__animated ${lightSpeed}`}
+          >
+            {title}
+          </h3>
+          {icon}
+          {/* {Store_name} {Store_link} {Instagram_Link} */}
+        </div>
         {description && <p className="card-description">{description}</p>}
       </div>
       {userData && favorite == true ? (
         <FavoriteButton
-          storeID={storeID || "defaultStoreID"}
-          userFavorite={userFavorite || {}}
+          storeID={store_id || ""}
+          // userFavorite={userFavorite || {}}
         />
       ) : null}
     </div>

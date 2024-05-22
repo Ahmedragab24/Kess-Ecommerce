@@ -20,7 +20,18 @@ interface IErrorResponse {
   msg?: string;
 }
 
-function Profile() {
+interface UserProfileProps {
+  userData: {
+    first_name: string;
+    last_name: string;
+    email: string;
+    gender: string;
+    birth_date: string;
+    password: string;
+  };
+}
+
+function Profile({ userData }: UserProfileProps) {
   useEffect(() => {
     const sr = ScrollReveal({
       origin: "top",
@@ -46,12 +57,12 @@ function Profile() {
     formState: { errors },
   } = useForm<IFormInput>({
     defaultValues: {
-      first_name: "",
-      last_name: "",
-      email: "",
-      gender: "0",
-      birth_date: "",
-      password: "",
+      first_name: userData.first_name,
+      last_name: userData.last_name,
+      email: userData.email,
+      gender: userData.gender,
+      birth_date: userData.birth_date,
+      password: userData.password,
     },
   });
 
@@ -98,8 +109,8 @@ function Profile() {
               width="150px"
               src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
             />
-            <span className="font-weight-bold mt-3">Edogaru</span>
-            <span className="text-black-50">edogaru@mail.com.my</span>
+            <span className="font-weight-bold mt-3">{userData.first_name}</span>
+            <span className="text-black-50">{userData.email}</span>
             <span> </span>
           </div>
         </div>

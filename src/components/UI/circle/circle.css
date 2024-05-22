@@ -112,6 +112,41 @@
   animation-duration: 4s !important;
 }
 
+.details {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.55rem;
+}
+
+.dev-delete {
+  padding: 0.25rem !important;
+  color: rgba(213, 78, 78, 0.864) !important;
+  background-color: transparent !important;
+  transition: 0.4s !important;
+  -webkit-transition: 0.4s !important;
+  -moz-transition: 0.4s !important;
+  -ms-transition: 0.4s !important;
+  -o-transition: 0.4s !important;
+  border-radius: 5rem !important;
+  -webkit-border-radius: 5rem !important;
+  -moz-border-radius: 5rem !important;
+  -ms-border-radius: 5rem !important;
+  -o-border-radius: 5rem !important;
+}
+
+.dev-delete:hover {
+  color: rgb(255, 43, 43) !important;
+  transition: 0.4s !important;
+  -webkit-transition: 0.4s !important;
+  -moz-transition: 0.4s !important;
+  -ms-transition: 0.4s !important;
+  -o-transition: 0.4s !important;
+}
+
+.dev-delete {
+  margin-top: 0.95rem !important;
+}
+
 @media screen and (min-width: 768px) {
   .CartBig {
     width: 22rem;

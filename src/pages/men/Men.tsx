@@ -4,6 +4,7 @@ import Circle from "../../components/UI/circle/Circle";
 import axios from "axios";
 import Line from "../../assets/imgs/line.png";
 import ScrollReveal from "scrollreveal";
+// import Clothes from "./stores/Clothes";
 
 type Store = {
   id: string;
@@ -46,6 +47,7 @@ function Men() {
     return (
       <Circle
         key={store.id}
+        id={store.id}
         type={"CartSmall"}
         title={store.category_name}
         description={store.description}

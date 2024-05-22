@@ -46,6 +46,8 @@ function Women() {
     return (
       <Link key={store.id} to={`/stores/${store.id}`}>
         <Circle
+          key={store.id}
+          id={store.id}
           type={"CartSmall"}
           title={store.category_name}
           description={store.description}
