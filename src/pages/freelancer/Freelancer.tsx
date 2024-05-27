@@ -12,13 +12,17 @@ interface FreelancerItem {
   Photo: string;
   photo: string;
   category_name: string;
+  category_name_ar: string;
+  description: string;
+  description_ar: string;
 }
 
 const api =
-  "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=5&is_freelance=-1";
+  "https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=5&is_freelance=-1";
 
 function Freelancer() {
   const [data, setData] = useState<FreelancerItem[]>([]);
+  const getLang = localStorage.getItem("lang");
 
   // Fetch data
   useEffect(() => {
@@ -59,8 +63,9 @@ function Freelancer() {
         classNameImg="circle-Freelancer"
         animationTitle="card-title-left"
         lightSpeed="animate__lightSpeedInLeft"
-        linkPath="/freelancer"
-        title={item.category_name}
+        linkPath={`/stores/${item.id}`}
+        title={getLang === "ar" ? item.category_name_ar : item.category_name}
+        description={getLang === "ar" ? item.description_ar : item.description}
         type={"CartSmall"}
         imgUrl={item.photo}
         alt={item.category_name}
@@ -71,7 +76,9 @@ function Freelancer() {
   return (
     <div className="section-Freelancer">
       <div className="title-container">
-        <h1 className="store-title">Freelancer</h1>
+        <h1 className="store-title">
+          {getLang === "ar" ? "مستقل" : "Freelancer"}
+        </h1>
         <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
       <div className="container-Freelancer">{renderData}</div>

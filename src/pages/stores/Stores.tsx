@@ -9,6 +9,7 @@ import Circle from "../../components/UI/circle/Circle";
 type Store = {
   id: string;
   Store_name: string;
+  Real_store_name: string;
   Store_link: string;
   Instagram_Link: string;
   title: string;
@@ -19,6 +20,7 @@ type Store = {
 function Stores() {
   const [stores, setStores] = useState([]);
   const [noValue, setNoValue] = useState("");
+  const getLang = localStorage.getItem("lang");
 
   const { id } = useParams();
 
@@ -27,7 +29,7 @@ function Stores() {
     // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
     axios
       .get(
-        `http://endlestone.com/kees/APIs/stores/getStores.php?verified=1&categoryID=${id}`
+        `https://endlestone.com/kees/APIs/stores/getStores.php?verified=1&categoryID=${id}`
       )
       .then((res) => setStores(res.data.msg))
       .catch((error) => setNoValue(error.response.data.msg));
@@ -51,7 +53,7 @@ function Stores() {
       <Circle
         key={stores.id}
         type={"CartSmall"}
-        title={stores.Store_name}
+        title={getLang === "ar" ? stores.Real_store_name : stores.Store_name}
         imgUrl={stores.Photo}
         alt={stores.Store_name}
         classNameImg="store"

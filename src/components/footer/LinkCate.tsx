@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface Category {
   id: number;
@@ -15,8 +14,9 @@ interface Iprops {
   categoryID: string;
 }
 
-function LinkNav({ categoryID }: Iprops) {
+function LinkCate({ categoryID }: Iprops) {
   const [categories, setCategories] = useState<Category[]>([]);
+  const getLang = localStorage.getItem("lang");
 
   useEffect(() => {
     // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
@@ -30,20 +30,20 @@ function LinkNav({ categoryID }: Iprops) {
   // render Categories
   const renderCategories = () => {
     return categories.map((category) => {
-      const getLang = localStorage.getItem("lang");
       return (
-        <NavDropdown.Item
-          key={category.id}
-          // href={`stores/${category.id}`}
-          as={NavLink}
-          eventKey={`/stores/${category.id}`}
-          to={`/stores/${category.id}`}
-          className="dropdown-item text-color"
-        >
-          {getLang === "ar"
-            ? category.category_name_ar
-            : category.category_name}
-        </NavDropdown.Item>
+        <ul className="footerUL list-unstyled mb-0" key={category.id}>
+          <li key={category.id}>
+            <Link
+              className="footer-link"
+              id="footer-link"
+              to={`/stores/${category.id}`}
+            >
+              {getLang === "ar"
+                ? category.category_name_ar
+                : category.category_name}
+            </Link>
+          </li>
+        </ul>
       );
     });
   };
@@ -51,4 +51,4 @@ function LinkNav({ categoryID }: Iprops) {
   return <>{renderCategories()}</>;
 }
 
-export default LinkNav;
+export default LinkCate;

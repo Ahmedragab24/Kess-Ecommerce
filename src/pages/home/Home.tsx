@@ -14,26 +14,29 @@ import featuresIcon4 from "/src/assets/imgs/features-icon-4.png";
 
 interface Category {
   category_name: string;
+  category_name_ar: string;
   photo: string;
   description: string;
 }
 
 function Home() {
   const [categories, setCategories] = useState<Category[]>([]);
+  const getLang = localStorage.getItem("lang");
+  const [language, setLanguage] = useState<string | null>(getLang);
 
   // Fetch Category
   useEffect(() => {
     try {
-      // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
       axios
         .get(
-          "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
+          "https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
         )
         .then((res) => setCategories(res.data.msg));
+      setLanguage(getLang);
     } catch (error) {
       console.log("Failed to fetch data:" + error);
     }
-  }, []);
+  }, [getLang]);
 
   // ScrollReveal
   useEffect(() => {
@@ -51,13 +54,16 @@ function Home() {
   }, []);
 
   // Render
-
   const renderCategories = () => {
     return categories.map((category) => {
       return (
         <Circle
           key={category.category_name}
-          title={category.category_name}
+          title={
+            language === "ar"
+              ? category.category_name_ar
+              : category.category_name
+          }
           type="CartBig"
           imgUrl={category.photo}
           alt={category.description}
@@ -80,22 +86,23 @@ function Home() {
           className="stars stars-bottom"
         />
 
-        <h1 className="hero-title">Kees</h1>
+        <h1 className="hero-title">{language === "ar" ? "كيس" : "kees"}</h1>
         <p className="hero-description">
-          We are a leading company in the Middle East, especially Saudi Arabia,
-          in providing you with the best stores in terms of quality and price
+          {language === "ar"
+            ? "نحن شركة رائدة في الشرق الأوسط وخاصة المملكة العربية السعودية في تقديم أفضل المتاجر من حيث الجودة والسعر"
+            : "We are a leading company in the Middle East, especially Saudi Arabia, in providing you with the best stores in terms of quality and price"}
         </p>
         <div className="hero-container container">
           <div className="row">{renderCategories()}</div>
         </div>
       </section>
 
-      <section className="about">
+      <section className="about" id="About Us">
         <div className="container about-container">
           <div className="parent row gy-3  gy-md-4 gy-lg-0 align-items-lg-center">
-            <div className=" col-12 col-lg-6 col-xl-7">
+            <div className=" col-12 col-lg-6 ">
               <div className=" row justify-content-xl-center">
-                <div className="  col-12 col-xl-11">
+                <div className=" col-12 col-xl-11">
                   <h2 className="title mb-3">Who Are We?</h2>
                   <p className="lead fs-4  mb-3">
                     We help people to build incredible brands and superior

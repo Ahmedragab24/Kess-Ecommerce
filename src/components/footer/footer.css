@@ -53,12 +53,13 @@
 }
 
 .footer section p,
-.footer ul li a {
-  font-size: 1rem;
-  font-weight: var(--Regular-font);
-  color: var(--three-color);
-  filter: drop-shadow(0px 0px 0px var(--first-color));
-  -webkit-filter: drop-shadow(0px 0px 0px var(--first-color));
+.footer ul li a,
+.footer-link {
+  font-size: 1rem !important;
+  font-weight: var(--Regular-font) !important;
+  color: var(--three-color) !important;
+  filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
   transition: color 0.3s !important;
   -webkit-transition: color 0.3s !important;
   -moz-transition: color 0.3s !important;
@@ -67,17 +68,22 @@
 }
 
 .footer ul li a:hover,
+.footer-link:hover,
 .footer .namecompany:hover {
-  font-weight: var(--Bold-font);
-  color: var(--first-color);
-  filter: drop-shadow(0px 0px 0px var(--three-color));
-  -webkit-filter: drop-shadow(0px 0px 0px var(--three-color));
+  font-weight: var(--Bold-font) !important;
+  color: var(--first-color) !important;
+  filter: drop-shadow(0px 0px 0px var(--three-color)) !important;
+  -webkit-filter: drop-shadow(0px 0px 0px var(--three-color)) !important;
   transition: color 0.3s !important;
   -webkit-transition: color 0.3s !important;
   -moz-transition: color 0.3s !important;
   -ms-transition: color 0.3s !important;
   -o-transition: color 0.3s !important;
 }
+/* 
+.footer-link {
+  padding-inline-end: 1rem !important;
+} */
 
 @media screen and (max-width: 575px) {
   .footer .social {

@@ -12,22 +12,94 @@ import {
   RiTwitterFill,
   RiWhatsappFill,
 } from "@remixicon/react";
-import { useEffect } from "react";
-import ScrollReveal from "scrollreveal";
+import Image from "../../components/UI/Image";
+// import { useEffect, useState } from "react";
+// import ScrollReveal from "scrollreveal";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
+
+type Store = {
+  id: string;
+  name: string;
+  Store_link: string;
+  Instagram_Link: string;
+  title: string;
+  Photo: string;
+  store_id: string;
+};
 
 function Store() {
-  // ScrollReveal
-  useEffect(() => {
-    const sr = ScrollReveal({
-      origin: "top",
-      distance: "60px",
-      duration: 2000,
-      delay: 300,
-    });
+  // const [store, setStore] = useState<Store[]>([]);
+  // const [ImagesStore, setImagesStore] = useState([]);
+  // const { id } = useParams();
 
-    sr.reveal(`.store-details`);
-    sr.reveal(`.gallery-container`, { delay: 500 });
-  }, []);
+  // Get Store
+  // useEffect(() => {
+  //   // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
+  //   axios
+  //     .get(`https://endlestone.com/kees/APIs/stores/storeInfo.php?storeID=${id}`)
+  //     .then((res) => setStore(res.data.msg));
+
+  //   // ScrollReveal
+  //   const sr = ScrollReveal({
+  //     origin: "top",
+  //     distance: "60px",
+  //     duration: 2000,
+  //     delay: 300,
+  //   });
+
+  //   sr.reveal(`.store-details`);
+  //   sr.reveal(`.gallery-container`, { delay: 500 });
+  // }, [id]);
+
+  // // Get Images Store
+  // useEffect(() => {
+  //   // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
+  //   axios
+  //     .get(
+  //       `https://endlestone.com/kees/APIs/products/getProducts.php?storeID=${id}`
+  //     )
+  //     .then((res) => setImagesStore(res.data.msg));
+
+  //   // ScrollReveal
+  //   const sr = ScrollReveal({
+  //     origin: "top",
+  //     distance: "60px",
+  //     duration: 2000,
+  //     delay: 300,
+  //   });
+
+  //   sr.reveal(`.store-details`);
+  //   sr.reveal(`.gallery-container`, { delay: 500 });
+  // }, [id]);
+
+  // // rendering Store
+  // const RenderStore = store.map((store) => {
+  //   return (
+  //     <Circle
+  //       key={store.id}
+  //       type={"CartSmall"}
+  //       title={store.Store_name}
+  //       imgUrl={store.Photo}
+  //       alt={store.Store_name}
+  //       description=""
+  //       classNameImg="store"
+  //       animationTitle="card-title-left"
+  //       lightSpeed="animate__lightSpeedInLeft"
+  //       linkPath={`/store/${store.store_id}`}
+  //       favorite
+  //       store_id={store.store_id}
+  //       Store_name={store.Store_name}
+  //       Store_link={store.Store_link}
+  //       Instagram_Link={store.Instagram_Link}
+  //     />
+  //   );
+  // });
+
+  // // rendering Images Store
+  // const RenderImagesStore = ImagesStore.map((img: ImagesStore) => {
+  //   return <img key={img.id} className="img-slide  rounded" src={img.photo} />;
+  // });
 
   return (
     <div className="store-page">
@@ -92,9 +164,21 @@ function Store() {
             roundedImages={true}
             captionStyle={{ color: "silver" }}
           >
-            <img className="img-slide  rounded" src={imgStore1} />
-            <img className="img-slide  rounded" src={imgStore2} />
-            <img className="img-slide  rounded" src={imgStore3} />
+            <Image
+              className="img-slide  rounded"
+              imageURL={imgStore1}
+              alt="slide"
+            />
+            <Image
+              className="img-slide  rounded"
+              imageURL={imgStore2}
+              alt="slide"
+            />
+            <Image
+              className="img-slide  rounded"
+              imageURL={imgStore3}
+              alt="slide"
+            />
           </SlideshowLightbox>
         </div>
       </div>

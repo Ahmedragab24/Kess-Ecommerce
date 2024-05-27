@@ -10,6 +10,7 @@ import imgLogin from "/src/assets/imgs/men/men.jpg";
 import "./login.css";
 import { Toast } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+// import { diractionLang } from "../../components/utils/function";
 
 interface IFormInputLogin {
   email: string;
@@ -21,19 +22,30 @@ interface IErrorResponseLogin {
 }
 
 function Login() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showErrorLogin, setShowErrorLogin] = useState(false);
+  const [errorObjLogin, setErrorObjLogin] = useState<string | undefined>();
+  const navigate = useNavigate();
+  const getLang = localStorage.getItem("lang");
+  const [language, setLanguage] = useState<string | null>(getLang);
+
+  // ScrollReveal
   useEffect(() => {
+    setLanguage(getLang);
+    // diractionLang();
     const sr = ScrollReveal({
       origin: "top",
       distance: "60px",
       duration: 2000,
       delay: 300,
-      // reset: true,
     });
 
     sr.reveal(`.inner-login`);
     sr.reveal(`.login-img`, { delay: 400 });
-  });
+  }, [getLang]);
 
+  // React Hook Form
   const {
     register,
     handleSubmit,
@@ -44,19 +56,13 @@ function Login() {
       passwd: "",
     },
   });
-  // const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-  const [showErrorLogin, setShowErrorLogin] = useState(false);
-  const [errorObjLogin, setErrorObjLogin] = useState<string | undefined>();
-  const navigate = useNavigate();
 
   // Handle Submit
   const onLogin: SubmitHandler<IFormInputLogin> = async (data) => {
     setIsLoading(true);
     try {
       const { status, data: resData } = await axios.post(
-        "http://endlestone.com/kees/APIs/registration/login.php",
+        "https://endlestone.com/kees/APIs/registration/login.php",
         data,
         {
           headers: {
@@ -103,7 +109,9 @@ function Login() {
               className="form-container-login "
               onSubmit={handleSubmit(onLogin)}
             >
-              <h3 className="register-title-login">Login now</h3>
+              <h3 className="register-title-login">
+                {language === "en" ? "Login now" : "تسجيل الدخول الأن"}
+              </h3>
               <div className="form-row-login">
                 <div className="input-container-login">
                   <input
@@ -117,7 +125,9 @@ function Login() {
                     })}
                     type="email"
                     className="form-control-login"
-                    placeholder="Mail"
+                    placeholder={
+                      language === "en" ? "Mail" : "البريد الإلكتروني"
+                    }
                   />
                   {errors.email && (
                     <div className="error-container-login">
@@ -137,7 +147,7 @@ function Login() {
                     })}
                     type="text"
                     className="form-control-login"
-                    placeholder="Password"
+                    placeholder={language === "en" ? "Password" : "كلمة السر"}
                   />
                   {errors.passwd && (
                     <div className="error-container-login">
@@ -148,7 +158,9 @@ function Login() {
               </div>
 
               <div className="btn-register-login">
-                <button disabled={isLoading}>login</button>
+                <button disabled={isLoading}>
+                  {language === "en" ? "Login" : "تسجيل الدخول"}
+                </button>
               </div>
             </form>
           </div>

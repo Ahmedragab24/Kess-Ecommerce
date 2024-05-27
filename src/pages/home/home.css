@@ -82,6 +82,7 @@
 \*-----------------------------------*/
 
 .about {
+  direction: ltr !important;
   background: #f4e2d8 !important; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -314,13 +315,13 @@
   }
 
   .dev-baner {
-    justify-content: end !important;
+    /* justify-content: end !important; */
     padding-top: 5rem !important;
-    padding-right: 2rem !important;
+    padding-left: 4rem !important;
   }
 
   .baner {
-    width: 350px;
+    width: 420px;
   }
 
   @media screen and (min-width: 768px) {

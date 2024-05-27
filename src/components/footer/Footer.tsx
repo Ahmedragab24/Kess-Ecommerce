@@ -4,9 +4,39 @@ import { RiWhatsappFill } from "@remixicon/react";
 import { RiInstagramFill } from "@remixicon/react";
 import { RiTwitterFill } from "@remixicon/react";
 import ScrollReveal from "scrollreveal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import LinkCate from "./LinkCate";
+import { Link } from "react-router-dom";
+
+interface Category {
+  id: string;
+  category_name: string;
+  category_name_ar: string;
+  photo: string;
+  description: string;
+}
 
 function Footer() {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [, setLanguage] = useState<string | null>("en");
+  const getLang = localStorage.getItem("lang");
+
+  // Get Global Categories
+  useEffect(() => {
+    try {
+      axios
+        .get(
+          "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
+        )
+        .then((res) => setCategories(res.data.msg));
+      setLanguage(getLang);
+    } catch (error) {
+      console.log("Failed to fetch data:" + error);
+    }
+  }, [getLang]);
+
+  // ScrollReveal
   useEffect(() => {
     const sr = ScrollReveal({
       origin: "top",
@@ -18,8 +48,37 @@ function Footer() {
 
     sr.reveal(`.footer-description-conter`);
     sr.reveal(`.footer-title`, { delay: 500 });
-    sr.reveal(`.social-container, .list-unstyled, .Copyright`, { delay: 700 });
-  });
+    sr.reveal(`.row, .list-unstyled, .Copyright`, { delay: 700 });
+  }, []);
+
+  // Sort by Category
+  const CategoriesLink = (id: string) => {
+    if (id === "1") {
+      return <LinkCate categoryID="1" />;
+    }
+    if (id === "3") {
+      return <LinkCate categoryID="3" />;
+    }
+    if (id === "5") {
+      return <LinkCate categoryID="5" />;
+    }
+  };
+
+  // Render Global Categories
+  const renderCategories = () => {
+    return categories.map((category) => {
+      return (
+        <div className="col-lg-3 col-md-6 mb-4 mb-md-0" key={category.id}>
+          <h5 className="footer-title text-uppercase">
+            {getLang === "ar"
+              ? category.category_name_ar
+              : category.category_name}
+          </h5>
+          {CategoriesLink(category.id)}
+        </div>
+      );
+    });
+  };
 
   return (
     <footer className="footer text-center">
@@ -68,114 +127,30 @@ function Footer() {
           <div className="row">
             {/* <!--Grid column--> */}
             <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 className="footer-title text-uppercase">Kees</h5>
+              <h5 className="footer-title text-uppercase">
+                {getLang === "en" ? "Kees" : "كيس"}
+              </h5>
 
               <ul className="list-unstyled mb-0">
                 <li>
-                  <a className="footer-link" href="#!">
-                    About Us
-                  </a>
+                  <Link className="footer-link" to={"/about"}>
+                    {getLang === "ar" ? "معلومات عنا" : "About Us"}
+                  </Link>
                 </li>
                 <li>
-                  <a className="footer-link" href="#!">
-                    Privacy policy
-                  </a>
+                  <Link className="footer-link" to={"/Privacy policy"}>
+                    {getLang === "ar" ? "سياسة الخصوصية" : "Privacy policy"}
+                  </Link>
                 </li>
                 <li>
-                  <a className="footer-link" href="#!">
-                    Terms of Service
-                  </a>
+                  <Link className="footer-link" to={"/Terms of Service"}>
+                    {getLang === "ar" ? "شروط الخدمة" : "Terms of Service"}
+                  </Link>
                 </li>
               </ul>
             </div>
-            {/* <!--Grid column--> */}
 
-            {/* <!--Grid column--> */}
-            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 className="footer-title text-uppercase">Sections</h5>
-
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a className="footer-link" href="#!">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#!">
-                    Women
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#!">
-                    Men
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#!">
-                    Online Stores
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* <!--Grid column--> */}
-
-            {/* <!--Grid column--> */}
-            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 className="footer-title text-uppercase">Women</h5>
-
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a className="footer-link" href="#">
-                    Gulf Abayas
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    Dresses
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    sport clothes
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    shoes
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* <!--Grid column--> */}
-
-            {/* <!--Grid column--> */}
-            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 className="footer-title text-uppercase">Men</h5>
-
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a className="footer-link" href="#">
-                    clothes
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    sport clothes
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    shoes
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    accessories
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* <!--Grid column--> */}
+            {renderCategories()}
           </div>
           {/* <!--Grid row--> */}
         </section>
@@ -189,9 +164,9 @@ function Footer() {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
         © 2024 Copyright:
-        <a className="namecompany ms-1" href="./index.html">
+        <Link to={"/"} className="namecompany ms-1">
           Kees
-        </a>
+        </Link>
       </div>
       {/* <!-- Copyright --> */}
     </footer>

@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
 import imgRegister from "/src/assets/imgs/login.jpg";
 import { Toast } from "react-bootstrap";
+// import { diractionLang } from "../../components/utils/function";
 
 interface IFormInput {
   first_name: string;
@@ -25,25 +26,29 @@ interface IErrorResponse {
 }
 
 function Register() {
-  useEffect(() => {
-    const sr = ScrollReveal({
-      origin: "top",
-      distance: "60px",
-      duration: 2000,
-      delay: 300,
-      // reset: true,
-    });
-
-    sr.reveal(`.inner`);
-    sr.reveal(`.register-img`, { delay: 500 });
-  }, []);
-
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorObj, setErrorObj] = useState<string | undefined>();
+  const getLang = localStorage.getItem("lang");
+  const [language, setLanguage] = useState<string | null>(getLang);
 
+  // ScrollReveal
+  useEffect(() => {
+    setLanguage(getLang);
+    const sr = ScrollReveal({
+      origin: "top",
+      distance: "60px",
+      duration: 2000,
+      delay: 300,
+    });
+
+    sr.reveal(`.inner`);
+    sr.reveal(`.register-img`, { delay: 500 });
+  }, [getLang]);
+
+  // React Hook Form
   const {
     register,
     handleSubmit,
@@ -63,10 +68,9 @@ function Register() {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     setIsLoading(true);
 
-
     try {
       const response = await axios.post(
-        "http://endlestone.com/kees/APIs/registration/signup.php",
+        "https://endlestone.com/kees/APIs/registration/signup.php",
         data,
         {
           headers: {
@@ -109,7 +113,9 @@ function Register() {
               />
             </div>
             <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-              <h3 className="register-title">Register now</h3>
+              <h3 className="register-title">
+                {language === "en" ? "Register now" : "سجل الأن"}
+              </h3>
               <div className="form-row">
                 <div className="input-container">
                   <input
@@ -122,7 +128,9 @@ function Register() {
                     })}
                     type="text"
                     className="form-control"
-                    placeholder="First Name"
+                    placeholder={
+                      language === "en" ? "First Name" : "الأسم الأول"
+                    }
                   />
                   {errors.first_name && (
                     <div className="error-container">
@@ -142,7 +150,9 @@ function Register() {
                     })}
                     type="text"
                     className="form-control"
-                    placeholder="Last Name"
+                    placeholder={
+                      language === "en" ? "Last Name" : "أسم العائلة"
+                    }
                   />
                   {errors.last_name && (
                     <div className="error-container">
@@ -165,7 +175,9 @@ function Register() {
                     })}
                     type="email"
                     className="form-control"
-                    placeholder="Mail"
+                    placeholder={
+                      language === "en" ? "Mail" : "البريد الإلكتروني"
+                    }
                   />
                   {errors.email && (
                     <div className="error-container">
@@ -185,7 +197,7 @@ function Register() {
                     })}
                     type="text"
                     className="form-control"
-                    placeholder="Password"
+                    placeholder={language === "en" ? "Password" : "كلمة السر"}
                   />
                   {errors.password && (
                     <div className="error-container">
@@ -198,8 +210,13 @@ function Register() {
               <div className="form-row">
                 <div className="input-container">
                   <select {...register("gender")} className="form-control">
-                    <option value="0">Men</option>
-                    <option value="1">Women</option>
+                    <option value="0">
+                      {language === "en" ? "Man" : "رجل"}
+                    </option>
+                    <option value="1">
+                      {" "}
+                      {language === "en" ? "Woman" : "امرأة"}
+                    </option>
                   </select>
                 </div>
 
@@ -219,7 +236,10 @@ function Register() {
                 </div>
               </div>
               <div className="btn-register">
-                <ButtonRegister disabled={isLoading} title="Sign Up">
+                <ButtonRegister
+                  disabled={isLoading}
+                  title={language === "en" ? "Sign Up" : "تسجيل"}
+                >
                   {isLoading && <div className="spinner-border"></div>}
                 </ButtonRegister>
               </div>

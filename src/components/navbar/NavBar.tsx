@@ -10,14 +10,63 @@ import EnIcon from "../../assets/imgs/En.png";
 import { Link, NavLink } from "react-router-dom";
 import Image from "../UI/Image";
 import ScrollReveal from "scrollreveal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import UserProfile from "../auth/userProfile/UserProfile";
+import axios from "axios";
+import LinkNav from "./LinkNav";
+import { diractionLang } from "../utils/function";
 
 const storageKey = "User";
 const userDataString = localStorage.getItem(storageKey);
 const userData = userDataString ? JSON.parse(userDataString) : null;
 
+interface Category {
+  id: string;
+  category_name: string;
+  category_name_ar: string;
+  photo: string;
+  description: string;
+  eventKey: string;
+}
+
+interface language {
+  code: string;
+  name: string;
+  Arname: string;
+  imgUrl: string;
+}
+
+const Languages: language[] = [
+  { code: "en", name: "English", Arname: "الأنجليزية", imgUrl: EnIcon },
+  { code: "ar", name: "Arabic", Arname: "العربية", imgUrl: ArIcon },
+];
 const NavBar = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const getLang = localStorage.getItem("lang");
+  const [language, setLanguage] = useState<string | null>(getLang);
+
+  // Handler Languages
+  const handerLang = (lang: string) => {
+    window.location.reload();
+    localStorage.setItem("lang", lang);
+    setLanguage(lang);
+  };
+
+  // Get Global Categories
+  useEffect(() => {
+    try {
+      axios
+        .get(
+          "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
+        )
+        .then((res) => setCategories(res.data.msg));
+      diractionLang();
+    } catch (error) {
+      console.log("Failed to fetch data:" + error);
+    }
+  }, []);
+
+  // ScrollReveal
   useEffect(() => {
     const sr = ScrollReveal({
       origin: "top",
@@ -29,6 +78,43 @@ const NavBar = () => {
     sr.reveal(`.Logo-2`);
   }, []);
 
+  // Sort by Category
+  const CategoriesLink = (id: string) => {
+    if (id === "1") {
+      return <LinkNav categoryID="1" />;
+    }
+    if (id === "3") {
+      return <LinkNav categoryID="3" />;
+    }
+    if (id === "5") {
+      return <LinkNav categoryID="5" />;
+    }
+  };
+
+  // Render Global Categories
+  const renderCategories = () => {
+    return categories.map((category) => {
+      return (
+        <NavDropdown
+          key={category.id}
+          className="Dropdown-style"
+          title={
+            language === "ar"
+              ? category.category_name_ar
+              : category.category_name
+          }
+          id="collapsible-nav-dropdown"
+          as={NavLink}
+          to={`/stores/${category.id}`}
+        >
+          {CategoriesLink(category.id)}
+        </NavDropdown>
+      );
+    });
+  };
+
+  // };
+
   return (
     <Navbar
       collapseOnSelect
@@ -37,14 +123,14 @@ const NavBar = () => {
       sticky="top"
     >
       <Container className="container">
-        <Navbar.Brand className="brand-1 me-auto" href="#home">
+        <Navbar.Brand className="brand-1 " href="#home">
           <div className="brand">
             <Image imageURL={img} alt="logo" className="Logo-1" />
           </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="right-menu menu me-auto gap-3">
+          <Nav className="right-menu menu me-auto gap-2">
             <Nav.Item>
               <Nav.Link
                 as={NavLink}
@@ -53,133 +139,10 @@ const NavBar = () => {
                 title="Home"
                 className="text-color nav-link"
               >
-                Home
+                {language === "ar" ? "الرئيسية" : "Home"}
               </Nav.Link>
             </Nav.Item>
-            <NavDropdown
-              className="Dropdown-style"
-              title="Men"
-              id="collapsible-nav-dropdown"
-            >
-              <NavDropdown.Item
-                href="#action/3.1"
-                as={NavLink}
-                to="/men-clothes"
-                className="dropdown-item text-color"
-              >
-                Clothes
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                href="#action/3.2"
-                as={NavLink}
-                to="/men-sport"
-                className="dropdown-item text-color"
-              >
-                Sport Clothes
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                href="#action/3.3"
-                as={NavLink}
-                to="/men-shoes"
-                className="dropdown-item text-color"
-              >
-                Shoes
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                href="#action/3.4"
-                as={NavLink}
-                to="/men-accessories"
-                className="dropdown-item text-color"
-              >
-                Accessories
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                href="#action/3.5"
-                as={NavLink}
-                to="/men-perfumes"
-                className="dropdown-item text-color"
-              >
-                Perfumes
-              </NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown
-              className="Dropdown-style"
-              title="Women"
-              id="collapsible-nav-dropdown"
-            >
-              <NavDropdown.Item
-                href="#action/3.1"
-                as={NavLink}
-                to="/women-gulfAbayas"
-                className="dropdown-item text-color"
-              >
-                Gulf Abayas
-              </NavDropdown.Item>
-
-              <NavDropdown.Item
-                href="#action/3.2"
-                as={NavLink}
-                to="/women-dresses"
-                className="dropdown-item text-color"
-              >
-                Dresses
-              </NavDropdown.Item>
-
-              <NavDropdown.Item
-                href="#action/3.3"
-                as={NavLink}
-                to="/women-variousClothes"
-                className="dropdown-item text-color"
-              >
-                Various Clothes
-              </NavDropdown.Item>
-
-              <NavDropdown.Item
-                href="#action/3.4"
-                as={NavLink}
-                to="/women-sportClothes"
-                className="dropdown-item text-color"
-              >
-                Sport Clothes
-              </NavDropdown.Item>
-
-              <NavDropdown.Item
-                href="#action/3.5"
-                as={NavLink}
-                to="/women-shoes"
-                className="dropdown-item text-color"
-              >
-                Shoes
-              </NavDropdown.Item>
-
-              <NavDropdown.Item
-                href="#action/3.6"
-                as={NavLink}
-                to="/women-Accessories"
-                className="dropdown-item text-color"
-              >
-                Accessories
-              </NavDropdown.Item>
-
-              <NavDropdown.Item
-                href="#action/3.7"
-                as={NavLink}
-                to="/women-makeup"
-                className="dropdown-item text-color"
-              >
-                MakeUp
-              </NavDropdown.Item>
-
-              <NavDropdown.Item
-                href="#action/3.8"
-                as={NavLink}
-                to="/women-perfumes"
-                className="dropdown-item text-color"
-              >
-                Perfumes
-              </NavDropdown.Item>
-            </NavDropdown>
+            {renderCategories()}
           </Nav>
 
           <Navbar.Brand className="brand-2 me-auto">
@@ -195,10 +158,12 @@ const NavBar = () => {
                   to="/login"
                   className="btn btn-link Login "
                 >
-                  Login
+                  {language === "ar" ? "تسجيل الدخول" : "Login"}
                 </Nav.Link>
                 <Nav.Link as={Link} eventKey="/register" to={"/register"}>
-                  <ButtonRegister title="Register" />
+                  <ButtonRegister
+                    title={language === "ar" ? "تسجيل" : "Register"}
+                  />
                 </Nav.Link>
               </div>
             ) : (
@@ -207,17 +172,26 @@ const NavBar = () => {
 
             <NavDropdown
               className="Dropdown-style d-flex align-items-center"
-              title="Language"
+              title={getLang === "ar" ? "اللغة" : "language"}
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item href="#action/3.1" className="text-color item">
-                <img className="flag text-color" src={ArIcon} alt="" />
-                Arabic
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2" className="text-color item">
-                <img className="flag text-color" src={EnIcon} alt="" />
-                English
-              </NavDropdown.Item>
+              {Languages.map((language) => {
+                // const getLang = localStorage.getItem("lang");
+                return (
+                  <NavDropdown.Item
+                    key={language.code}
+                    className="lang text-color item"
+                    onClick={() => handerLang(language.code)}
+                  >
+                    <img
+                      className="flag text-color"
+                      src={language.imgUrl}
+                      alt={language.name}
+                    />
+                    {getLang === "ar" ? language.Arname : language.name}
+                  </NavDropdown.Item>
+                );
+              })}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

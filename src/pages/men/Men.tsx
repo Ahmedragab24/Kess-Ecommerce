@@ -9,12 +9,15 @@ import ScrollReveal from "scrollreveal";
 type Store = {
   id: string;
   category_name: string;
+  category_name_ar: string;
   description: string;
+  description_ar: string;
   photo: string;
 };
 
 function Men() {
   const [storesOfMen, setStoresOfMen] = useState<Store[]>([]);
+  const getLang = localStorage.getItem("lang");
 
   // Handler
   useEffect(() => {
@@ -22,7 +25,7 @@ function Men() {
       // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
       axios
         .get(
-          "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=1&is_freelance=-1"
+          "https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=1&is_freelance=-1"
         )
         .then((res) => setStoresOfMen(res.data.msg));
 
@@ -49,8 +52,10 @@ function Men() {
         key={store.id}
         id={store.id}
         type={"CartSmall"}
-        title={store.category_name}
-        description={store.description}
+        title={getLang === "ar" ? store.category_name_ar : store.category_name}
+        description={
+          getLang === "ar" ? store.description_ar : store.description
+        }
         imgUrl={store.photo}
         alt={store.category_name}
         classNameImg="store"
@@ -64,7 +69,9 @@ function Men() {
   return (
     <section className="stores">
       <div className="title-container">
-        <h1 className="store-title">Men's section</h1>
+        <h1 className="store-title">
+          {getLang === "ar" ? "قسم الرجال" : "Men's section"}
+        </h1>
         <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
       <div className="stores-container">{storeList}</div>
