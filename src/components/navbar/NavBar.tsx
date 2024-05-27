@@ -57,7 +57,7 @@ const NavBar = () => {
     try {
       axios
         .get(
-          "http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
+          "https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
         )
         .then((res) => setCategories(res.data.msg));
       diractionLang();

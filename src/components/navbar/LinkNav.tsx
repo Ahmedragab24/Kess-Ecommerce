@@ -22,7 +22,7 @@ function LinkNav({ categoryID }: Iprops) {
     // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
     axios
       .get(
-        `http://endlestone.com/kees/APIs/categories/getCategories.php?globalID=${categoryID}&is_freelance=-1`
+        `https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=${categoryID}&is_freelance=-1`
       )
       .then((res) => setCategories(res.data.msg));
   }, [categoryID]);
