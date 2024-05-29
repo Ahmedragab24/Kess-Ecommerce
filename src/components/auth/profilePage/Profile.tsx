@@ -1,19 +1,37 @@
 import "./profilePage.css";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 import ScrollReveal from "scrollreveal";
 import { useEffect, useState } from "react";
 import ButtonRegister from "../../UI/button/ButtonRegister";
 import { Toast } from "react-bootstrap";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
 
 interface IFormInput {
   first_name: string;
   last_name: string;
   email: string;
+  phone_number: string;
   gender: string;
+  address: string;
   birth_date: string;
   password: string;
+  photo?: string;
+  job?: string;
 }
 
 interface IErrorResponse {
@@ -28,10 +46,24 @@ interface UserProfileProps {
     gender: string;
     birth_date: string;
     password: string;
+    address: string;
+    phone_number: string;
+    photo?: string;
+    job?: string;
   };
 }
 
 function Profile({ userData }: UserProfileProps) {
+  const [fileImg, setFileImg] = useState<string | undefined>(
+    "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+  );
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (e.target.files && e.target.files.length > 0) {
+      setFileImg(URL.createObjectURL(e.target.files[0]));
+    }
+  }
+
   useEffect(() => {
     const sr = ScrollReveal({
       origin: "top",
@@ -46,7 +78,6 @@ function Profile({ userData }: UserProfileProps) {
   }, []);
 
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorObj, setErrorObj] = useState<string | undefined>();
@@ -63,6 +94,10 @@ function Profile({ userData }: UserProfileProps) {
       gender: userData.gender,
       birth_date: userData.birth_date,
       password: userData.password,
+      address: userData.address,
+      phone_number: userData.phone_number,
+      photo: userData.photo,
+      job: userData.job,
     },
   });
 
@@ -74,11 +109,11 @@ function Profile({ userData }: UserProfileProps) {
 
     try {
       const response = await axios.post(
-        "http://endlestone.com/kees/APIs/registration/signup.php",
+        "https://endlestone.com/kees/APIs/registration/updateProfile.php",
         data,
         {
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -86,9 +121,6 @@ function Profile({ userData }: UserProfileProps) {
 
       if (response.status === 200) {
         setShow(true);
-        setTimeout(() => {
-          navigate("/login");
-        }, 2000);
       }
     } catch (error) {
       setShowError(true);
@@ -107,8 +139,23 @@ function Profile({ userData }: UserProfileProps) {
             <img
               className="rounded-circle mt-5"
               width="150px"
-              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+              src={fileImg}
+              alt="Profile Avatar"
             />
+            <Button
+              component="label"
+              role={undefined}
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUploadIcon />}
+            >
+              Upload file
+              <VisuallyHiddenInput
+                {...register("photo")}
+                onChange={handleChange}
+                type="file"
+              />
+            </Button>
             <span className="font-weight-bold mt-3">{userData.first_name}</span>
             <span className="text-black-50">{userData.email}</span>
             <span> </span>
@@ -155,6 +202,48 @@ function Profile({ userData }: UserProfileProps) {
                   {errors.last_name && (
                     <div className="error-container">
                       <p className="error">{errors.last_name?.message}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="input-container">
+                  <input
+                    {...register("address", {
+                      required: "This field is required.",
+                      minLength: {
+                        value: 4,
+                        message: "Minimum 6 characters",
+                      },
+                    })}
+                    type="text"
+                    className="form-control"
+                    placeholder="Address"
+                  />
+                  {errors.address && (
+                    <div className="error-container">
+                      <p className="error">{errors.address?.message}</p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="input-container">
+                  <input
+                    {...register("phone_number", {
+                      required: "This field is required.",
+                      minLength: {
+                        value: 4,
+                        message: "Minimum 6 characters",
+                      },
+                    })}
+                    type="number"
+                    className="form-control"
+                    placeholder="Phone Number"
+                  />
+                  {errors.phone_number && (
+                    <div className="error-container">
+                      <p className="error">{errors.phone_number?.message}</p>
                     </div>
                   )}
                 </div>
@@ -226,6 +315,18 @@ function Profile({ userData }: UserProfileProps) {
                   )}
                 </div>
               </div>
+
+              <div className="form-row">
+                <div className="input-container">
+                  <input
+                    {...register("job")}
+                    className="form-control"
+                    type="text"
+                    placeholder="Job"
+                  />
+                </div>
+              </div>
+
               <div className="btn-register">
                 <ButtonRegister disabled={isLoading} title="Save Profile">
                   {isLoading && <div className="spinner-border"></div>}

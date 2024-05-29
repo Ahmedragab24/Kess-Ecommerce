@@ -4,14 +4,13 @@ import Circle from "../../components/UI/circle/Circle";
 import axios from "axios";
 import Line from "../../assets/imgs/line.png";
 import ScrollReveal from "scrollreveal";
-// import Clothes from "./stores/Clothes";
 
 type Store = {
   id: string;
   category_name: string;
   category_name_ar: string;
-  description: string;
-  description_ar: string;
+  description?: string;
+  description_ar?: string;
   photo: string;
 };
 
@@ -53,9 +52,6 @@ function Men() {
         id={store.id}
         type={"CartSmall"}
         title={getLang === "ar" ? store.category_name_ar : store.category_name}
-        description={
-          getLang === "ar" ? store.description_ar : store.description
-        }
         imgUrl={store.photo}
         alt={store.category_name}
         classNameImg="store"

@@ -23,7 +23,7 @@
   -o-transition: 0.3s !important;
 }
 
-.active {
+.nav-item .active {
   background-color: var(--spical-color) !important;
   color: var(--first-color) !important;
   padding: 0.35rem;

@@ -19,6 +19,8 @@ interface IFormInput {
   gender: string;
   birth_date: string;
   password: string;
+  address: string;
+  phone_number: string;
 }
 
 interface IErrorResponse {
@@ -61,6 +63,8 @@ function Register() {
       gender: "0",
       birth_date: "",
       password: "",
+      address: "",
+      phone_number: "",
     },
   });
 
@@ -78,7 +82,6 @@ function Register() {
           },
         }
       );
-      console.log(response);
 
       if (response.status === 200) {
         setShow(true);
@@ -202,6 +205,46 @@ function Register() {
                   {errors.password && (
                     <div className="error-container">
                       <p className="error">{errors.password.message}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="input-container">
+                  <input
+                    {...register("address", {
+                      required: "This field is required.",
+                    })}
+                    type="text"
+                    className="form-control"
+                    placeholder={language === "en" ? "Address" : "العنوان"}
+                  />
+                  {errors.email && (
+                    <div className="error-container">
+                      <p className="error">{errors.address?.message}</p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="input-container">
+                  <input
+                    {...register("phone_number", {
+                      required: "This field is required.",
+                      minLength: {
+                        value: 6,
+                        message: "Minimum 6 characters",
+                      },
+                    })}
+                    type="number"
+                    className="form-control"
+                    placeholder={
+                      language === "en" ? "Phone Number" : "رقم الهاتف"
+                    }
+                  />
+                  {errors.phone_number && (
+                    <div className="error-container">
+                      <p className="error">{errors.phone_number.message}</p>
                     </div>
                   )}
                 </div>

@@ -9,8 +9,8 @@ type Store = {
   id: string;
   category_name: string;
   category_name_ar: string;
-  description: string;
-  description_ar: string;
+  description?: string;
+  description_ar?: string;
   photo: string;
 };
 
@@ -54,9 +54,6 @@ function Women() {
           type={"CartSmall"}
           title={
             getLang === "ar" ? store.category_name_ar : store.category_name
-          }
-          description={
-            getLang === "ar" ? store.description_ar : store.description
           }
           imgUrl={store.photo}
           alt={store.category_name}

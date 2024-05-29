@@ -1,0 +1,7 @@
+.stores-container-child {
+  display: grid !important;
+  grid-template-columns: repeat(3, max-content) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5rem !important;
+}

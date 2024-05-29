@@ -12,7 +12,7 @@ import {
   RiTwitterFill,
   RiWhatsappFill,
 } from "@remixicon/react";
-import Image from "../../components/UI/Image";
+// import Image from "../../components/UI/Image";
 // import { useEffect, useState } from "react";
 // import ScrollReveal from "scrollreveal";
 // import { useParams } from "react-router-dom";
@@ -164,21 +164,9 @@ function Store() {
             roundedImages={true}
             captionStyle={{ color: "silver" }}
           >
-            <Image
-              className="img-slide  rounded"
-              imageURL={imgStore1}
-              alt="slide"
-            />
-            <Image
-              className="img-slide  rounded"
-              imageURL={imgStore2}
-              alt="slide"
-            />
-            <Image
-              className="img-slide  rounded"
-              imageURL={imgStore3}
-              alt="slide"
-            />
+            <img className="img-slide  rounded" src={imgStore1} alt="slide" />
+            <img className="img-slide  rounded" src={imgStore2} alt="slide" />
+            <img className="img-slide  rounded" src={imgStore3} alt="slide" />
           </SlideshowLightbox>
         </div>
       </div>

@@ -1,10 +1,10 @@
-// import { Circle } from "@mui/icons-material";
+import "./stores.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Line from "../../assets/imgs/line.png";
 import ScrollReveal from "scrollreveal";
-import Circle from "../../components/UI/circle/Circle";
+import Card from "../../components/UI/card/Card";
 
 type Store = {
   id: string;
@@ -44,27 +44,24 @@ function Stores() {
 
     sr.reveal(`.store-title`);
     sr.reveal(`.line`, { delay: 400 });
-    sr.reveal(`.stores-container`, { delay: 500 });
+    sr.reveal(`.stores-container-child`, { delay: 500 });
   }, [id]);
 
   // rendering
   const RenderStores = stores.map((stores: Store) => {
     return (
-      <Circle
+      <Card
         key={stores.id}
-        type={"CartSmall"}
-        title={getLang === "ar" ? stores.Real_store_name : stores.Store_name}
-        imgUrl={stores.Photo}
-        alt={stores.Store_name}
-        classNameImg="store"
-        animationTitle="card-title-left"
-        lightSpeed="animate__lightSpeedInLeft"
-        linkPath={`/store/${stores.id}`}
-        favorite
+        id={stores.id}
         store_id={stores.store_id}
-        Store_name={stores.Store_name}
+        Store_name={
+          getLang === "ar" ? stores.Real_store_name : stores.Store_name
+        }
+        Photo={stores.Photo}
+        favorite
         Store_link={stores.Store_link}
         Instagram_Link={stores.Instagram_Link}
+        linkPath={`/store/${stores.id}`}
       />
     );
   });
@@ -75,7 +72,7 @@ function Stores() {
         <h1 className="store-title">{id} Stores</h1>
         <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
-      <div className="stores-container">
+      <div className="stores-container-child container ">
         {stores.length ? (
           RenderStores
         ) : (
