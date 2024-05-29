@@ -89,7 +89,7 @@ figure:hover .store {
   -webkit-filter: drop-shadow(0 0 100px rgb(0, 0, 0));
   width: 100%;
   position: absolute;
-  padding: 0.25rem 1rem 1rem 0.25rem;
+  padding: 0.55rem 1rem 1rem 0.25rem;
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.455);
