@@ -1,0 +1,38 @@
+.terms-body {
+  background-color: #f9eee8 !important;
+  padding: 3rem 0;
+  border: 1px solid var(--second-color);
+  border-radius: 1.5rem;
+}
+
+.terms-container .terms-card {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.terms-container .terms-title {
+  margin-bottom: -0.55rem;
+  font-size: 2.55rem !important;
+  font-weight: bolder;
+  color: var(--three-color);
+  filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+}
+
+.terms-container .Line {
+  width: 22%;
+  margin-bottom: 2rem;
+}
+
+.terms-container .card-title {
+  margin-bottom: 1.55rem;
+  color: var(--black-color) !important;
+  filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+}
+
+.terms-container .card-text {
+  color: var(--black-color);
+  filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
+}

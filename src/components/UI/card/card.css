@@ -1,4 +1,4 @@
-figure {
+.card-figure {
   position: relative;
   width: 320px;
   height: 450px !important;
@@ -17,7 +17,7 @@ figure {
   -o-box-shadow: 0 0 10px #000000;
 }
 
-figure > * {
+.card-figure > * {
   grid-area: 1/1;
 }
 
@@ -37,7 +37,7 @@ figure > * {
   -o-border-radius: 1rem;
 }
 
-figure:hover .store {
+.card-figure:hover .store {
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);

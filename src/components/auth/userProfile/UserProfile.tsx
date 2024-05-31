@@ -3,6 +3,8 @@ import "./userProfile.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+const getLang = localStorage.getItem("lang");
+
 interface UserProfileProps {
   userData: { first_name: string };
 }
@@ -46,7 +48,7 @@ function UserProfile({ userData }: UserProfileProps) {
           to="/profile"
           className="text-color"
         >
-          My profile
+          {getLang === "ar" ? "معرض الملف الشخصي" : "My profile"}
         </NavDropdown.Item>
         <NavDropdown.Item
           href="#action/3.2"
@@ -54,7 +56,7 @@ function UserProfile({ userData }: UserProfileProps) {
           to="/storiesFavorites"
           className="text-color"
         >
-          My Favorites
+          {getLang === "ar" ? "المفضلة" : "My Favorites"}
         </NavDropdown.Item>
         <NavDropdown.Item
           href="#action/3.3"
@@ -63,7 +65,7 @@ function UserProfile({ userData }: UserProfileProps) {
           onClick={handleLogout}
           className="text-color"
         >
-          Logout
+          {getLang === "ar" ? "تسجيل الخروج" : "Logout"}
         </NavDropdown.Item>
       </NavDropdown>
       <Toast

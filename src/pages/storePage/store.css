@@ -5,9 +5,10 @@
 .gallery-container {
   /* max-width: 1200px !important; */
   margin: auto !important;
+  padding: 2rem;
 }
 
-.slideshow-lightbox {
+.gallery-container {
   display: grid !important;
   grid-template-columns: repeat(3, auto) !important;
   justify-content: center !important;
@@ -97,7 +98,7 @@
     margin-top: 2rem;
   }
 
-  .slideshow-lightbox {
+  .gallery-container {
     display: grid !important;
     grid-template-columns: repeat(1, auto) !important;
     justify-content: center !important;
@@ -116,7 +117,7 @@
     gap: 4rem;
   }
 
-  .slideshow-lightbox {
+  .gallery-container {
     display: grid !important;
     grid-template-columns: repeat(3, auto) !important;
     justify-content: center !important;

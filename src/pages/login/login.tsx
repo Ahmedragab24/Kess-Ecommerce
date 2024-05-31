@@ -10,6 +10,7 @@ import imgLogin from "/src/assets/imgs/men/men.jpg";
 import "./login.css";
 import { Toast } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 // import { diractionLang } from "../../components/utils/function";
 
 interface IFormInputLogin {
@@ -158,9 +159,20 @@ function Login() {
               </div>
 
               <div className="btn-register-login">
-                <button disabled={isLoading}>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderColor: "var(--three-color)",
+                    color: "var(--three-color)",
+                    "&:hover": {
+                      backgroundColor: "var(--three-color)",
+                      color: "var(--second-color)",
+                    },
+                  }}
+                  disabled={isLoading}
+                >
                   {language === "en" ? "Login" : "تسجيل الدخول"}
-                </button>
+                </Button>
               </div>
             </form>
           </div>

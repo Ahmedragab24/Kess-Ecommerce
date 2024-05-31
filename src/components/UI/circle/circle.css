@@ -118,6 +118,15 @@
   gap: 0.55rem;
 }
 
+.card-subtitle {
+  text-align: center;
+  font-size: 1rem !important;
+  font-weight: var(--ExtraBold-font) !important;
+  color: var(--three-color) !important;
+  filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(1px 1px 1px var(--first-color)) !important;
+}
+
 .dev-delete {
   padding: 0.25rem !important;
   color: rgba(213, 78, 78, 0.864) !important;

@@ -11,7 +11,7 @@ interface IButton {
 
 const ButtonRegister = ({ title, isLoading, children }: IButton) => {
   return (
-    <button disabled={isLoading}>
+    <button className="register-button" disabled={isLoading}>
       {title}
       <div className="star-1">
         <svg

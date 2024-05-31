@@ -6,6 +6,8 @@ import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ScrollReveal from "scrollreveal";
 
+const getLang = localStorage.getItem("lang");
+
 type User = {
   id: string;
   Store_name: string;
@@ -98,7 +100,11 @@ function StoriesPage() {
   const NoValues = () => {
     if (!favoriteUser.length) {
       return (
-        <div className="NoValues">There are no stores in the favorite</div>
+        <div className="NoValues">
+          {getLang === "ar"
+            ? "لا يوجد متاجر مفضلة"
+            : "There are no stores in the favorite"}
+        </div>
       );
     }
   };
@@ -106,7 +112,9 @@ function StoriesPage() {
   return (
     <section className="stores">
       <div className="title-container">
-        <h1 className="store-title">Favorite stores</h1>
+        <h1 className="store-title">
+          {getLang === "ar" ? "المتاجر المفضلة" : "Favorite stores"}
+        </h1>
         <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
       <div className="stores-container">{storeList}</div>

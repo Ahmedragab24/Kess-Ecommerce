@@ -23,7 +23,7 @@ const FavoriteButton = ({ storeID }: FavoriteButtonProps) => {
   const handleAddFavorite = async () => {
     if (check == false) {
       try {
-        const { status, data } = await axios.get(
+        const { status } = await axios.get(
           "http://endlestone.com/kees/APIs/favorites/addFavorites.php",
           {
             params: {
@@ -32,20 +32,23 @@ const FavoriteButton = ({ storeID }: FavoriteButtonProps) => {
             },
           }
         );
-        console.log(data);
 
         if (status === 200) {
           setCheck(true);
-          console.log("succfully");
           localStorage.setItem(`${storeID}`, JSON.stringify(check));
         }
       } catch (error) {
-        console.log(error);
-        console.log(userEmail);
-        console.log(storeID);
+        await axios.get(
+          "http://endlestone.com/kees/APIs/favorites/removeFavorites.php",
+          {
+            params: {
+              email: userEmail,
+              storeID: storeID,
+            },
+          }
+        );
       }
     } else {
-      console.log("bad");
       localStorage.removeItem(`${storeID}`);
       await axios.get(
         "http://endlestone.com/kees/APIs/favorites/removeFavorites.php",

@@ -1,5 +1,51 @@
 /* Button */
-button {
+.button {
+  color: var(--three-color);
+  background: transparent;
+  font-family: inherit;
+  font-weight: bold;
+  display: inline-block;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--three-color);
+  border: 2px solid var(--three-color);
+  border-radius: 6px;
+  position: relative;
+  margin: auto;
+}
+
+.button::before {
+  position: absolute;
+  content: "";
+  background: var(--three-color);
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.button:hover {
+  color: var(--second-color);
+}
+
+.button:before {
+  top: 100%;
+  left: 100%;
+  transition: 0.3s all;
+}
+
+.button:hover::before {
+  top: -30px;
+  left: -30px;
+}
+
+.register-button {
   position: relative;
   padding: 8px 15px;
   font-size: 1.2rem !important;
@@ -91,13 +137,13 @@ button {
   -webkit-filter: drop-shadow(0 0 0 var(--second-color));
 }
 
-button:hover {
+.register-button:hover {
   background: transparent !important;
   color: var(--first-color);
   box-shadow: 0 0 25px var(--first-color);
 }
 
-button:hover .star-1 {
+.register-button:hover .star-1 {
   position: absolute;
   top: -55%;
   left: -30%;
@@ -108,7 +154,7 @@ button:hover .star-1 {
   -webkit-filter: drop-shadow(0 0 0.75rem var(--second-color));
 }
 
-button:hover .star-2 {
+.register-button:hover .star-2 {
   position: absolute;
   top: -25%;
   left: 10%;
@@ -119,7 +165,7 @@ button:hover .star-2 {
   -webkit-filter: drop-shadow(0 0 0.75rem var(--second-color));
 }
 
-button:hover .star-3 {
+.register-button:hover .star-3 {
   position: absolute;
   top: 55%;
   left: 25%;
@@ -130,7 +176,7 @@ button:hover .star-3 {
   -webkit-filter: drop-shadow(0 0 0.75rem var(--second-color));
 }
 
-button:hover .star-4 {
+.register-button:hover .star-4 {
   position: absolute;
   top: 30%;
   left: 80%;
@@ -141,7 +187,7 @@ button:hover .star-4 {
   -webkit-filter: drop-shadow(0 0 0.75rem var(--second-color));
 }
 
-button:hover .star-5 {
+.register-button:hover .star-5 {
   position: absolute;
   top: 25%;
   left: 115%;
@@ -152,7 +198,7 @@ button:hover .star-5 {
   -webkit-filter: drop-shadow(0 0 0.75rem var(--second-color));
 }
 
-button:hover .star-6 {
+.register-button:hover .star-6 {
   position: absolute;
   top: 5%;
   left: 60%;

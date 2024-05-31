@@ -68,11 +68,8 @@ function Circle({
   favorite,
   icon,
   store_id,
-}: // Store_name,
-// Store_link,
-// Instagram_Link,
-// userFavorite,
-Icircle) {
+  Store_link,
+}: Icircle) {
   return (
     <div className="circle-container ">
       <div className="circle" key={id}>
@@ -89,10 +86,10 @@ Icircle) {
             {title}
           </h3>
           {icon}
-          {/* {Store_name} {Store_link} {Instagram_Link} */}
         </div>
         {description && <p className="card-description">{description}</p>}
       </div>
+      {Store_link && <p className="card-subtitle">{Store_link}</p>}
       {userData && favorite == true ? (
         <FavoriteButton
           storeID={store_id || ""}

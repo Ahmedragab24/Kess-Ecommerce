@@ -72,9 +72,9 @@
   margin-bottom: 4.75rem;
   font-size: 1.3rem;
   font-weight: var(--Regular-font) !important;
-  color: var(--three-color);
-  filter: drop-shadow(1px 0 0rem rgba(0, 0, 0, 0.5));
-  -webkit-filter: drop-shadow(1px 0 0rem rgba(0, 0, 0, 0.5));
+  color: var(--three-color) !important;
+  filter: drop-shadow(0 0px 0px var(--black-color)) !important;
+  -webkit-filter: drop-shadow(0 0px 0px var(--black-color)) !important;
 }
 
 /*-----------------------------------*\
@@ -249,9 +249,6 @@
     margin-bottom: 4rem;
     font-size: 1rem;
     font-weight: var(--Regular-font) !important;
-    color: var(--three-color) !important;
-    filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
-    -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
   }
 
   .about .title {

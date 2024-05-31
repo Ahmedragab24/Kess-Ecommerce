@@ -63,7 +63,7 @@ function Freelancer() {
         classNameImg="circle-Freelancer"
         animationTitle="card-title-left"
         lightSpeed="animate__lightSpeedInLeft"
-        linkPath={`/stores/${item.id}`}
+        linkPath={`/freelancer/${item.id}`}
         title={getLang === "ar" ? item.category_name_ar : item.category_name}
         description={getLang === "ar" ? item.description_ar : item.description}
         type={"CartSmall"}

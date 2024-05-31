@@ -11,6 +11,7 @@
 .section-form-login {
   position: relative !important;
   padding-block: 7rem;
+  direction: ltr !important;
 }
 
 .inner-login {
@@ -36,7 +37,7 @@
   transform: translateX(-94px);
 }
 
-form-login {
+.form-container-login {
   padding-top: 42px;
   min-width: 63.88%;
   transform: translateX(-34px);
@@ -256,7 +257,7 @@ form-login {
     max-width: 660px;
   }
 
-  form-login {
+  .form-container-login {
     padding-top: 0;
   }
 }
@@ -273,7 +274,7 @@ form-login {
     border-radius: 0;
   }
 
-  form-login {
+  .form-container-login {
     transform: translateX(0);
     padding-top: 40px;
   }
@@ -365,7 +366,7 @@ form-login {
     -o-transform: translateX(-94px);
   }
 
-  form {
+  .form-container-login {
     min-width: 50% !important;
   }
 

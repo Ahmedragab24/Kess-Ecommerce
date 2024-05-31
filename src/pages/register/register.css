@@ -38,7 +38,7 @@
   transform: translateX(-94px);
 }
 
-form {
+.form-container {
   padding-top: 42px;
   min-width: 63.88%;
   transform: translateX(-34px);
@@ -262,7 +262,7 @@ form {
     max-width: 660px;
   }
 
-  form {
+  .form-container {
     padding-top: 0;
   }
 }
@@ -279,7 +279,7 @@ form {
     border-radius: 0;
   }
 
-  form {
+  .form-container {
     transform: translateX(0);
     padding-top: 40px;
   }

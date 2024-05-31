@@ -7,7 +7,7 @@ import ScrollReveal from "scrollreveal";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import LinkCate from "./LinkCate";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 
 interface Category {
   id: string;
@@ -138,12 +138,13 @@ function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="footer-link" to={"/Privacy policy"}>
+                  <Link className="footer-link" to={"/privacyPolicy"}>
+                    <ScrollRestoration />
                     {getLang === "ar" ? "سياسة الخصوصية" : "Privacy policy"}
                   </Link>
                 </li>
                 <li>
-                  <Link className="footer-link" to={"/Terms of Service"}>
+                  <Link className="footer-link" to={"/termsOfService"}>
                     {getLang === "ar" ? "شروط الخدمة" : "Terms of Service"}
                   </Link>
                 </li>
