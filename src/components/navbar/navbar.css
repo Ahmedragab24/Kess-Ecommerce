@@ -153,6 +153,10 @@
 /* =========== Media Query ========== */
 /* Navigation for mobile devices */
 @media screen and (max-width: 992px) {
+  .navbar .container {
+    margin-inline: 1.25rem !important;
+  }
+
   .menu {
     display: flex !important;
     justify-content: center !important;
@@ -168,11 +172,30 @@
     padding: 0.35rem 0.55rem !important;
   }
 
+  .navbar-toggler {
+    border-color: var(--three-color) !important;
+  }
+
+  .navbar-toggler-icon {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: 0px 0px 10px var(--second-color) !important;
+    border-color: var(--second-color) !important;
+  }
+
   .brand-1 {
     display: block !important;
-    height: 80px;
     display: flex !important;
     justify-content: right !important;
+  }
+
+  .Logo-1 {
+    width: 45px;
+    height: 50px;
   }
 
   .brand-2 {

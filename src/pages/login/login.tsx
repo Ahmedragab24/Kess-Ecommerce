@@ -160,6 +160,7 @@ function Login() {
 
               <div className="btn-register-login">
                 <Button
+                  type="submit"
                   variant="outlined"
                   sx={{
                     borderColor: "var(--three-color)",

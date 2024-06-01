@@ -35,7 +35,7 @@ function Freelanc() {
   useEffect(() => {
     axios
       .get(
-        `http://endlestone.com/kees/APIs/stores/getFreelance.php?categoryID=${id}`
+        `https://endlestone.com/kees/APIs/stores/getFreelance.php?categoryID=${id}`
       )
       .then((res) => {
         setFreelancer(res.data.msg);
@@ -47,6 +47,7 @@ function Freelanc() {
     return freelancer.map((item) => {
       return (
         <Card
+          key={item.id}
           sx={{
             width: 320,
             maxWidth: "100%",

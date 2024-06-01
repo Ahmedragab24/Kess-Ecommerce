@@ -5,8 +5,8 @@
 }
 
 .CartBig {
-  width: 16rem !important;
-  height: 16rem !important;
+  width: 13rem !important;
+  height: 13rem !important;
   position: relative !important;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
     0 10px 10px 0 rgba(0, 0, 0, 0.19) !important;
@@ -158,8 +158,8 @@
 
 @media screen and (min-width: 768px) {
   .CartBig {
-    width: 22rem;
-    height: 22rem;
+    width: 16rem !important;
+    height: 16rem !important;
     position: relative !important;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
       0 10px 10px 0 rgba(0, 0, 0, 0.19) !important;

@@ -1,7 +1,7 @@
 .card-figure {
   position: relative;
-  width: 320px;
-  height: 450px !important;
+  width: 280px;
+  height: 400px !important;
   overflow: hidden !important;
   display: grid;
   cursor: pointer;
@@ -113,4 +113,11 @@
   -o-transform: scale(1.1);
   filter: drop-shadow(0 0 1px rgb(0, 0, 0));
   -webkit-filter: drop-shadow(0 0 1px rgb(0, 0, 0));
+}
+
+@media (min-width: 768px) {
+  .card-figure {
+    width: 320px;
+    height: 450px !important;
+  }
 }
