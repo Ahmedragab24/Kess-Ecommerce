@@ -28,7 +28,7 @@ function StoriesPage() {
     try {
       // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
       axios
-        .get("http://endlestone.com/kees/APIs/favorites/getFavorites.php", {
+        .get("https://endlestone.com/kees/APIs/favorites/getFavorites.php", {
           params: {
             email: userEmail,
           },
@@ -81,7 +81,7 @@ function StoriesPage() {
   // Handler
   const handelDelete = async (storeID: string) => {
     await axios.get(
-      "http://endlestone.com/kees/APIs/favorites/removeFavorites.php",
+      "https://endlestone.com/kees/APIs/favorites/removeFavorites.php",
       {
         params: {
           email: userEmail,

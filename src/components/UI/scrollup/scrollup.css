@@ -45,7 +45,12 @@
     right: 1rem !important;
     bottom: -20% !important;
     width: 1.85rem;
-    height: 2rem;
+    height: 1.85rem;
+  }
+
+  .scrollup__icon {
+    width: 1.85rem;
+    height: 1.15rem;
   }
 
   .show-scroll {

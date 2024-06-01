@@ -327,6 +327,7 @@ function About() {
 
           <div className="special-dish-content">
             <div className="container">
+              <div className="our-mission-badge">
               <img
                 src={badge}
                 width="28"
@@ -335,6 +336,7 @@ function About() {
                 className="abs-img"
               />
               <p className="section-subtitle label-2">Our Mission</p>
+              </div>
 
               <h2 className="headline-1 section-title">who we are</h2>
 
@@ -492,7 +494,7 @@ function About() {
         </div>
       </section>
 
-      <section className="py-3 py-md-5 py-xl-8">
+      <section className="py-3 py-md-5 py-xl-8 ourClient-section">
         <div className="container">
           <div className="row justify-content-md-center">
             <div className="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
@@ -508,7 +510,7 @@ function About() {
           </div>
         </div>
 
-        <div className="container overflow-hidden">
+        <div className="container ourClient-cards overflow-hidden">
           <div className="row gy-4">
             <div className="col-6 col-md-4 col-xl-3 text-center">
               <div className="ourClient-card text-secondary px-4 py-3 px-md-6 py-md-4 px-lg-8 py-lg-5">

@@ -10,7 +10,7 @@
   border: none !important;
 }
 
-.terms-container .terms-title {
+.terms-container .terms-title-terms {
   margin-bottom: -0.55rem;
   font-size: 2.55rem !important;
   font-weight: bolder;
@@ -24,7 +24,7 @@
   margin-bottom: 2rem;
 }
 
-.terms-container .card-title {
+.terms-container .card-title-terms {
   margin-bottom: 1.55rem;
   color: var(--black-color) !important;
   filter: drop-shadow(1px 1px 1px var(--first-color)) !important;

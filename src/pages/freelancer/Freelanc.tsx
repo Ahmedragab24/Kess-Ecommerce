@@ -51,7 +51,7 @@ function Freelanc() {
             width: 320,
             maxWidth: "100%",
             boxShadow: "0 0 10px gray",
-            backgroundColor: "var(--light-first-color)",
+            backgroundColor: "var(--spical-color-2)",
           }}
         >
           <CardContent sx={{ alignItems: "center", textAlign: "center" }}>
@@ -169,7 +169,7 @@ function Freelanc() {
           </CardContent>
           <CardOverflow
             sx={{
-              backgroundColor: "var(--light-first-color)",
+              backgroundColor: "var(--spical-color-2)",
             }}
           >
             <CardActions buttonFlex="1">
