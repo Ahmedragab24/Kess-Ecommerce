@@ -164,9 +164,11 @@ function Footer() {
         className="Copyright text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        © 2024 Copyright:
-        <Link to={"/"} className="namecompany ms-1">
-          Kees
+        {getLang === "ar"
+          ? "جميع الحقوق محفوظة  © 2024 ل"
+          : "All rights reserved  © 2024 by "}
+        <Link to={"/"} className="namecompany mx-2">
+          {getLang === "ar" ? "كيس" : "Kees"}
         </Link>
       </div>
       {/* <!-- Copyright --> */}

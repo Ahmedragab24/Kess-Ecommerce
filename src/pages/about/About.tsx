@@ -12,10 +12,8 @@ import Image from "../../components/UI/Image";
 import Line from "../../assets/imgs/line.png";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-
-// import manger1 from "../../assets/imgs/about/service-1.jpg";
-// import manger2 from "../../assets/imgs/about/service-2.jpg";
-// import manger3 from "../../assets/imgs/about/service-3.jpg";
+import ScrollReveal from "scrollreveal";
+import { useEffect } from "react";
 
 function About() {
   const [index, setIndex] = useState(0);
@@ -23,6 +21,27 @@ function About() {
   const handleSelect = (selectedIndex: SetStateAction<number>) => {
     setIndex(selectedIndex);
   };
+
+  // ScrollReveal
+  useEffect(() => {
+    const sr = ScrollReveal({
+      origin: "top",
+      distance: "60px",
+      duration: 2500,
+      delay: 400,
+      // reset: true,
+    });
+
+    sr.reveal(
+      `.section-carousel, .WhoWeAre, .section-video , .contact-section `
+    );
+    sr.reveal(`.section-subtitle`, { delay: 400 });
+    sr.reveal(`.section-title`, { delay: 500 });
+    sr.reveal(`.line`, { delay: 600 });
+    sr.reveal(`.features-grid-list, .responsive-container-block`, {
+      delay: 700,
+    });
+  }, []);
 
   return (
     <main className="AboutUs">
@@ -328,14 +347,14 @@ function About() {
           <div className="special-dish-content">
             <div className="container">
               <div className="our-mission-badge">
-              <img
-                src={badge}
-                width="28"
-                height="41"
-                alt="badge"
-                className="abs-img"
-              />
-              <p className="section-subtitle label-2">Our Mission</p>
+                <img
+                  src={badge}
+                  width="28"
+                  height="41"
+                  alt="badge"
+                  className="abs-img"
+                />
+                <p className="section-subtitle label-2">Our Mission</p>
               </div>
 
               <h2 className="headline-1 section-title">who we are</h2>
@@ -621,7 +640,7 @@ function About() {
       </section>
 
       <section
-        className="container-about d-flex justify-content-center align-items-center"
+        className="container-about contact-section d-flex justify-content-center align-items-center"
         id="contact"
       >
         <svg

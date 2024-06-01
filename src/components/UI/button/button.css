@@ -49,13 +49,11 @@
   position: relative;
   padding: 8px 15px;
   font-size: 1.2rem !important;
-  font-weight: var(--ExtraBold-font) !important;
+  font-weight: 900 !important;
   background: var(--button-color) !important;
-
   color: var(--three-color);
   border: 3px solid var(--body-color);
   box-shadow: 0 0 0 #fec1958c;
-
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   border-radius: 8px !important;

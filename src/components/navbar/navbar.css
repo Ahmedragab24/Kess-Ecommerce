@@ -1,10 +1,11 @@
 .navbar {
-  background: #f1e4d5 !important;
-  /*fallbackforoldbrowsers*/
-  background: -webkit-linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
-  /*Chrome10-25,Safari5.1-6*/
-  background: linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
-  box-shadow: 0 0px 0px 0 var(--spical-color), 0 6px 20px 0 var(--spical-color);
+  background-color: var(--spical-color-2) !important;
+  /* background: #f1e4d5 !important; */
+  /* background: linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
+  background: -webkit-linear-gradient(to right, #f1e4d5, #f4e2d8) !important; */
+  box-shadow: 0 0px 0px 0 #d3936946, 0 6px 20px 0 #d3936946;
+  border-bottom-left-radius: 3rem !important;
+  border-bottom-right-radius: 3rem !important;
 }
 
 .container {
@@ -16,6 +17,8 @@
   font-size: 1.1rem !important;
   font-weight: var(--Bold-font) !important;
   color: var(--three-color) !important;
+  filter: drop-shadow(0 0 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(0 0 0px var(--first-color)) !important;
   transition: 0.3s !important;
   -webkit-transition: 0.3s !important;
   -moz-transition: 0.3s !important;
@@ -24,7 +27,7 @@
 }
 
 .nav-item .active {
-  background-color: var(--spical-color) !important;
+  background-color: var(--button-color) !important;
   color: var(--first-color) !important;
   padding: 0.35rem;
   border-radius: 1rem;
@@ -58,11 +61,7 @@
 }
 
 .dropdown-menu {
-  background: #f1e4d5 !important;
-  /*fallbackforoldbrowsers*/
-  background: -webkit-linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
-  /*Chrome10-25,Safari5.1-6*/
-  background: linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
+  background-color: var(--spical-color-2) !important;
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.095),
     0 6px 20px 0 rgba(0, 0, 0, 0.106);
   transition: 0.3s !important;
@@ -89,7 +88,7 @@
   -o-transition: 0.3s !important;
 }
 .dropdown-menu .text-color:hover {
-  background-color: var(--spical-color) !important;
+  background-color: var(--button-color) !important;
   transform: scaleX(0.9) !important;
   -webkit-transform: scaleX(0.9) !important;
   -moz-transform: scaleX(0.9) !important;
@@ -117,12 +116,26 @@
   font-size: 1.2rem !important;
   font-weight: var(--ExtraBold-font) !important;
   color: var(--three-color) !important;
+  filter: drop-shadow(0 0 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(0 0 0px var(--first-color)) !important;
   margin: auto;
+  transition: 0.3s !important;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  -ms-transition: 0.3s !important;
+  -o-transition: 0.3s !important;
 }
 
 .Login:hover {
   color: var(--first-color) !important;
   background-color: var(--button-color) !important;
+  filter: drop-shadow(0 0 0px var(--first-color)) !important;
+  -webkit-filter: drop-shadow(0 0 0px var(--first-color)) !important;
+  transition: 0.3s !important;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  -ms-transition: 0.3s !important;
+  -o-transition: 0.3s !important;
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {

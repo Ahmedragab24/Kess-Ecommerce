@@ -2,11 +2,11 @@
 .footer {
   border-top: 5px solid var(--spical-color) !important;
   padding-top: 3rem;
-  border-radius: 20% !important;
-  -webkit-border-radius: 20% !important;
-  -moz-border-radius: 20% !important;
-  -ms-border-radius: 20% !important;
-  -o-border-radius: 20% !important;
+  border-radius: 18% !important;
+  -webkit-border-radius: 18% !important;
+  -moz-border-radius: 18% !important;
+  -ms-border-radius: 18% !important;
+  -o-border-radius: 18% !important;
 }
 
 .footer .social {
@@ -95,5 +95,15 @@
 
   .footer-description {
     font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    border-radius: 10% !important;
+    -webkit-border-radius: 10% !important;
+    -moz-border-radius: 10% !important;
+    -ms-border-radius: 10% !important;
+    -o-border-radius: 10% !important;
   }
 }

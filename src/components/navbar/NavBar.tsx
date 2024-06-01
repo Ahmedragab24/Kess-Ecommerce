@@ -119,7 +119,7 @@ const NavBar = () => {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className="navbar bg-body-tertiary fs-5 position-sticky"
+      className="navbar  fs-5 position-sticky"
       sticky="top"
     >
       <Container className="container">
