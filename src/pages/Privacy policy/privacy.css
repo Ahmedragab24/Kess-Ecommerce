@@ -20,7 +20,7 @@
 }
 
 .privacy-container .Line {
-  width: 22%;
+  width: 55%;
   margin-bottom: 2rem;
 }
 
@@ -35,4 +35,16 @@
   color: var(--black-color);
   filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
   -webkit-filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
+}
+
+@media screen and (min-width: 768px) {
+  .privacy-container .Line {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .privacy-container .Line {
+    width: 22%;
+  }
 }

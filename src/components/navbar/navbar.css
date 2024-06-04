@@ -107,8 +107,8 @@
 
 .Logo-1,
 .Logo-2 {
-  width: 55px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
 }
 
 .Login {
@@ -151,7 +151,14 @@
 }
 
 /* =========== Media Query ========== */
-/* Navigation for mobile devices */
+@media screen and (min-width: 768px) {
+  .Logo-1,
+  .Logo-2 {
+    width: 55px;
+    height: 55px;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .navbar .container {
     margin-inline: 1.25rem !important;
@@ -193,11 +200,6 @@
     justify-content: right !important;
   }
 
-  .Logo-1 {
-    width: 45px;
-    height: 50px;
-  }
-
   .brand-2 {
     display: none !important;
   }
@@ -225,17 +227,18 @@
   }
 
   .Logo-2 {
-    width: 90px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
   }
 
-  /* .item {
-    font-size: 1.1rem !important;
-  } */
 }
 
 @media screen and (min-width: 992px) {
   .navbar {
     height: 90px !important;
+  }
+
+  .hero-title {
+    font-size: 1.75rem !important;
   }
 }

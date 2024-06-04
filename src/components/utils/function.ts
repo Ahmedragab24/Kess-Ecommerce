@@ -1,3 +1,4 @@
+
 export const diractionLang = () => {
   const getLang: string | null = localStorage.getItem("lang");
   const body: HTMLElement | null = document.body;

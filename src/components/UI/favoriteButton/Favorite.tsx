@@ -6,7 +6,7 @@ import axios from "axios";
 import { ReactNode, useState } from "react";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
-const getLang = localStorage.getItem("lang");
+// const getLang = localStorage.getItem("lang");
 
 interface FavoriteButtonProps {
   storeID: string;
@@ -81,7 +81,7 @@ const FavoriteButton = ({ storeID }: FavoriteButtonProps) => {
         checked={true}
         color="error"
       />
-      <h4 className="favorite-text">
+      {/* <h4 className="favorite-text">
         {localGetFavorite
           ? getLang === "ar"
             ? "تم اضافته الي المفضله"
@@ -89,7 +89,7 @@ const FavoriteButton = ({ storeID }: FavoriteButtonProps) => {
           : getLang === "ar"
           ? "إضف إلي المفضلة"
           : "Add To Favorite"}
-      </h4>
+      </h4> */}
     </div>
   );
 };

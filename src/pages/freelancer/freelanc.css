@@ -1,0 +1,28 @@
+.container-Freelancer {
+  display: grid;
+  grid-template-columns: repeat(1, max-content) !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px;
+}
+
+@media screen and (min-width: 576px) {
+  .container-Freelancer {
+    grid-template-columns: repeat(2, max-content) !important;
+    gap: 5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container-Freelancer {
+    grid-template-columns: repeat(3, max-content) !important;
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container-Freelancer {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 2rem;
+  }
+}

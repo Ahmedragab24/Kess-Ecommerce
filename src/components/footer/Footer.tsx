@@ -6,8 +6,10 @@ import { RiTwitterFill } from "@remixicon/react";
 import ScrollReveal from "scrollreveal";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import LinkCate from "./LinkCate";
 import { Link, ScrollRestoration } from "react-router-dom";
+import LinkCate1 from "./LinkCate1";
+import LinkCate2 from "./LinkCate2";
+import LinkCate3 from "./LinkCate3";
 
 interface Category {
   id: string;
@@ -51,19 +53,6 @@ function Footer() {
     sr.reveal(`.row, .list-unstyled, .Copyright`, { delay: 700 });
   }, []);
 
-  // Sort by Category
-  const CategoriesLink = (id: string) => {
-    if (id === "1") {
-      return <LinkCate categoryID="1" />;
-    }
-    if (id === "3") {
-      return <LinkCate categoryID="3" />;
-    }
-    if (id === "5") {
-      return <LinkCate categoryID="5" />;
-    }
-  };
-
   // Render Global Categories
   const renderCategories = () => {
     return categories.map((category) => {
@@ -74,7 +63,9 @@ function Footer() {
               ? category.category_name_ar
               : category.category_name}
           </h5>
-          {CategoriesLink(category.id)}
+          {category.id === "1" && <LinkCate1 />}
+          {category.id === "3" && <LinkCate2 />}
+          {category.id === "5" && <LinkCate3 />}
         </div>
       );
     });

@@ -2,8 +2,6 @@ import { Avatar } from "@mui/material";
 import "./card.css";
 import FavoriteButton from "../favoriteButton/Favorite";
 import { Link } from "react-router-dom";
-import LinkIcon from "@mui/icons-material/Link";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import axios from "axios";
@@ -50,17 +48,17 @@ function Card({
   useEffect(() => {
     axios
       .get(
-        `https://endlestone.com/kees/APIs/products/getProducts.php?storeID=13`
+        `https://endlestone.com/kees/APIs/products/getProducts.php?storeID=${store_id}`
       )
       .then((res) => {
         setStoreImages(res.data.msg);
       });
-  }, []);
+  }, [store_id]);
 
   // Render Store Images
   const renderStoreImages = () => {
     return storeImages.map((image) => (
-      <Carousel.Item>
+      <Carousel.Item key={image.name}>
         <Image className="store" imageURL={image.photo} alt={image.name} />
       </Carousel.Item>
     ));
@@ -75,32 +73,28 @@ function Card({
           onSelect={handleSelect}
           slide={true}
           pause={false}
-          indicators={false}
+          indicators={true}
           touch={true}
+          wrap={true}
+          keyboard={true}
+          controls={false}
         >
           {renderStoreImages()}
         </Carousel>
       </Link>
-      <div className="store-info card-title-left fancy animate__animated animate__lightSpeedInLeft">
-        <Avatar
-          className="avatar-store"
-          alt={Store_name}
-          src={Photo}
-          sx={{ width: 56, height: 56 }}
-        />
-        <h3 className="store-name">{Store_name}</h3>
-      </div>
+      <Link to={Store_link || Instagram_Link || "#"}>
+        <div className="store-info card-title-left fancy animate__animated animate__lightSpeedInLeft">
+          <Avatar className="avatar-store" alt={Store_name} src={Photo} />
+          <h3 className="store-name">{Store_name}</h3>
+        </div>
+      </Link>
       <div className="store-links-container">
         <div className="store-links card-title-left fancy animate__animated animate__lightSpeedInLeft">
           {userData && favorite == true ? (
-            <FavoriteButton storeID={store_id || ""} />
+            <FavoriteButton
+              storeID={store_id || ""}
+            />
           ) : null}
-          <Link to={Store_link || "#"} target="_blank" rel="noreferrer">
-            <LinkIcon className="link-icon" />
-          </Link>
-          <Link to={Instagram_Link || "#"} target="_blank" rel="noreferrer">
-            <InstagramIcon className="link-icon instagram" />
-          </Link>
         </div>
       </div>
     </figure>

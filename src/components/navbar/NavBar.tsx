@@ -13,8 +13,10 @@ import ScrollReveal from "scrollreveal";
 import { useEffect, useState } from "react";
 import UserProfile from "../auth/userProfile/UserProfile";
 import axios from "axios";
-import LinkNav from "./LinkNav";
+import LinkNav1 from "./LinkNav1";
 import { diractionLang } from "../utils/function";
+import LinkNav2 from "./LinkNav2";
+import LinkNav3 from "./LinkNav3";
 
 const storageKey = "User";
 const userDataString = localStorage.getItem(storageKey);
@@ -78,19 +80,6 @@ const NavBar = () => {
     sr.reveal(`.Logo-2`);
   }, []);
 
-  // Sort by Category
-  const CategoriesLink = (id: string) => {
-    if (id === "1") {
-      return <LinkNav categoryID="1" />;
-    }
-    if (id === "3") {
-      return <LinkNav categoryID="3" />;
-    }
-    if (id === "5") {
-      return <LinkNav categoryID="5" />;
-    }
-  };
-
   // Render Global Categories
   const renderCategories = () => {
     return categories.map((category) => {
@@ -104,10 +93,12 @@ const NavBar = () => {
               : category.category_name
           }
           id="collapsible-nav-dropdown"
-          as={NavLink}
-          to={`/stores/${category.id}`}
+          // as={NavLink}
+          // to={`/stores/${category.id}`}
         >
-          {CategoriesLink(category.id)}
+          {category.id === "1" && <LinkNav1 />}
+          {category.id === "3" && <LinkNav2 />}
+          {category.id === "5" && <LinkNav3 />}
         </NavDropdown>
       );
     });
@@ -123,11 +114,13 @@ const NavBar = () => {
       sticky="top"
     >
       <Container className="container">
-        <Navbar.Brand className="brand-1 " href="#home">
-          <div className="brand">
-            <Image imageURL={img} alt="logo" className="Logo-1" />
-          </div>
-        </Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand className="brand-1">
+            <div className="brand">
+              <Image imageURL={img} alt="logo" className="Logo-1" />
+            </div>
+          </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="right-menu menu me-auto gap-2">

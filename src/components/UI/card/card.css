@@ -1,7 +1,7 @@
 .card-figure {
   position: relative;
-  width: 280px;
-  height: 400px !important;
+  width: 160px;
+  height: 280px !important;
   overflow: hidden !important;
   display: grid;
   cursor: pointer;
@@ -10,11 +10,8 @@
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
-  box-shadow: 0 0 10px #000000;
-  -webkit-box-shadow: 0 0 10px #000000;
-  -moz-box-shadow: 0 0 10px #000000;
-  -ms-box-shadow: 0 0 10px #000000;
-  -o-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 5px #000000;
+  margin: 0 !important;
 }
 
 .card-figure > * {
@@ -22,7 +19,8 @@
 }
 
 .card-figure .store {
-  height: 450px;
+  width: 160px;
+  height: 280px !important;
   transition: 0.4s;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -48,9 +46,8 @@
 }
 
 .store-info {
-  height: 50px;
+  height: 15px;
   display: flex;
-  align-items: center;
   justify-content: start;
   flex-direction: row;
   gap: 1rem;
@@ -65,6 +62,8 @@
 }
 
 .avatar-store {
+  width: 20px !important;
+  height: 20px !important;
   transition: 0.4s;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -73,7 +72,7 @@
 }
 
 .store-name {
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: #fff;
   filter: drop-shadow(2px 2px 100px #000000);
@@ -83,26 +82,16 @@
 .store-links {
   display: flex;
   align-items: end;
-  justify-content: center;
-  gap: 1rem;
-  filter: drop-shadow(0 0 100px rgb(0, 0, 0));
-  -webkit-filter: drop-shadow(0 0 100px rgb(0, 0, 0));
+  justify-content: flex-end;
   width: 100%;
   position: absolute;
-  padding: 0.55rem 1rem 1rem 0.25rem;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.455);
-  border-radius: 1.25rem;
-  -webkit-border-radius: 1.25rem;
-  -moz-border-radius: 1.25rem;
-  -ms-border-radius: 1.25rem;
-  -o-border-radius: 1.25rem;
+  top: -8px;
   z-index: 1000;
 }
 
-.link-icon {
-  margin-bottom: 0.5rem;
+.container-favorite {
+  width: 35px !important;
+  height: 35px !important;
 }
 
 .link-icon:hover {
@@ -115,9 +104,157 @@
   -webkit-filter: drop-shadow(0 0 1px rgb(0, 0, 0));
 }
 
+.card-figure .carousel-indicators {
+  margin-bottom: 0.25rem !important;
+  z-index: 1000;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.card-figure .carousel-indicators button {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin: 0.25rem;
+}
+
+@media screen and (min-width: 467px) {
+  .card-figure {
+    width: 200px;
+  }
+
+  .card-figure .store {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .card-figure {
+    width: 250px;
+    height: 320px !important;
+  }
+
+  .card-figure .store {
+    width: 250px;
+    height: 320px !important;
+  }
+
+  .store-info {
+    gap: 0.55rem;
+    margin: 1.55rem;
+    align-items: center;
+  }
+
+  .avatar-store {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .store-name {
+    font-size: 1rem;
+  }
+
+  .store-links {
+    top: -6px;
+  }
+
+  .container-favorite {
+    width: 35px !important;
+    height: 35px !important;
+    margin: 1rem;
+  }
+
+  .card-figure .carousel-indicators {
+    margin-bottom: 0.25rem !important;
+    z-index: 1000;
+  }
+
+  .card-figure .carousel-indicators button {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin: 0.25rem;
+  }
+}
+
 @media (min-width: 768px) {
   .card-figure {
     width: 320px;
     height: 450px !important;
+  }
+
+  .card-figure .store {
+    width: 320px;
+    height: 450px !important;
+  }
+
+  .store-info {
+    gap: 0.75rem;
+    margin: 2.25rem 1.25rem;
+  }
+
+  .avatar-store {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .store-name {
+    font-size: 1.2rem;
+  }
+
+  .store-links {
+    top: 0px;
+  }
+
+  .container-favorite {
+    width: 45px !important;
+    height: 45px !important;
+    margin: 2.25rem 1.25rem;
+  }
+
+  .card-figure .carousel-indicators {
+    margin-bottom: 1rem !important;
+  }
+
+  .card-figure .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-figure {
+    width: 320px;
+    height: 450px !important;
+  }
+
+  .card-figure .store {
+    width: 320px;
+    height: 450px !important;
+  }
+
+  .avatar-store {
+    width: 55px !important;
+    height: 55px !important;
+  }
+
+  .store-name {
+    font-size: 1.25rem;
+  }
+
+  .container-favorite {
+    width: 45px !important;
+    height: 45px !important;
+    margin: 2.25rem 1.25rem;
+  }
+
+  .card-figure .carousel-indicators {
+    margin-bottom: 1rem !important;
+  }
+
+  .card-figure .carousel-indicators button {
+    width: 10px;
+    height: 10px;
   }
 }

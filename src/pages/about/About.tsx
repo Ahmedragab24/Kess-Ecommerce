@@ -4,6 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import CarouselImg1 from "../../assets/imgs//about/Orange Baner.jpg";
 import CarouselImg2 from "../../assets/imgs/about/baner2.jpg";
 import CarouselImg3 from "../../assets/imgs/about/baner3.jpg";
+import baner from "../../assets/imgs/login.jpg";
 import video from "../../assets/video/video.mp4";
 import badge from "../../assets/imgs/about/badge.png";
 import starsTop from "/src/assets/imgs/stars-top.png";
@@ -336,7 +337,7 @@ function About() {
         <div className="special-dish  " aria-labelledby="dish-label">
           <div className="special-dish-banner ">
             <img
-              src={CarouselImg1}
+              src={baner}
               width="560"
               height="570"
               alt="special dish"

@@ -56,36 +56,38 @@
 
 .footer section p,
 .footer ul li a,
-.footer-link {
+.footer-link,
+.footer .dropdown-item {
   font-size: 1rem !important;
-  font-weight: var(--Regular-font) !important;
+  font-weight: 500 !important;
   color: var(--three-color) !important;
   filter: drop-shadow(0 0px 0px var(--black-color)) !important;
   -webkit-filter: drop-shadow(0 0px 0px var(--black-color)) !important;
-  transition: color 0.3s !important;
-  -webkit-transition: color 0.3s !important;
-  -moz-transition: color 0.3s !important;
-  -ms-transition: color 0.3s !important;
-  -o-transition: color 0.3s !important;
+  transition: 0.3s !important;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  -ms-transition: 0.3s !important;
+  -o-transition: 0.3s !important;
 }
 
 .footer ul li a:hover,
 .footer-link:hover,
-.footer .namecompany:hover {
-  font-weight: var(--Bold-font) !important;
+.footer .namecompany:hover,
+.footer .dropdown-item:hover {
   color: var(--first-color) !important;
-  filter: drop-shadow(0px 0px 0px var(--three-color)) !important;
-  -webkit-filter: drop-shadow(0px 0px 0px var(--three-color)) !important;
-  transition: color 0.3s !important;
-  -webkit-transition: color 0.3s !important;
-  -moz-transition: color 0.3s !important;
-  -ms-transition: color 0.3s !important;
-  -o-transition: color 0.3s !important;
+  transition: 0.3s !important;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  -ms-transition: 0.3s !important;
+  -o-transition: 0.3s !important;
 }
-/* 
-.footer-link {
-  padding-inline-end: 1rem !important;
-} */
+
+.footer .dropdown-item:hover,
+.footer .dropdown-item:focus {
+  background-color: none !important;
+  color: var(--first-color) !important;
+  box-shadow: none !important;
+}
 
 @media screen and (max-width: 575px) {
   .footer .social {
