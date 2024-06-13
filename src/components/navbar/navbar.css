@@ -107,8 +107,8 @@
 
 .Logo-1,
 .Logo-2 {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
 }
 
 .Login {
@@ -181,11 +181,12 @@
 
   .navbar-toggler {
     border-color: var(--three-color) !important;
+    padding: 0.25rem 0.55rem !important;
   }
 
   .navbar-toggler-icon {
-    width: 25px !important;
-    height: 25px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   .navbar-toggler:focus {
@@ -230,7 +231,6 @@
     width: 65px;
     height: 65px;
   }
-
 }
 
 @media screen and (min-width: 992px) {
@@ -240,5 +240,23 @@
 
   .hero-title {
     font-size: 1.75rem !important;
+  }
+
+  .text-color,
+  #collapsible-nav-dropdown {
+    font-size: 0.95rem !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .text-color,
+  #collapsible-nav-dropdown,
+  .navbar button,
+  .navbar .btn {
+    font-size: 1rem !important;
+  }
+
+  .dropdown-item {
+    font-size: 0.95rem !important;
   }
 }

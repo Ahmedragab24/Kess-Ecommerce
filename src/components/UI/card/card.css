@@ -62,8 +62,8 @@
 }
 
 .avatar-store {
-  width: 20px !important;
-  height: 20px !important;
+  width: 25px !important;
+  height: 25px !important;
   transition: 0.4s;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -72,7 +72,7 @@
 }
 
 .store-name {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #fff;
   filter: drop-shadow(2px 2px 100px #000000);

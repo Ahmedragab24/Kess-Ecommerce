@@ -69,7 +69,7 @@ function Stores() {
   return (
     <section className="stores">
       <div className="title-container">
-        <h1 className="store-title">{id} Stores</h1>
+        <h1 className="store-title">{getLang === "ar" ? "متاجر" : "Stores"}</h1>
         <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
       <div className="stores-container-child container ">

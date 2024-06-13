@@ -22,6 +22,8 @@ import About from "../pages/about/About";
 import Freelanc from "../pages/freelancer/Freelanc";
 import PrivacyPolicy from "../pages/Privacy policy/Privacy policy";
 import TermsOfService from "../pages/Terms of Service/Terms of Service";
+import RegistertionStore from "../pages/registertionStore/RegistertionStore";
+import RegistertionFreelancer from "../pages/registertionFreelacer/RegistertionFreelancer";
 
 const storageKey = "User";
 const userDataString = localStorage.getItem(storageKey);
@@ -45,6 +47,11 @@ const router = createBrowserRouter(
         <Route path="/otp" element={<Otp />} />
         <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
         <Route path="/termsOfService" element={<TermsOfService />} />
+        <Route path="/registertionStore" element={<RegistertionStore />} />
+        <Route
+          path="/registertionFreelancer"
+          element={<RegistertionFreelancer />}
+        />
 
         <Route
           path="/profile"

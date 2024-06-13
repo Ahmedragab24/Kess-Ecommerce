@@ -123,7 +123,7 @@ const NavBar = () => {
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="right-menu menu me-auto gap-2">
+          <Nav className="right-menu menu me-auto gap-1">
             <Nav.Item>
               <Nav.Link
                 as={NavLink}
@@ -135,6 +135,19 @@ const NavBar = () => {
                 {language === "ar" ? "الرئيسية" : "Home"}
               </Nav.Link>
             </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={NavLink}
+                to="/about"
+                eventKey="/about"
+                title="About Us"
+                className="text-color nav-link"
+              >
+                {language === "ar" ? "من نحن" : "About Us"}
+              </Nav.Link>
+            </Nav.Item>
+
             {renderCategories()}
           </Nav>
 

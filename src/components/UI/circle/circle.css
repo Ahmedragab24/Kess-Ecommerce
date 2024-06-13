@@ -25,8 +25,8 @@
 }
 
 .CartSmall {
-  width: 15rem;
-  height: 15rem;
+  width: 11rem;
+  height: 11rem;
   position: relative !important;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
     0 10px 10px 0 rgba(0, 0, 0, 0.19);
@@ -161,6 +161,32 @@
   .CartBig {
     width: 16rem !important;
     height: 16rem !important;
+    position: relative !important;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
+      0 10px 10px 0 rgba(0, 0, 0, 0.19) !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    border-radius: 35% !important;
+    -webkit-border-radius: 35% !important;
+    -moz-border-radius: 35% !important;
+    -ms-border-radius: 35% !important;
+    -o-border-radius: 35% !important;
+    transition: 0.5s !important;
+    -webkit-transition: 0.5s !important;
+    -moz-transition: 0.5s !important;
+    -ms-transition: 0.5s !important;
+    -o-transition: 0.5s !important;
+  }
+
+  .card-title {
+    font-size: 1.55rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .CartSmall {
+    width: 14rem !important;
+    height: 14rem !important;
     position: relative !important;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
       0 10px 10px 0 rgba(0, 0, 0, 0.19) !important;

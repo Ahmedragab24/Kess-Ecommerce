@@ -962,7 +962,7 @@
 @media screen and (min-width: 768px) {
   .container-about {
     flex-direction: row;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   .svg-about {
@@ -973,7 +973,7 @@
 @media screen and (min-width: 1200px) {
   .container-about {
     flex-direction: row;
-    gap: 4rem;
+    gap: 10rem;
   }
 
   .svg-about {

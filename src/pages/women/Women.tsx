@@ -1,70 +1,78 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+// import axios from "axios";
+// import { useEffect, useState } from "react";
 import Circle from "../../components/UI/circle/Circle";
 import { Link } from "react-router-dom";
 import Line from "../../assets/imgs/line.png";
-import ScrollReveal from "scrollreveal";
+// import ScrollReveal from "scrollreveal";
+import Dress from "../../assets/imgs/women/dress.jpg";
+import Perfume from "../../assets/imgs/women/Perfume.jpg";
+import Accessories from "../../assets/imgs/women/accessories.jpg";
+import Bag from "../../assets/imgs/women/bag.jpg";
+import Shoes from "../../assets/imgs/women/shoes.jpg";
+import Abaya from "../../assets/imgs/women/abaya.jpg";
+import Roop from "../../assets/imgs/women/roop.jpg";
+import Vist from "../../assets/imgs/women/vist.jpg";
 
-type Store = {
-  id: string;
-  category_name: string;
-  category_name_ar: string;
-  description?: string;
-  description_ar?: string;
-  photo: string;
-};
+// type Store = {
+//   id: string;
+//   category_name: string;
+//   category_name_ar: string;
+//   description?: string;
+//   description_ar?: string;
+//   photo: string;
+// };
 
 function Women() {
-  const [storesOfWomen, setStoresOfWomen] = useState<Store[]>([]);
+  // const [storesOfWomen, setStoresOfWomen] = useState<Store[]>([]);
   const getLang = localStorage.getItem("lang");
 
   // Handler
-  useEffect(() => {
-    try {
-      // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
-      axios
-        .get(
-          "https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=3&is_freelance=-1"
-        )
-        .then((res) => setStoresOfWomen(res.data.msg));
+  // useEffect(() => {
+  //   try {
+  //     // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
+  //     axios
+  //       .get(
+  //         "https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=3&is_freelance=-1"
+  //       )
+  //       .then((res) => setStoresOfWomen(res.data.msg));
 
-      // ScrollReveal
-      const sr = ScrollReveal({
-        origin: "top",
-        distance: "60px",
-        duration: 2000,
-        delay: 300,
-      });
+  //     // ScrollReveal
+  //     const sr = ScrollReveal({
+  //       origin: "top",
+  //       distance: "60px",
+  //       duration: 2000,
+  //       delay: 300,
+  //     });
 
-      sr.reveal(`.store-title`);
-      sr.reveal(`.line`, { delay: 400 });
-      sr.reveal(`.stores-container`, { delay: 500 });
-    } catch (error) {
-      console.log("Failed to fetch data:" + error);
-    }
-  }, []);
+  //     sr.reveal(`.store-title`);
+  //     sr.reveal(`.line`, { delay: 400 });
+  //     sr.reveal(`.stores-container`, { delay: 500 });
+  //   } catch (error) {
+  //     console.log("Failed to fetch data:" + error);
+  //   }
+  // }, []);
 
   // rendering
-  const storeListWomen = storesOfWomen.map((store) => {
-    return (
-      <Link key={store.id} to={`/stores/${store.id}`}>
-        <Circle
-          key={store.id}
-          id={store.id}
-          type={"CartSmall"}
-          title={
-            getLang === "ar" ? store.category_name_ar : store.category_name
-          }
-          imgUrl={store.photo}
-          alt={store.category_name}
-          classNameImg="store"
-          animationTitle="card-title-left"
-          lightSpeed="animate__lightSpeedInLeft"
-          linkPath={`/stores/${store.id}`}
-        />
-      </Link>
-    );
-  });
+  // const storeListWomen = storesOfWomen.map((store) => {
+  //   return (
+  //     <Link key={store.id} to={`/stores/${store.id}`}>
+  //       <Circle
+  //         key={store.id}
+  //         id={store.id}
+  //         type={"CartSmall"}
+  //         title={
+  //           getLang === "ar" ? store.category_name_ar : store.category_name
+  //         }
+  //         imgUrl={store.photo}
+  //         alt={store.category_name}
+  //         classNameImg="store"
+  //         animationTitle="card-title-left"
+  //         lightSpeed="animate__lightSpeedInLeft"
+  //         linkPath={`/stores/${store.id}`}
+  //       />
+  //     </Link>
+  //   );
+  // });
 
   return (
     <section className="stores">
@@ -74,7 +82,113 @@ function Women() {
         </h1>
         <img className="line" src={Line} alt="Line" loading="lazy" />
       </div>
-      <div className="stores-container">{storeListWomen}</div>
+      <div className="stores-container">
+        <Link to={`/stores/id`}>
+          <Circle
+            id={"id"}
+            type={"CartSmall"}
+            title={getLang === "ar" ? "فستان" : "Dress"}
+            imgUrl={Dress}
+            alt={"Women"}
+            classNameImg="store"
+            animationTitle="card-title-left"
+            lightSpeed="animate__lightSpeedInLeft"
+            linkPath={`/stores/id`}
+          />
+        </Link>
+        <Link to={`/stores/id`}>
+          <Circle
+            id={"id"}
+            type={"CartSmall"}
+            title={getLang === "ar" ? "برفان" : "Perfume"}
+            imgUrl={Perfume}
+            alt={"Women"}
+            classNameImg="store"
+            animationTitle="card-title-left"
+            lightSpeed="animate__lightSpeedInLeft"
+            linkPath={`/stores/id`}
+          />
+        </Link>
+        <Link to={`/stores/id`}>
+          <Circle
+            id={"id"}
+            type={"CartSmall"}
+            title={getLang === "ar" ? "أحذية" : "Shoes"}
+            imgUrl={Shoes}
+            alt={"Women"}
+            classNameImg="store"
+            animationTitle="card-title-left"
+            lightSpeed="animate__lightSpeedInLeft"
+            linkPath={`/stores/id`}
+          />
+        </Link>
+
+        <Link to={`/stores/id`}>
+          <Circle
+            id={"id"}
+            type={"CartSmall"}
+            title={getLang === "ar" ? "حقائب" : "Bags"}
+            imgUrl={Bag}
+            alt={"Women"}
+            classNameImg="store"
+            animationTitle="card-title-left"
+            lightSpeed="animate__lightSpeedInLeft"
+            linkPath={`/stores/id`}
+          />
+        </Link>
+        <Link to={`/stores/id`}>
+          <Circle
+            id={"id"}
+            type={"CartSmall"}
+            title={getLang === "ar" ? "اكسسوارات" : "Accessories"}
+            imgUrl={Accessories}
+            alt={"Women"}
+            classNameImg="store"
+            animationTitle="card-title-left"
+            lightSpeed="animate__lightSpeedInLeft"
+            linkPath={`/stores/id`}
+          />
+        </Link>
+        <Link to={`/stores/id`}>
+          <Circle
+            id={"id"}
+            type={"CartSmall"}
+            title={getLang === "ar" ? "عبايات" : "Abayas"}
+            imgUrl={Abaya}
+            alt={"Women"}
+            classNameImg="store"
+            animationTitle="card-title-left"
+            lightSpeed="animate__lightSpeedInLeft"
+            linkPath={`/stores/id`}
+          />
+        </Link>
+        <Link to={`/stores/id`}>
+          <Circle
+            id={"id"}
+            type={"CartSmall"}
+            title={getLang === "ar" ? "روب" : "Roop"}
+            imgUrl={Roop}
+            alt={"Women"}
+            classNameImg="store"
+            animationTitle="card-title-left"
+            lightSpeed="animate__lightSpeedInLeft"
+            linkPath={`/stores/id`}
+          />
+        </Link>
+        <Link to={`/stores/id`}>
+          <Circle
+            id={"id"}
+            type={"CartSmall"}
+            title={getLang === "ar" ? "فست" : "Vist"}
+            imgUrl={Vist}
+            alt={"Women"}
+            classNameImg="store"
+            animationTitle="card-title-left"
+            lightSpeed="animate__lightSpeedInLeft"
+            linkPath={`/stores/id`}
+          />
+        </Link>
+      </div>
     </section>
   );
 }

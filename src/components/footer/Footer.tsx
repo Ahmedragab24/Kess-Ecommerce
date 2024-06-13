@@ -129,6 +129,18 @@ function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link className="footer-link" to={"/registertionStore"}>
+                    {getLang === "ar" ? "معلومات عنا" : "Put your store"}
+                  </Link>
+                </li>
+                <li>
+                  <Link className="footer-link" to={"/registertionFreelancer"}>
+                    {getLang === "ar"
+                      ? "سجل ك فريلانسر"
+                      : "Register as a freelancer"}
+                  </Link>
+                </li>
+                <li>
                   <Link className="footer-link" to={"/privacyPolicy"}>
                     <ScrollRestoration />
                     {getLang === "ar" ? "سياسة الخصوصية" : "Privacy policy"}
