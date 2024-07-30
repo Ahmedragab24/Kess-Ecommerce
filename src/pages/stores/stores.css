@@ -1,31 +1,31 @@
 .stores-container-child {
-  display: grid !important;
-  grid-template-columns: repeat(1, max-content) !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 1rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(1, max-content) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
 }
 
 @media screen and (min-width: 320px) {
-  .stores-container-child {
-    grid-template-columns: repeat(2, max-content) !important;
-  }
+    .stores-container-child {
+        grid-template-columns: repeat(2, max-content) !important;
+    }
 }
 
 @media screen and (min-width: 768px) {
-  .stores-container-child {
-    grid-template-columns: repeat(2, max-content) !important;
-  }
+    .stores-container-child {
+        grid-template-columns: repeat(2, max-content) !important;
+    }
 }
 
 @media screen and (min-width: 992px) {
-  .stores-container-child {
-    grid-template-columns: repeat(3, max-content) !important;
-  }
+    .stores-container-child {
+        grid-template-columns: repeat(3, max-content) !important;
+    }
 }
 
 @media screen and (min-width: 1400px) {
-  .stores-container-child {
-    grid-template-columns: repeat(4, max-content) !important;
-  }
+    .stores-container-child {
+        grid-template-columns: repeat(4, max-content) !important;
+    }
 }

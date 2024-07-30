@@ -1,80 +1,80 @@
 .stars {
-  position: absolute !important;
-  width: 170px;
+    position: absolute !important;
+    width: 170px;
 }
 .stars-top {
-  top: 0;
-  left: 0;
-  animation: stars-top 5s linear 3s infinite alternate;
-  -webkit-animation: stars-top 5s linear 3s infinite alternate;
+    top: 0;
+    left: 0;
+    animation: stars-top 5s linear 3s infinite alternate;
+    -webkit-animation: stars-top 5s linear 3s infinite alternate;
 }
 
 .stars-bottom {
-  bottom: 0;
-  right: 0;
-  animation: stars-bottom 5s linear 3s infinite alternate;
-  -webkit-animation: stars-bottom 5s linear 3s infinite alternate;
+    bottom: 0;
+    right: 0;
+    animation: stars-bottom 5s linear 3s infinite alternate;
+    -webkit-animation: stars-bottom 5s linear 3s infinite alternate;
 }
 @keyframes stars-top {
-  0% {
-    top: 0px;
-  }
-  50% {
-    top: 50px;
-  }
-  100% {
-    top: 100px;
-  }
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 50px;
+    }
+    100% {
+        top: 100px;
+    }
 }
 @keyframes stars-bottom {
-  0% {
-    bottom: 0px;
-  }
-  50% {
-    bottom: 50px;
-  }
-  100% {
-    bottom: 100px;
-  }
+    0% {
+        bottom: 0px;
+    }
+    50% {
+        bottom: 50px;
+    }
+    100% {
+        bottom: 100px;
+    }
 }
 
 .hero {
-  position: relative !important;
-  margin-top: 0px;
-  padding-bottom: 7rem !important;
-  border-bottom: 5px solid var(--spical-color) !important;
-  border-radius: 18% !important;
-  -webkit-border-radius: 18% !important;
-  -moz-border-radius: 18% !important;
-  -ms-border-radius: 18% !important;
-  -o-border-radius: 18% !important;
+    position: relative !important;
+    margin-top: 0px;
+    padding-bottom: 5rem !important;
+    border-bottom: 5px solid var(--spical-color) !important;
+    border-radius: 12% !important;
+    -webkit-border-radius: 12% !important;
+    -moz-border-radius: 12% !important;
+    -ms-border-radius: 12% !important;
+    -o-border-radius: 12% !important;
 }
 
 .hero-container .row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center !important;
 }
 
 .hero-title {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-weight: var(--ExtraBold-font) !important;
-  color: var(--three-color) !important;
-  filter: drop-shadow(0 0 0px var(--first-color)) !important;
-  -webkit-filter: drop-shadow(0 0 0px var(--first-color)) !important;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: var(--ExtraBold-font) !important;
+    color: var(--three-color) !important;
+    filter: drop-shadow(0 0 0px var(--first-color)) !important;
+    -webkit-filter: drop-shadow(0 0 0px var(--first-color)) !important;
 }
 
 .hero-description {
-  width: 50%;
-  margin: auto;
-  text-align: center;
-  margin-bottom: 4.75rem;
-  font-size: 1.3rem;
-  font-weight: var(--Regular-font) !important;
-  color: var(--three-color) !important;
-  filter: drop-shadow(0 0px 0px var(--black-color)) !important;
-  -webkit-filter: drop-shadow(0 0px 0px var(--black-color)) !important;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 4.75rem;
+    font-size: 1.3rem;
+    font-weight: var(--Regular-font) !important;
+    color: var(--three-color) !important;
+    filter: drop-shadow(0 0px 0px var(--black-color)) !important;
+    -webkit-filter: drop-shadow(0 0px 0px var(--black-color)) !important;
 }
 
 /*-----------------------------------*\
@@ -82,62 +82,61 @@
 \*-----------------------------------*/
 
 .about {
-  direction: ltr !important;
-  background: #f4e2d8 !important; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #f4e2d8,
-    #f1e4d5
-  ) !important; /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #f4e2d8, #f1e4d5) !important;
-  padding-top: 2rem !important;
-  padding-bottom: 7rem !important;
-  border-bottom: 5px solid var(--spical-color) !important;
-  border-radius: 18% !important;
-  -webkit-border-radius: 18% !important;
-  -moz-border-radius: 18% !important;
-  -ms-border-radius: 18% !important;
-  -o-border-radius: 18% !important;
+    direction: ltr !important;
+    background: #f4e2d8 !important; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #f4e2d8,
+        #f1e4d5
+    ) !important; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f4e2d8, #f1e4d5) !important;
+    padding-bottom: 5rem !important;
+    border-bottom: 5px solid var(--spical-color) !important;
+    border-radius: 12% !important;
+    -webkit-border-radius: 12% !important;
+    -moz-border-radius: 12% !important;
+    -ms-border-radius: 12% !important;
+    -o-border-radius: 12% !important;
 }
 
 .dev-baner {
-  display: flex !important;
-  justify-content: center !important;
+    display: flex !important;
+    justify-content: center !important;
 }
 
 .baner {
-  width: 300px;
+    width: 300px;
 }
 
 .about .title,
 .about .titleIcon,
 .section-title {
-  font-weight: var(--ExtraBold-font) !important;
-  color: var(--three-color) !important;
-  filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
-  -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+    font-weight: var(--ExtraBold-font) !important;
+    color: var(--three-color) !important;
+    filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+    -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
 }
 
 .about .title {
-  font-size: 1.75rem !important;
+    font-size: 1.75rem !important;
 }
 
 .about .lead {
-  color: var(--three-color) !important;
-  filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
-  -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+    color: var(--three-color) !important;
+    filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
+    -webkit-filter: drop-shadow(1px 0px 0px var(--first-color)) !important;
 }
 
 .about .description {
-  font-size: 1.1rem;
-  font-weight: 200 !important;
-  color: var(--three-color) !important;
-  filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
-  -webkit-filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
+    font-size: 1.1rem;
+    font-weight: 200 !important;
+    color: var(--three-color) !important;
+    filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
+    -webkit-filter: drop-shadow(0px 0px 0px var(--first-color)) !important;
 }
 
 .about .bi {
-  color: var(--first-color) !important;
+    color: var(--first-color) !important;
 }
 
 /*-----------------------------------*\
@@ -145,258 +144,266 @@
 \*-----------------------------------*/
 
 .section-features {
-  padding-block: 7rem !important;
-  border-bottom: 5px solid var(--spical-color) !important;
-  border-radius: 18% !important;
-  -webkit-border-radius: 18% !important;
-  -moz-border-radius: 18% !important;
-  -ms-border-radius: 18% !important;
-  -o-border-radius: 18% !important;
+    padding-block: 5rem !important;
+    border-bottom: 5px solid var(--spical-color) !important;
+    border-radius: 12% !important;
+    -webkit-border-radius: 12% !important;
+    -moz-border-radius: 12% !important;
+    -ms-border-radius: 12% !important;
+    -o-border-radius: 12% !important;
 }
 
 .features .grid-list {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr) !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 1.55rem;
-  margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.55rem;
 }
 
 .section-title {
-  margin-bottom: 4rem !important;
+    margin-bottom: 4rem !important;
 }
 
 .features .card-text {
-  font-size: 0.8rem !important;
-  color: var(--three-color) !important;
-  filter: drop-shadow(0 0 0px var(--first-color)) !important;
-  -webkit-filter: drop-shadow(0 0 0px var(--first-color)) !important;
+    font-size: 0.8rem !important;
+    color: var(--three-color) !important;
+    filter: drop-shadow(0 0 0px var(--first-color)) !important;
+    -webkit-filter: drop-shadow(0 0 0px var(--first-color)) !important;
 }
 
 .feature-card {
-  padding: 30px 20px 40px !important;
-  height: auto !important;
-  border-radius: 15px !important;
-  -webkit-border-radius: 15px !important;
-  -moz-border-radius: 15px !important;
-  -ms-border-radius: 15px !important;
-  -o-border-radius: 15px !important;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
-    0 10px 10px 0 rgba(0, 0, 0, 0.19);
-  overflow: hidden !important;
-  transition: 0.5s !important;
-  -webkit-transition: 0.5s !important;
-  -moz-transition: 0.5s !important;
-  -ms-transition: 0.5s !important;
-  -o-transition: 0.5s !important;
+    padding: 30px 20px 40px !important;
+    height: auto !important;
+    border-radius: 15px !important;
+    -webkit-border-radius: 15px !important;
+    -moz-border-radius: 15px !important;
+    -ms-border-radius: 15px !important;
+    -o-border-radius: 15px !important;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
+        0 10px 10px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden !important;
+    transition: 0.5s !important;
+    -webkit-transition: 0.5s !important;
+    -moz-transition: 0.5s !important;
+    -ms-transition: 0.5s !important;
+    -o-transition: 0.5s !important;
 }
 
 .feature-card:hover {
-  filter: brightness(65%);
-  -webkit-filter: brightness(65%);
-  box-shadow: 1px 1px 1px 1px var(--light-first-color),
-    1px 10px 10px 0 var(--light-first-color) !important;
-  transform: translateY(10px);
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  -ms-transform: translateY(10px);
-  -o-transform: translateY(10px);
-  transition: 0.5s !important;
-  -webkit-transition: 0.5s !important;
-  -moz-transition: 0.5s !important;
-  -ms-transition: 0.5s !important;
-  -o-transition: 0.5s !important;
+    filter: brightness(65%);
+    -webkit-filter: brightness(65%);
+    box-shadow: 1px 1px 1px 1px var(--light-first-color),
+        1px 10px 10px 0 var(--light-first-color) !important;
+    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    transition: 0.5s !important;
+    -webkit-transition: 0.5s !important;
+    -moz-transition: 0.5s !important;
+    -ms-transition: 0.5s !important;
+    -o-transition: 0.5s !important;
 }
 
 .feature-item:nth-child(2n + 1) .feature-card {
-  background-color: var(--light-first-color) !important;
+    background-color: var(--light-first-color) !important;
 }
 
 .feature-item:nth-child(2n) .feature-card {
-  background-color: var(--light-three-color) !important;
+    background-color: var(--light-three-color) !important;
 }
 
 .feature-card .card-icon {
-  max-width: max-content !important;
-  margin-inline: auto !important;
-  transition: 0.3s !important;
-  -webkit-transition: 0.3s !important;
-  -moz-transition: 0.3s !important;
-  -ms-transition: 0.3s !important;
-  -o-transition: 0.3s !important;
+    max-width: max-content !important;
+    margin-inline: auto !important;
+    transition: 0.3s !important;
+    -webkit-transition: 0.3s !important;
+    -moz-transition: 0.3s !important;
+    -ms-transition: 0.3s !important;
+    -o-transition: 0.3s !important;
 }
 
 .feature-card:hover .card-icon {
-  transform: scale(-1) rotate(180deg) !important;
-  -webkit-transform: scale(-1) rotate(180deg) !important;
-  -moz-transform: scale(-1) rotate(180deg) !important;
-  -ms-transform: scale(-1) rotate(180deg) !important;
-  -o-transform: scale(-1) rotate(180deg) !important;
+    transform: scale(-1) rotate(180deg) !important;
+    -webkit-transform: scale(-1) rotate(180deg) !important;
+    -moz-transform: scale(-1) rotate(180deg) !important;
+    -ms-transform: scale(-1) rotate(180deg) !important;
+    -o-transform: scale(-1) rotate(180deg) !important;
 }
 
 .feature-card .card-title {
-  margin-block: 20px !important;
+    margin-block: 20px !important;
 }
 
 .feature-card .card-text {
-  color: #000000 !important;
-  margin-top: 2rem !important;
+    color: #000000 !important;
+    margin-top: 2rem !important;
 }
 
 @media screen and (max-width: 576px) {
-  .stars {
-    position: absolute !important;
-    width: 100px;
-  }
-  .hero-title {
-    margin-top: 3rem;
-  }
+    .stars {
+        position: absolute !important;
+        width: 100px;
+    }
+    .hero-title {
+        margin-top: 3rem;
+    }
 
-  .hero-description {
-    width: 70%;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 4rem;
-    font-size: 1rem;
-    font-weight: var(--Regular-font) !important;
-  }
+    .hero-description {
+        width: 70%;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 4rem;
+        font-size: 1rem;
+        font-weight: var(--Regular-font) !important;
+    }
 
-  .about .title {
-    font-size: 1.5rem !important;
-  }
+    .about .title {
+        font-size: 1.5rem !important;
+    }
 
-  .about .description,
-  .about .lead {
-    font-size: 1rem !important;
-    text-align: center;
-  }
+    .about .description,
+    .about .lead {
+        font-size: 1rem !important;
+        text-align: center;
+    }
 
-  .about .row {
-    margin: auto;
-    margin-bottom: 1rem;
-  }
+    .about .row {
+        margin: auto;
+        margin-bottom: 1rem;
+    }
 
-  .feature {
-    flex-direction: column;
-    text-align: center;
-    justify-content: center !important;
-    align-items: center !important;
-    row-gap: 1rem;
-  }
+    .feature {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center !important;
+        align-items: center !important;
+        row-gap: 1rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .hero-container .row {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-  }
+    .hero-container .row {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+    }
 
-  .hero,
-  .about {
-    border-radius: 10% !important;
-    -webkit-border-radius: 10% !important;
-    -moz-border-radius: 10% !important;
-    -ms-border-radius: 10% !important;
-    -o-border-radius: 10% !important;
-  }
+    .hero,
+    .about {
+        border-radius: 10% !important;
+        -webkit-border-radius: 10% !important;
+        -moz-border-radius: 10% !important;
+        -ms-border-radius: 10% !important;
+        -o-border-radius: 10% !important;
+    }
 }
 
 @media screen and (min-width: 768px) {
-  .features .grid-list {
-    grid-template-columns: repeat(2, 1fr) !important;
-
-    gap: 2rem;
-  }
-
-  .features .card-text {
-    font-size: 1rem !important;
-  }
-
-  .feature-card {
-    padding: 30px 20px 40px !important;
-    height: 450px !important;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .about .parent {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: auto !important;
-  }
-
-  .about .parent .right {
-    padding-left: 2rem !important;
-  }
-
-  .dev-baner {
-    /* justify-content: end !important; */
-    padding-top: 5rem !important;
-    padding-left: 4rem !important;
-  }
-
-  .baner {
-    width: 420px;
-  }
-
-  @media screen and (min-width: 768px) {
     .features .grid-list {
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 0.55rem;
+        grid-template-columns: repeat(2, 1fr) !important;
+
+        gap: 2rem;
+    }
+
+    .features .card-text {
+        font-size: 1rem !important;
     }
 
     .feature-card {
-      padding: 30px 20px 40px !important;
-      height: 600px !important;
+        padding: 30px 20px 40px !important;
+        height: 450px !important;
     }
-  }
+}
+
+@media screen and (min-width: 992px) {
+    .about .parent {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: auto !important;
+    }
+
+    .about .parent .right {
+        padding-left: 2rem !important;
+    }
+
+    .dev-baner {
+        /* justify-content: end !important; */
+        padding-top: 5rem !important;
+        padding-left: 4rem !important;
+    }
+
+    .baner {
+        width: 420px;
+    }
+
+    @media screen and (min-width: 768px) {
+        .features .grid-list {
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 0.55rem;
+        }
+
+        .feature-card {
+            padding: 30px 20px 40px !important;
+            height: 600px !important;
+        }
+    }
 }
 
 @media screen and (min-width: 1200px) {
-  .about .parent .right .row {
-    width: 920px;
-  }
+    .about .parent .right .row {
+        width: 920px;
+    }
 
-  .features .grid-list {
-    gap: 2.55rem;
-  }
+    .features .grid-list {
+        gap: 2.55rem;
+    }
 
-  .feature-card {
-    padding: 30px 20px 40px !important;
-    height: 500px !important;
-  }
+    .feature-card {
+        padding: 30px 20px 40px !important;
+        height: 500px !important;
+    }
 }
 
 /* ============ CARD LINK ==================== */
 
 .cardLink {
-  padding: 7rem !important;
-  border-bottom: 5px solid var(--spical-color) !important;
-  border-radius: 18% !important;
-  -webkit-border-radius: 18% !important;
-  -moz-border-radius: 18% !important;
-  -ms-border-radius: 18% !important;
-  -o-border-radius: 18% !important;
+    padding-block: 5rem !important;
+    border-bottom: 5px solid var(--spical-color) !important;
+    border-radius: 12% !important;
+    -webkit-border-radius: 12% !important;
+    -moz-border-radius: 12% !important;
+    -ms-border-radius: 12% !important;
+    -o-border-radius: 12% !important;
 }
 
 .cardLink-container {
-  display: grid;
-  grid-template-columns: repeat(1, fit-content);
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(1, fit-content);
+    justify-content: center;
+    gap: 3rem;
+}
+
+.LinkCard {
+    margin: auto;
 }
 
 @media screen and (min-width: 768px) {
-  .cardLink-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
+    .cardLink-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .cardLink .description {
+        width: 50% !important;
+    }
 }
 
 @media screen and (min-width: 992px) {
-  .cardLink-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
+    .cardLink-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
 }

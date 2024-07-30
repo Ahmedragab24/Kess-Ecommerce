@@ -2,15 +2,14 @@ import Image from "../../components/UI/Image";
 import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import "./login.css";
+import "../login/login.css";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
-import imgLogin from "/src/assets/imgs/login page.jpg";
+import imgLogin from "/src/assets/imgs/Freelancer/Freelancer.jpg";
 import { Toast } from "react-bootstrap";
 // import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-// import { diractionLang } from "../../components/utils/function";
 
 interface IFormInputLogin {
     email: string;
@@ -21,7 +20,7 @@ interface IErrorResponseLogin {
     msg?: string;
 }
 
-function Login() {
+function LoginFreelancer() {
     const [isLoading, setIsLoading] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     const [showErrorLogin, setShowErrorLogin] = useState(false);
@@ -62,7 +61,7 @@ function Login() {
         setIsLoading(true);
         try {
             const { status, data: resData } = await axios.post(
-                "https://endlestone.com/kees/APIs/registration/login.php",
+                "https://endlestone.com/kees/APIs/registration/freelancerLogin.php",
                 data,
                 {
                     headers: {
@@ -75,12 +74,15 @@ function Login() {
                 setShowLogin(true);
 
                 setTimeout(() => {
-                    // navigate("/");
                     setTimeout(() => {
-                        window.location.href = "/";
+                        window.location.href =
+                            "http://kees90.com/kees/userEndFreelance/dashboard/index.php";
                     }, 1000);
 
-                    localStorage.setItem("User", JSON.stringify(resData));
+                    localStorage.setItem(
+                        "UserFreelanc",
+                        JSON.stringify(resData)
+                    );
                 }, 2000);
             }
         } catch (error) {
@@ -115,8 +117,8 @@ function Login() {
                         >
                             <h3 className="register-title-login">
                                 {language === "en"
-                                    ? "Login now"
-                                    : "تسجيل الدخول الأن"}
+                                    ? "Login As A Freelancer"
+                                    : "تسجيل الدخول كفريلانسر"}
                             </h3>
                             <div className="form-row-login">
                                 <div className="input-container-login">
@@ -129,17 +131,16 @@ function Login() {
                                     <input
                                         {...register("email", {
                                             required: "This field is required.",
-                                            pattern: {
-                                                value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-                                                message:
-                                                    "Please enter a valid email address.",
+                                            minLength: {
+                                                value: 4,
+                                                message: "Minimum 4 characters",
                                             },
                                         })}
-                                        type="email"
+                                        type="text"
                                         className="form-control-login"
                                         placeholder={
                                             language === "en"
-                                                ? "Mail"
+                                                ? "email"
                                                 : "البريد الإلكتروني"
                                         }
                                     />
@@ -167,7 +168,7 @@ function Login() {
                                                 message: "Minimum 6 characters",
                                             },
                                         })}
-                                        type="text"
+                                        type="password"
                                         className="form-control-login"
                                         placeholder={
                                             language === "en"
@@ -238,4 +239,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginFreelancer;

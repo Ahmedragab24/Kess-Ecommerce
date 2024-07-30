@@ -3,6 +3,7 @@
 :root {
   /* color */
   --first-color: #d39469;
+  --first-color-dark: #4b260e;
   --second-color: #ffbb8d;
   --three-color: #206178;
   --light-three-color: rgba(37, 113, 141, 0.168);

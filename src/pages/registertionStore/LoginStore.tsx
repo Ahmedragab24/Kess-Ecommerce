@@ -2,18 +2,18 @@ import Image from "../../components/UI/Image";
 import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import "./login.css";
+// import "./login.css";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import starsBottom from "/src/assets/imgs/stars-bottom.png";
-import imgLogin from "/src/assets/imgs/login page.jpg";
+import imgLogin from "/src/assets/imgs/Store/Login page.jpg";
 import { Toast } from "react-bootstrap";
 // import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 // import { diractionLang } from "../../components/utils/function";
 
 interface IFormInputLogin {
-    email: string;
+    login_name: string;
     passwd: string;
 }
 
@@ -21,7 +21,7 @@ interface IErrorResponseLogin {
     msg?: string;
 }
 
-function Login() {
+function LoginStore() {
     const [isLoading, setIsLoading] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     const [showErrorLogin, setShowErrorLogin] = useState(false);
@@ -33,10 +33,8 @@ function Login() {
     // ScrollReveal
     useEffect(() => {
         setLanguage(getLang);
-        // diractionLang();
         const sr = ScrollReveal({
             origin: "top",
-            distance: "60px",
             duration: 2000,
             delay: 300,
         });
@@ -52,7 +50,7 @@ function Login() {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            email: "",
+            login_name: "",
             passwd: "",
         },
     });
@@ -62,7 +60,7 @@ function Login() {
         setIsLoading(true);
         try {
             const { status, data: resData } = await axios.post(
-                "https://endlestone.com/kees/APIs/registration/login.php",
+                "https://endlestone.com/kees/APIs/registration/storeLogin.php",
                 data,
                 {
                     headers: {
@@ -77,10 +75,11 @@ function Login() {
                 setTimeout(() => {
                     // navigate("/");
                     setTimeout(() => {
-                        window.location.href = "/";
+                        window.location.href =
+                            "http://kees90.com/kees/userEndStore/dashboard/index.php";
                     }, 1000);
 
-                    localStorage.setItem("User", JSON.stringify(resData));
+                    localStorage.setItem("UserStore", JSON.stringify(resData));
                 }, 2000);
             }
         } catch (error) {
@@ -115,38 +114,37 @@ function Login() {
                         >
                             <h3 className="register-title-login">
                                 {language === "en"
-                                    ? "Login now"
-                                    : "تسجيل الدخول الأن"}
+                                    ? "Login As A Store Owner"
+                                    : "تسجيل الدخول كصاحب متجر"}
                             </h3>
                             <div className="form-row-login">
                                 <div className="input-container-login">
                                     <label
                                         className="LabelInput"
-                                        htmlFor="email"
+                                        htmlFor="login_name"
                                     >
-                                        Email
+                                        Login Name
                                     </label>
                                     <input
-                                        {...register("email", {
+                                        {...register("login_name", {
                                             required: "This field is required.",
-                                            pattern: {
-                                                value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-                                                message:
-                                                    "Please enter a valid email address.",
+                                            minLength: {
+                                                value: 4,
+                                                message: "Minimum 4 characters",
                                             },
                                         })}
-                                        type="email"
+                                        type="text"
                                         className="form-control-login"
                                         placeholder={
                                             language === "en"
-                                                ? "Mail"
-                                                : "البريد الإلكتروني"
+                                                ? "Login Name"
+                                                : "أسم المستخدم"
                                         }
                                     />
-                                    {errors.email && (
+                                    {errors.login_name && (
                                         <div className="error-container-login">
                                             <p className="error-login">
-                                                {errors.email.message}
+                                                {errors.login_name.message}
                                             </p>
                                         </div>
                                     )}
@@ -167,7 +165,7 @@ function Login() {
                                                 message: "Minimum 6 characters",
                                             },
                                         })}
-                                        type="text"
+                                        type="password"
                                         className="form-control-login"
                                         placeholder={
                                             language === "en"
@@ -238,4 +236,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginStore;

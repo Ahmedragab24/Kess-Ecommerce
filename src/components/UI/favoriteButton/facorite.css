@@ -1,26 +1,40 @@
 .favorite-text {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 900;
-  margin-top: 0.3rem;
-  cursor: pointer;
-  transition: all 0.4s !important;
-  -webkit-transition: all 0.4s !important;
-  -moz-transition: all 0.4s !important;
-  -ms-transition: all 0.4s !important;
-  -o-transition: all 0.4s !important;
-  filter: drop-shadow(0 0 10px rgb(0, 0, 0));
-  -webkit-filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 900;
+    margin-top: 0.3rem;
+    cursor: pointer;
+    transition: all 0.4s !important;
+    -webkit-transition: all 0.4s !important;
+    -moz-transition: all 0.4s !important;
+    -ms-transition: all 0.4s !important;
+    -o-transition: all 0.4s !important;
+    filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+    -webkit-filter: drop-shadow(0 0 10px rgb(0, 0, 0));
 }
 
 .MuiSvgIcon-root {
-  color: rgb(255, 102, 102) !important;
-  filter: drop-shadow(0 0 10px rgb(0, 0, 0));
-  -webkit-filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+    color: rgb(209, 70, 70) !important;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+.MuiSvgIcon-root:hover {
+    color: red !important;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
 }
 
 .checkButton {
-  color: red !important;
-  filter: drop-shadow(0 0 10px rgb(131, 131, 131));
-  -webkit-filter: drop-shadow(0 0 10px rgb(131, 131, 131));
+    color: red !important;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
 }
