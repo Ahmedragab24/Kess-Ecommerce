@@ -95,7 +95,7 @@ function RegistertionFreelancer() {
 
         try {
             const response = await axios.post(
-                "https://endlestone.com/kees/APIs/registration/freelancerSignup.php",
+                "https://kees90.com/kees/APIs/registration/freelancerSignup.php",
                 formData,
                 {
                     headers: {

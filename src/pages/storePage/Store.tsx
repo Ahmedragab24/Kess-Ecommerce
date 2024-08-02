@@ -40,7 +40,7 @@ function Store() {
     useEffect(() => {
         axios
             .get(
-                `https://endlestone.com/kees/APIs/stores/storeInfo.php?storeID=${id}`
+                `https://kees90.com/kees/APIs/stores/storeInfo.php?storeID=${id}`
             )
             .then((res) => setStore(res.data.msg));
 
@@ -60,7 +60,7 @@ function Store() {
     useEffect(() => {
         axios
             .get(
-                `https://endlestone.com/kees/APIs/products/getProducts.php?storeID=${id}`
+                `https://kees90.com/kees/APIs/products/getProducts.php?storeID=${id}`
             )
             .then((res) => setImagesStore(res.data.msg))
             .catch((err) => console.log(err));

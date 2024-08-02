@@ -93,7 +93,6 @@ function Circle({
       {userData && favorite == true ? (
         <FavoriteButton
           storeID={store_id || ""}
-          // userFavorite={userFavorite || {}}
         />
       ) : null}
     </div>

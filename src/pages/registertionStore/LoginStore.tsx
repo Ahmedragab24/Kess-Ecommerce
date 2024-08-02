@@ -60,7 +60,7 @@ function LoginStore() {
         setIsLoading(true);
         try {
             const { status, data: resData } = await axios.post(
-                "https://endlestone.com/kees/APIs/registration/storeLogin.php",
+                "https://kees90.com/kees/APIs/registration/storeLogin.php",
                 data,
                 {
                     headers: {
@@ -76,7 +76,7 @@ function LoginStore() {
                     // navigate("/");
                     setTimeout(() => {
                         window.location.href =
-                            "http://kees90.com/kees/userEndStore/dashboard/index.php";
+                            "https://kees90.com/kees/userEndStore/dashboard/index.php";
                     }, 1000);
 
                     localStorage.setItem("UserStore", JSON.stringify(resData));

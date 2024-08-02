@@ -98,7 +98,7 @@ function RegistertionStore() {
         setIsLoading(true);
         try {
             const response = await axios.post(
-                "https://endlestone.com/kees/APIs/registration/storeSignup.php",
+                "https://kees90.com/kees/APIs/registration/storeSignup.php",
                 formData,
                 {
                     headers: {

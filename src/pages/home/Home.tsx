@@ -39,7 +39,7 @@ function Home() {
         try {
             axios
                 .get(
-                    "https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
+                    "https://kees90.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
                 )
                 .then((res) => setCategories(res.data.msg));
             setLanguage(getLang);

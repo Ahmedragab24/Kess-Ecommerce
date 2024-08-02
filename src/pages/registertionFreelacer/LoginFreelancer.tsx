@@ -61,7 +61,7 @@ function LoginFreelancer() {
         setIsLoading(true);
         try {
             const { status, data: resData } = await axios.post(
-                "https://endlestone.com/kees/APIs/registration/freelancerLogin.php",
+                "https://kees90.com/kees/APIs/registration/freelancerLogin.php",
                 data,
                 {
                     headers: {
@@ -76,7 +76,7 @@ function LoginFreelancer() {
                 setTimeout(() => {
                     setTimeout(() => {
                         window.location.href =
-                            "http://kees90.com/kees/userEndFreelance/dashboard/index.php";
+                            "https://kees90.com/kees/userEndFreelance/dashboard/index.php";
                     }, 1000);
 
                     localStorage.setItem(

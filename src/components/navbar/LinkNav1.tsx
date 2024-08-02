@@ -17,10 +17,9 @@ function LinkNav1() {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    // ** 2 - Fulfilled => SUCCESS => (OPTIONAL)
     axios
       .get(
-        `https://endlestone.com/kees/APIs/categories/getCategories.php?globalID=1&is_freelance=-1`
+        `https://kees90.com/kees/APIs/categories/getCategories.php?globalID=1&is_freelance=-1`
       )
       .then((res) => setCategories(res.data.msg));
   }, []);

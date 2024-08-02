@@ -74,7 +74,7 @@ function Register() {
 
         try {
             const response = await axios.post(
-                "https://endlestone.com/kees/APIs/registration/signup.php",
+                "https://kees90.com/kees/APIs/registration/signup.php",
                 data,
                 {
                     headers: {
