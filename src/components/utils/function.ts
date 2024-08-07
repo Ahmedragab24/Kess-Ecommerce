@@ -1,5 +1,5 @@
+const getLang: string | null = localStorage.getItem("lang");
 export const diractionLang = () => {
-    const getLang: string | null = localStorage.getItem("lang");
     const body: HTMLElement | null = document.body;
     const navRight: HTMLElement | null = document.querySelector(".right-menu");
     const navLeft: HTMLElement | null = document.querySelector(".left-menu");

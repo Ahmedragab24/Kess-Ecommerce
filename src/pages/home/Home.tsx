@@ -18,9 +18,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import cardLink1 from "../../assets/imgs/cardLink1.jpg";
-import cardLink2 from "../../assets/imgs/cardLink2.jpg";
+// import cardLink2 from "../../assets/imgs/";
+import cardLink3 from "../../assets/imgs/login.jpg";
 import { Link } from "react-router-dom";
-// import cardLink3 from "../../assets/imgs/cardLink3.jpg";
 
 interface Category {
     category_name: string;
@@ -113,7 +113,7 @@ function Home() {
                         ? "نحن شركة رائدة في الشرق الأوسط وخاصة المملكة العربية السعودية في تقديم أفضل المتاجر من حيث الجودة والسعر"
                         : "We are a leading company in the Middle East, especially Saudi Arabia, in providing you with the best stores in terms of quality and price"}
                 </p>
-                <div className="hero-container container">
+                <div className="hero-container  container">
                     <div className="row">{renderCategories()}</div>
                 </div>
             </section>
@@ -389,7 +389,7 @@ function Home() {
                         </Card>
                     </Link>
 
-                    <Link className="LinkCard" to="/registertionFreelancer">
+                    {/* <Link className="LinkCard" to="/registertionFreelancer">
                         <Card
                             sx={{
                                 maxWidth: 400,
@@ -426,7 +426,7 @@ function Home() {
                                 </CardContent>
                             </CardActionArea>
                         </Card>
-                    </Link>
+                    </Link> */}
 
                     <Link className="LinkCard" to={"/register"}>
                         <Card
@@ -441,7 +441,7 @@ function Home() {
                                 <CardMedia
                                     component="img"
                                     height={180}
-                                    image={cardLink1}
+                                    image={cardLink3}
                                     alt="green iguana"
                                 />
                                 <CardContent>

@@ -1,3 +1,7 @@
+.AR {
+    font-family: var(--second-font) !important;
+}
+
 .navbar {
     background-color: var(--spical-color-2) !important;
     box-shadow: 0 0px 0px 0 #d3936946, 0 6px 20px 0 #d3936946;

@@ -14,12 +14,12 @@ import { useEffect, useState } from "react";
 import UserProfile from "../auth/userProfile/UserProfile";
 import axios from "axios";
 import LinkNav1 from "./LinkNav1";
-import { diractionLang } from "../utils/function";
+// import { diractionLang } from "../utils/function";
 import LinkNav2 from "./LinkNav2";
 import LinkNav3 from "./LinkNav3";
 
 const storageKey = "User";
-const userDataString = localStorage.getItem(storageKey);
+const userDataString = sessionStorage.getItem(storageKey);
 const userData = userDataString ? JSON.parse(userDataString) : null;
 
 interface Category {
@@ -44,15 +44,38 @@ const Languages: language[] = [
 ];
 const NavBar = () => {
     const [categories, setCategories] = useState<Category[]>([]);
-    const getLang = localStorage.getItem("lang");
-    const [language, setLanguage] = useState<string | null>(getLang);
+
+    // const [language, setLanguage] = useState<string | null>(getLang);
 
     // Handler Languages
     const handerLang = (lang: string) => {
-        window.location.reload();
         localStorage.setItem("lang", lang);
-        setLanguage(lang);
+        window.location.reload();
+        // setLanguage(lang);
     };
+
+    const getLang = localStorage.getItem("lang");
+
+    useEffect(() => {
+        const body: HTMLElement | null = document.body;
+        const navRight: HTMLElement | null =
+            document.querySelector(".right-menu");
+        const navLeft: HTMLElement | null =
+            document.querySelector(".left-menu");
+        const loginPage: HTMLElement | null = document.querySelector(
+            ".section-form-login"
+        );
+
+        if (getLang === "en") {
+            if (body) body.style.direction = "ltr";
+        } else if (getLang === "ar") {
+            body.classList.add("AR");
+            if (body) body.style.direction = "rtl";
+            if (navRight) navRight.style.flex = "inherit";
+            if (navLeft) navLeft.style.flex = "none";
+            if (loginPage) loginPage.style.direction = "ltr";
+        }
+    }, [getLang]);
 
     // Get Global Categories
     useEffect(() => {
@@ -62,7 +85,6 @@ const NavBar = () => {
                     "https://kees90.com/kees/APIs/categories/getCategories.php?globalID=0&is_freelance=-1"
                 )
                 .then((res) => setCategories(res.data.msg));
-            diractionLang();
         } catch (error) {
             console.log("Failed to fetch data:" + error);
         }
@@ -88,7 +110,7 @@ const NavBar = () => {
                     key={category.id}
                     className="Dropdown-style"
                     title={
-                        language === "ar"
+                        getLang === "ar"
                             ? category.category_name_ar
                             : category.category_name
                     }
@@ -136,7 +158,7 @@ const NavBar = () => {
                                 title="Home"
                                 className="text-color nav-link"
                             >
-                                {language === "ar" ? "الرئيسية" : "Home"}
+                                {getLang === "ar" ? "الرئيسية" : "Home"}
                             </Nav.Link>
                         </Nav.Item>
 
@@ -148,7 +170,7 @@ const NavBar = () => {
                                 title="About Us"
                                 className="text-color nav-link"
                             >
-                                {language === "ar" ? "من نحن" : "About Us"}
+                                {getLang === "ar" ? "من نحن" : "About Us"}
                             </Nav.Link>
                         </Nav.Item>
 
@@ -174,7 +196,7 @@ const NavBar = () => {
                                     to="/login"
                                     className="btn btn-link Login "
                                 >
-                                    {language === "ar"
+                                    {getLang === "ar"
                                         ? "تسجيل الدخول"
                                         : "Login"}
                                 </Nav.Link>
@@ -185,7 +207,7 @@ const NavBar = () => {
                                 >
                                     <ButtonRegister
                                         title={
-                                            language === "ar"
+                                            getLang === "ar"
                                                 ? "تسجيل"
                                                 : "Register"
                                         }

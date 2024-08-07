@@ -76,10 +76,13 @@ function LoginStore() {
                     // navigate("/");
                     setTimeout(() => {
                         window.location.href =
-                            "https://kees90.com/kees/userEndStore/dashboard/index.php";
+                            "https://kees90.com/kees/userEndStore/index.php";
                     }, 1000);
 
-                    localStorage.setItem("UserStore", JSON.stringify(resData));
+                    sessionStorage.setItem(
+                        "UserStore",
+                        JSON.stringify(resData)
+                    );
                 }, 2000);
             }
         } catch (error) {

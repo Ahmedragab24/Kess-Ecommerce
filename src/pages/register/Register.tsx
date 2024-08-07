@@ -201,7 +201,7 @@ function Register() {
                                         htmlFor="email"
                                     >
                                         {language === "en"
-                                            ? "Mail"
+                                            ? "Email"
                                             : "البريد الإلكتروني"}
                                     </label>
                                     <input
@@ -217,7 +217,7 @@ function Register() {
                                         className="form-control"
                                         placeholder={
                                             language === "en"
-                                                ? "Mail"
+                                                ? "Email"
                                                 : "البريد الإلكتروني"
                                         }
                                     />

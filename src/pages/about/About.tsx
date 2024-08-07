@@ -18,6 +18,8 @@ import { useEffect } from "react";
 
 function About() {
     const [index, setIndex] = useState(0);
+    const getLang = localStorage.getItem("lang");
+    // const [language, setLanguage] = useState<string | null>(getLang);
 
     const handleSelect = (selectedIndex: SetStateAction<number>) => {
         setIndex(selectedIndex);
@@ -87,7 +89,7 @@ function About() {
             >
                 <div className="container">
                     <p className="section-subtitle text-center label-2">
-                        Our Features
+                        {getLang === "en" ? "Our Features" : "مميزاتنا"}
                     </p>
 
                     <div className="title-container">

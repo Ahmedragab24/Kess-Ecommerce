@@ -80,7 +80,7 @@ function Login() {
                         window.location.href = "/";
                     }, 1000);
 
-                    localStorage.setItem("User", JSON.stringify(resData));
+                    sessionStorage.setItem("User", JSON.stringify(resData));
                 }, 2000);
             }
         } catch (error) {
@@ -139,7 +139,7 @@ function Login() {
                                         className="form-control-login"
                                         placeholder={
                                             language === "en"
-                                                ? "Mail"
+                                                ? "Email"
                                                 : "البريد الإلكتروني"
                                         }
                                     />
@@ -167,7 +167,7 @@ function Login() {
                                                 message: "Minimum 6 characters",
                                             },
                                         })}
-                                        type="text"
+                                        type="password"
                                         className="form-control-login"
                                         placeholder={
                                             language === "en"

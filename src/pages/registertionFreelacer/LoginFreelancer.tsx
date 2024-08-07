@@ -79,7 +79,7 @@ function LoginFreelancer() {
                             "https://kees90.com/kees/userEndFreelance/dashboard/index.php";
                     }, 1000);
 
-                    localStorage.setItem(
+                    sessionStorage.setItem(
                         "UserFreelanc",
                         JSON.stringify(resData)
                     );

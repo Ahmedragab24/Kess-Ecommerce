@@ -140,11 +140,12 @@ function Footer() {
                                         to={"/registertionStore"}
                                     >
                                         {getLang === "ar"
-                                            ? "معلومات عنا"
+                                            ? "ضع متجرك"
                                             : "Put your store"}
                                     </Link>
                                 </li>
-                                <li>
+
+                                {/* <li>
                                     <Link
                                         className="footer-link"
                                         to={"/registertionFreelancer"}
@@ -153,7 +154,8 @@ function Footer() {
                                             ? "سجل ك فريلانسر"
                                             : "Register as a freelancer"}
                                     </Link>
-                                </li>
+                                </li> */}
+
                                 <li>
                                     <Link
                                         className="footer-link"

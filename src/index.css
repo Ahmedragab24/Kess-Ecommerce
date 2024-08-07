@@ -1,74 +1,76 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,200;1,100;1,300;1,400;1,500;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Cairo+Play:wght@200..1000&family=Cairo:wght@200..1000&family=Changa:wght@200..800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Kufam:ital,wght@0,400..900;1,400..900&family=Mada:wght@200..900&family=Markazi+Text:wght@400..700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap");
 
 :root {
-  /* color */
-  --first-color: #d39469;
-  --first-color-dark: #4b260e;
-  --second-color: #ffbb8d;
-  --three-color: #206178;
-  --light-three-color: rgba(37, 113, 141, 0.168);
-  --light-first-color: #e2d0bb6c;
-  --body-color: #f4e2d8;
-  --button-color: #fae5cf;
-  --spical-color: #e2d0bb;
-  --spical-color-2: #f9eee8;
-  --black-color: #000000;
+    /* color */
+    --first-color: #d39469;
+    --first-color-dark: #4b260e;
+    --second-color: #ffbb8d;
+    --three-color: #206178;
+    --light-three-color: rgba(37, 113, 141, 0.168);
+    --light-first-color: #e2d0bb6c;
+    --body-color: #f4e2d8;
+    --button-color: #fae5cf;
+    --spical-color: #e2d0bb;
+    --spical-color-2: #f9eee8;
+    --black-color: #000000;
 
-  /* font */
-  --first-font: "Noto Serif", serif;
+    /* font */
+    --first-font: "Noto Serif", serif;
+    --second-font: "Cairo Play", sans-serif;
 
-  --Thin-font: 100;
-  --ExtraLight-font: 200;
-  --Light-font: 300;
-  --Regular-font: 500;
-  --Bold-font: 600;
-  --ExtraBold-font: 800;
+    --Thin-font: 100;
+    --ExtraLight-font: 200;
+    --Light-font: 300;
+    --Regular-font: 500;
+    --Bold-font: 600;
+    --ExtraBold-font: 800;
 }
 
 /*=============== BASE ===============*/
 
 html {
-  scroll-behavior: smooth !important;
-  transition: 0.4s !important;
-  -webkit-transition: 0.4s !important;
-  -moz-transition: 0.4s !important;
-  -ms-transition: 0.4s !important;
-  -o-transition: 0.4s !important;
+    scroll-behavior: smooth !important;
+    transition: 0.4s !important;
+    -webkit-transition: 0.4s !important;
+    -moz-transition: 0.4s !important;
+    -ms-transition: 0.4s !important;
+    -o-transition: 0.4s !important;
 }
 
 body {
-  background: #f1e4d5 !important;
-  /*fallbackforoldbrowsers*/
-  background: -webkit-linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
-  /*Chrome10-25,Safari5.1-6*/
-  background: linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
-  font-family: var(--first-font) !important;
+    background: #f1e4d5 !important;
+    /*fallbackforoldbrowsers*/
+    background: -webkit-linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
+    /*Chrome10-25,Safari5.1-6*/
+    background: linear-gradient(to right, #f1e4d5, #f4e2d8) !important;
+    font-family: var(--first-font) !important;
 }
 
 ul {
-  list-style: none !important;
+    list-style: none !important;
 }
 
 a {
-  text-decoration: none !important;
-  color: var(--three-color) !important;
+    text-decoration: none !important;
+    color: var(--three-color) !important;
 }
 
 img,
 svg {
-  max-width: 100% !important;
+    max-width: 100% !important;
 }
 
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
-  width: 0.6rem;
-  /* background-color: var(--body-color); */
+    width: 0.6rem;
+    /* background-color: var(--body-color); */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--spical-color);
+    background-color: var(--spical-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--second-color);
+    background-color: var(--second-color);
 }
