@@ -19,7 +19,7 @@ import LinkNav2 from "./LinkNav2";
 import LinkNav3 from "./LinkNav3";
 
 const storageKey = "User";
-const userDataString = sessionStorage.getItem(storageKey);
+const userDataString = localStorage.getItem(storageKey);
 const userData = userDataString ? JSON.parse(userDataString) : null;
 
 interface Category {

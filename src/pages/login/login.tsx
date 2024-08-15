@@ -80,7 +80,7 @@ function Login() {
                         window.location.href = "/";
                     }, 1000);
 
-                    sessionStorage.setItem("User", JSON.stringify(resData));
+                    localStorage.setItem("User", JSON.stringify(resData));
                 }, 2000);
             }
         } catch (error) {

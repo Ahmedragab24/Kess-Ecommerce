@@ -1,5 +1,5 @@
 import {
-    createBrowserRouter,
+    createHashRouter,
     createRoutesFromElements,
     Route,
 } from "react-router-dom";
@@ -31,7 +31,7 @@ const storageKey = "User";
 const userDataString = localStorage.getItem(storageKey);
 const userData = userDataString ? JSON.parse(userDataString) : null;
 
-const router = createBrowserRouter(
+const router = createHashRouter(
     createRoutesFromElements(
         <>
             {/* Rout Layout */}
@@ -44,8 +44,8 @@ const router = createBrowserRouter(
                 <Route path="register" element={<Register />} />
                 <Route path="login" element={<Login />} />
                 <Route path="about" element={<About />} />
-                <Route path="Man Category" element={<Men />} />
-                <Route path="Woman Category" element={<Women />} />
+                <Route path="Man" element={<Men />} />
+                <Route path="Ladies" element={<Women />} />
                 <Route path="/FreeLance" element={<Freelancer />} />
                 <Route path="stores/:id" element={<Stores />} />
                 <Route path="/store/:id" element={<Store />} />

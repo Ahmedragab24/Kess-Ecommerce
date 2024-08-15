@@ -6,6 +6,14 @@
     gap: 1rem !important;
 }
 
+.nestedCat-container-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
 @media screen and (min-width: 320px) {
     .stores-container-child {
         grid-template-columns: repeat(2, max-content) !important;
@@ -16,16 +24,28 @@
     .stores-container-child {
         grid-template-columns: repeat(2, max-content) !important;
     }
+
+    .nestedCat-container-child {
+        gap: 4rem;
+    }
 }
 
 @media screen and (min-width: 992px) {
     .stores-container-child {
         grid-template-columns: repeat(3, max-content) !important;
     }
+
+    .nestedCat-container-child {
+        gap: 5rem;
+    }
 }
 
 @media screen and (min-width: 1400px) {
     .stores-container-child {
         grid-template-columns: repeat(4, max-content) !important;
+    }
+
+    .nestedCat-container-child {
+        gap: 6rem;
     }
 }
